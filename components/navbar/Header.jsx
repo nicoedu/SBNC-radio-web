@@ -1,8 +1,18 @@
 import React from 'react'
-import { Link, Box, Flex, Text, Button, Stack } from '@chakra-ui/react'
+import {
+  Link,
+  Box,
+  Flex,
+  Text,
+  Button,
+  Stack,
+  MenuButton,
+  MenuList,
+  Menu,
+} from '@chakra-ui/react'
 
 import Logo from './Logo'
-import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons'
+import { ChevronDownIcon, CloseIcon, HamburgerIcon } from '@chakra-ui/icons'
 
 const NavBar = (props) => {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -29,7 +39,7 @@ const MenuToggle = ({ toggle, isOpen }) => {
   )
 }
 
-const MenuItem = ({ children, isLast, to = '/', ...rest }) => {
+const MenuItem = ({ children, to = '/', ...rest }) => {
   return (
     <Link href={to}>
       <Text display="block" {...rest}>
@@ -52,23 +62,27 @@ const MenuLinks = ({ isOpen }) => {
         direction={['column', 'row', 'row', 'row']}
         pt={[4, 4, 0, 0]}
       >
-        <MenuItem to="/">Home</MenuItem>
-        <MenuItem to="/how">How It works </MenuItem>
-        <MenuItem to="/faetures">Features </MenuItem>
-        <MenuItem to="/pricing">Pricing </MenuItem>
-        <MenuItem to="/signup" isLast>
-          <Button
-            size="sm"
-            rounded="md"
-            color={['primary.500', 'primary.500', 'white', 'white']}
-            bg={['white', 'white', 'primary.500', 'primary.500']}
-            _hover={{
-              bg: ['primary.100', 'primary.100', 'primary.600', 'primary.600'],
-            }}
-          >
-            Create Account
-          </Button>
-        </MenuItem>
+        <Menu>
+          <MenuButton _focus={{ boxShadow: 'outline' }}>
+            Radio <ChevronDownIcon />
+          </MenuButton>
+          <MenuList color="black">
+            <MenuItem _hover={{ bg: 'gray.400' }} to="/">
+              Jovem Pan Recife
+            </MenuItem>
+            <MenuItem _hover={{ bg: 'gray.400' }} to="/">
+              Jovem Pan Caruaru
+            </MenuItem>
+            <MenuItem _hover={{ bg: 'gray.400' }} to="/">
+              Music FM
+            </MenuItem>
+            <MenuItem _hover={{ bg: 'gray.400' }} to="/">
+              Band FM
+            </MenuItem>
+          </MenuList>
+        </Menu>
+        <MenuItem to="/faetures">Quem somos </MenuItem>
+        <MenuItem to="/pricing">Fale conosco </MenuItem>
       </Stack>
     </Box>
   )
@@ -83,10 +97,10 @@ const NavBarContainer = ({ children, ...props }) => {
       justify="space-between"
       wrap="wrap"
       w="100%"
-      mb={8}
-      p={8}
-      bg={['primary.500', 'primary.500', 'transparent', 'transparent']}
-      color={['black', 'black', 'primary.700', 'primary.700']}
+      mb={4}
+      p={4}
+      bg={['primary']}
+      color={['white']}
       {...props}
     >
       {children}

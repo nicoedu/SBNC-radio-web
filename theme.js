@@ -1,35 +1,22 @@
 // theme.js
 import { extendTheme } from '@chakra-ui/react'
 const theme = extendTheme({
+  fonts: {},
   colors: {
-    primary: '#3182CE',
-    secondary: '#F6E05E',
-  },
-  components: {
-    Button: {
-      // 1. We can update the base styles
-      baseStyle: {
-        fontWeight: 'bold', // Normally, it is "semibold"
-      },
-      // 2. We can add a new button size or extend existing
-      sizes: {
-        xl: {
-          h: '56px',
-          fontSize: 'lg',
-          px: '32px',
-        },
-      },
-      // 3. We can add a new visual variant
-      variants: {
-        'with-shadow': {
-          bg: 'red.400',
-          boxShadow: '0 0 2px 2px #efdfde',
-        },
-        // 4. We can override existing variants
-        solid: (props) => ({
-          bg: props.colorMode === 'dark' ? 'red.300' : 'red.500',
-        }),
-      },
+    primary: '#2E3092',
+    secondary: '#D8B6B2',
+    background: '#FFFFFF',
+    pan: {
+      100: '#D8B6B2',
+      200: '#AC3639',
+    },
+    music: {
+      100: '#984BAE',
+      200: '#57126B',
+    },
+    band: {
+      100: '#B1EC91',
+      200: '#76C04E',
     },
   },
 })
