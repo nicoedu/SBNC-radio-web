@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Link,
   Box,
@@ -89,17 +89,35 @@ const MenuLinks = ({ isOpen }) => {
 }
 
 const NavBarContainer = ({ children, ...props }) => {
+  const [scrolled, setScrolled] = useState(false)
+  const handleScroll = () => {
+    console.log('hey')
+    const offset = window.scrollY
+    if (offset > 200) {
+      setScrolled(true)
+    } else {
+      setScrolled(false)
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+  })
+  if (scrolled) {
+  }
   return (
     <Flex
+      zIndex="1000"
       as="nav"
       align="center"
       boxShadow="base"
       justify="space-between"
       wrap="wrap"
       w="100%"
-      mb={4}
-      p={4}
-      bg={['primary']}
+      py={3}
+      px={4}
+      position={scrolled ? 'fixed' : 'static'}
+      bg={scrolled ? 'primary' : 'transparent'}
       color={['white']}
       {...props}
     >

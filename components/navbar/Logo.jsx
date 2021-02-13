@@ -9,13 +9,13 @@ export default function Logo(props) {
         position="relative"
         top="-2"
         left="4rem"
-        src="sbnc.png"
+        src="logos/sbnc.png"
         zIndex="100"
       ></Image>
       <Image
         src="layout/logo-bg.svg"
         position="absolute"
-        top="-3"
+        top="-5"
         left="5"
       ></Image>
     </Flex>
