@@ -13,4 +13,7 @@ module.exports = {
   rules: {
     quotes: [2, 'single'],
   },
+  ecmafeatures: {
+    globalreturn: false
+  }
 }
