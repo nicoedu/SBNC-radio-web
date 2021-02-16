@@ -1,35 +1,38 @@
 import { getAllRadioIds, getRadioData } from '../../lib/radios'
-import { Box, Image, Stack, List, ListItem, ListIcon, Text, Link, VStack, Grid, GridItem, HStack, Divider} from "@chakra-ui/react"
+import { Box, Image, Stack, List, ListItem, ListIcon, Text, Link, VStack, Grid, GridItem, HStack, FormControl, FormLabel, Input, Textarea, Button, ButtonGroup} from "@chakra-ui/react"
 import Header from '@components/navbar/Header'
+import ReactPlayer from 'react-player'
 
 export default function Radio({radioData}): JSX.Element {
   return (
     <Box bgGradient="linear-gradient(180deg, #2E3092 0%, #D8B6B2 100%)" h="100vh" w="100%" align="center" justify="center">
       <Header />
-      <Box bg="rgba(255, 255, 255, 0.35)" backdrop-filter="blur(10px)" w="95vw" h="80vh" mt="3%"> 
-        <Grid templateRows="repeat(3, 1fr)" templateColumns="repeat(4, 1fr)" gap={0} w="55vw" h="70vh" bg="white" mr="2%">
+      <HStack bg="rgba(255, 255, 255, 0.35)" backdrop-filter="blur(10px)" w="95vw" h="80vh" mt="3%" align="center" justify="center"> 
+        <Grid templateRows="repeat(3, 1fr)" templateColumns="repeat(4, 1fr)"  w="60vw" h="75vh" bg="white" mr="2%" >
           
-          <GridItem rowSpan={1} colSpan={1} ml={10}>
+          <GridItem rowSpan={1} colSpan={1}  border="1px solid" borderColor="pink.300">
             <SocialMedia radioData={radioData} />
           </GridItem>
           
-          <GridItem colSpan={2}></GridItem>
+          <GridItem colSpan={3} border="1px solid" borderColor="pink.300">
+            <Book radioData={radioData}/>
+          </GridItem>
 
-          <GridItem colSpan={1}></GridItem>
-
-          
-          <GridItem rowSpan={2} colSpan={1} ml={10}>
+          <GridItem rowSpan={2} colSpan={1} border="1px solid" borderColor="pink.300">
             <AboutUS radioData={radioData} />
           </GridItem>
-          
-          {/* <GridItem>
-            <Box w="30vw" h="60vh" bg="white"> 
 
-            </Box>
-          </GridItem> */}
-
+          <GridItem colSpan={3} rowSpan={2} border="1px solid" borderColor="pink.300">
+            <ContactForm radioData={radioData}/>
+          </GridItem>
         </Grid>
-      </Box>
+
+        <Grid templateRows="repeat(3, 1fr)" templateColumns="repeat(4, 1fr)"  w="20vw" h="70vh" bg="white" ml="2%" >
+            <Calendar radioData={radioData}/>
+            <PriceTable radioData={radioData}/>
+        </Grid>
+
+      </HStack>
     </Box>
   );
 }
@@ -53,7 +56,7 @@ export async function getStaticProps({ params }) {
 
 function SocialMedia({radioData}) {
   return (
-    <Box > 
+    <Box ml={10}> 
       <Image
         borderRadius="full"
         boxSize="150px"
@@ -87,7 +90,7 @@ function SocialMedia({radioData}) {
 
 function AboutUS({radioData}) {
   return (
-    <VStack alignItems="start" mt={5}>
+    <VStack alignItems="start" mt={5} ml={10}>
       <Text fontWeight="bold" fontFamily="PT Sans Narrow, sans-serif" fontSize="2xl">
         Sobre nós
       </Text>
@@ -101,9 +104,67 @@ function AboutUS({radioData}) {
 
 function Book({radioData}) {
   return (
+    <VStack alignItems="start" mt={5} ml={10}>
+      <Text fontWeight="bold" fontFamily="PT Sans Narrow, sans-serif" fontSize="2xl"> Book </Text>
+      <ReactPlayer url='https://www.youtube.com/watch?v=ysz5S6PUM-U' width="70%" height="30vh" />
+    </VStack>
+  );
+}
+
+function ContactForm({radioData}) {
+  return (
+    <form >
+      <VStack alignItems="start" ml={10}>
+        <Text fontSize="3xl" fontWeight="bold" fontFamily="PT Sans Narrow, sans-serif"> Fale Conosco</Text>
+        <HStack>
+            <FormControl id="first-name" isRequired>
+            <FormLabel>Primeiro nome</FormLabel>
+            <Input placeholder="Primeiro Nome" />
+          </FormControl>
+
+          <FormControl id="phone" isRequired>
+            <FormLabel>Telefone</FormLabel>
+            <Input placeholder="+55(81)9999999" />
+          </FormControl>
+        </HStack>
+
+        <HStack>
+          <FormControl id="subject" isRequired>
+            <FormLabel>Assunto</FormLabel>
+            <Input placeholder="O assunto" />
+          </FormControl>
+
+          <FormControl id="email" isRequired>
+            <FormLabel>E-mail</FormLabel>
+            <Input placeholder="Seu e-mail" type="email"/>
+          </FormControl>
+        </HStack>
+
+        <Textarea placeholder="Sua mensagem" />
+
+        <Button colorScheme="blue" type="submit"> Enviar </Button>
+      </VStack>
+    </form>
+
+  );
+}
+
+function Calendar({radioData}) {
+  return (
     <VStack>
-      <Text> Book </Text>
-      {/* TODO: Inserir vídeo aqui */}
+      
+    </VStack>
+  );
+}
+
+function PriceTable({radioData}) {
+  return (
+    <VStack>
+      <Text fontWeight="bold" fontSize="2xl"> Tabela de Valores</Text>
+      <Text> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at lectus ultrices, volutpat ex at, gravida mi. Cras tristique tincidunt metus, vel luctus nulla consequat et.</Text>
+
+      <Button> Acessar Book </Button>
+      <Button> Acessar Tabela </Button>
     </VStack>
   );
 }
