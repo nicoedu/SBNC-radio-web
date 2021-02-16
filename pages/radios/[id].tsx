@@ -3,7 +3,7 @@ import { getAllRadioIds, getRadioData } from '../../lib/radios'
 export default function Radio({radioData}): JSX.Element {
   return (
     <div>
-      <h1> radioData.name </h1>
+      <h1> {radioData.name} </h1>
     </div>
   );
 }
