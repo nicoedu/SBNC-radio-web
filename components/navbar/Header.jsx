@@ -67,16 +67,16 @@ const MenuLinks = ({ isOpen }) => {
             Radio <ChevronDownIcon />
           </MenuButton>
           <MenuList color="black">
-            <MenuItem _hover={{ bg: 'gray.400' }} to="/">
+            <MenuItem _hover={{ bg: 'gray.400' }} to="/radios/jovemPanRecife">
               Jovem Pan Recife
             </MenuItem>
-            <MenuItem _hover={{ bg: 'gray.400' }} to="/">
+            <MenuItem _hover={{ bg: 'gray.400' }} to="/radios/jovemPanCaruaru">
               Jovem Pan Caruaru
             </MenuItem>
-            <MenuItem _hover={{ bg: 'gray.400' }} to="/">
+            <MenuItem _hover={{ bg: 'gray.400' }} to="/radios/musicFM">
               Music FM
             </MenuItem>
-            <MenuItem _hover={{ bg: 'gray.400' }} to="/">
+            <MenuItem _hover={{ bg: 'gray.400' }} to="/radios/bandFM">
               Band FM
             </MenuItem>
           </MenuList>

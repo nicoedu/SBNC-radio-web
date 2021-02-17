@@ -27,9 +27,14 @@ export default function Radio({radioData}): JSX.Element {
           </GridItem>
         </Grid>
 
-        <Grid templateRows="repeat(3, 1fr)" templateColumns="repeat(4, 1fr)"  w="20vw" h="70vh" bg="white" ml="2%" >
-            <Calendar radioData={radioData}/>
-            <PriceTable radioData={radioData}/>
+        <Grid templateRows="repeat(3, 1fr)" templateColumns="repeat(4, 1fr)" gap={6} w="20vw" h="70vh" bg="white" ml="2%" >
+            <GridItem colSpan={3}>
+              <Calendar radioData={radioData}/>
+            </GridItem>
+
+            <GridItem colSpan={3} >
+              <PriceTable radioData={radioData}/>
+            </GridItem>
         </Grid>
 
       </HStack>
@@ -56,7 +61,7 @@ export async function getStaticProps({ params }) {
 
 function SocialMedia({radioData}) {
   return (
-    <Box ml={10}> 
+    <Box ml={5} aling="start"> 
       <Image
         borderRadius="full"
         boxSize="150px"
@@ -90,60 +95,62 @@ function SocialMedia({radioData}) {
 
 function AboutUS({radioData}) {
   return (
-    <VStack alignItems="start" mt={5} ml={10}>
-      <Text fontWeight="bold" fontFamily="PT Sans Narrow, sans-serif" fontSize="2xl">
-        Sobre nós
-      </Text>
-      <Text noOfLines={10} align="left" fontSize="sm">
+    <Box alignItems="start" mt={5} ml={5}>
+      <Text fontWeight="bold" fontFamily="PT Sans Narrow, sans-serif" fontSize="2xl" align="start"> Sobre nós </Text>
+      <Text noOfLines={10} align="start" fontSize="sm">
         {radioData.aboutUs}
       </Text>
       {/* TODO: Inserir carrossel de imagens */}
-    </VStack>
+    </Box>
   );
 }
 
 function Book({radioData}) {
   return (
-    <VStack alignItems="start" mt={5} ml={10}>
-      <Text fontWeight="bold" fontFamily="PT Sans Narrow, sans-serif" fontSize="2xl"> Book </Text>
-      <ReactPlayer url='https://www.youtube.com/watch?v=ysz5S6PUM-U' width="70%" height="30vh" />
-    </VStack>
+    <Box alignItems="start" mt={5} ml={5}>
+      <Text fontWeight="bold" fontFamily="PT Sans Narrow, sans-serif" fontSize="2xl" align="left"> Book </Text>
+      <ReactPlayer url='https://www.youtube.com/watch?v=ysz5S6PUM-U' width="70%" height="30vh" p={20}/>
+    </Box>
   );
 }
 
 function ContactForm({radioData}) {
   return (
-    <form >
-      <VStack alignItems="start" ml={10}>
-        <Text fontSize="3xl" fontWeight="bold" fontFamily="PT Sans Narrow, sans-serif"> Fale Conosco</Text>
-        <HStack>
+    <form>
+      <Box alignItems="start" ml={5} >
+        
+        <Text fontSize="3xl" fontWeight="bold" align="left" fontFamily="PT Sans Narrow, sans-serif" mb={3} ml={10}> 
+          Fale Conosco
+        </Text>
+        
+        <HStack w="90%" mb={3}>
             <FormControl id="first-name" isRequired>
             <FormLabel>Primeiro nome</FormLabel>
-            <Input placeholder="Primeiro Nome" />
+            <Input variant="flushed" placeholder="Primeiro Nome" />
           </FormControl>
 
           <FormControl id="phone" isRequired>
             <FormLabel>Telefone</FormLabel>
-            <Input placeholder="+55(81)9999999" />
+            <Input variant="flushed" placeholder="+55(81)9999999" />
           </FormControl>
         </HStack>
 
-        <HStack>
+        <HStack  w="90%" mb={3}>
           <FormControl id="subject" isRequired>
             <FormLabel>Assunto</FormLabel>
-            <Input placeholder="O assunto" />
+            <Input variant="flushed" placeholder="O assunto" />
           </FormControl>
 
           <FormControl id="email" isRequired>
             <FormLabel>E-mail</FormLabel>
-            <Input placeholder="Seu e-mail" type="email"/>
+            <Input variant="flushed" placeholder="Seu e-mail" type="email"/>
           </FormControl>
         </HStack>
 
-        <Textarea placeholder="Sua mensagem" />
+        <Textarea placeholder="Sua mensagem" w="90%" mb={3}/>
 
-        <Button colorScheme="blue" type="submit"> Enviar </Button>
-      </VStack>
+        <Button colorScheme="green" borderRadius="20px" w="153px" h="36px" type="submit"> Enviar </Button>
+      </Box>
     </form>
 
   );
@@ -159,12 +166,12 @@ function Calendar({radioData}) {
 
 function PriceTable({radioData}) {
   return (
-    <VStack>
+    <VStack m="auto">
       <Text fontWeight="bold" fontSize="2xl"> Tabela de Valores</Text>
-      <Text> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at lectus ultrices, volutpat ex at, gravida mi. Cras tristique tincidunt metus, vel luctus nulla consequat et.</Text>
+      <Text fontSize="sm"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at lectus ultrices, volutpat ex at, gravida mi. Cras tristique tincidunt metus, vel luctus nulla consequat et.</Text>
 
-      <Button> Acessar Book </Button>
-      <Button> Acessar Tabela </Button>
+      <Button colorScheme="blue" w="80%"> Acessar Book </Button>
+      <Button colorScheme="green" w="80%"> Acessar Tabela </Button>
     </VStack>
   );
 }

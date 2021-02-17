@@ -1,7 +1,7 @@
 import { Box, Flex, Heading, Text } from '@chakra-ui/react'
 import React from 'react'
 import Header from '@components/navbar/Header'
-import '../fonts/PTSansNarrow-Bold.ttf'; 
+//import '../fonts/PTSansNarrow-Bold.ttf'; 
 
 export default function Home(): JSX.Element {
   return (
