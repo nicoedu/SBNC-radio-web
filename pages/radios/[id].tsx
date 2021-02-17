@@ -131,16 +131,16 @@ function SocialMedia({ radioData }) {
 
       <HStack align="center" mt={5}>
         <Link href={radioData.facebookLink} isExternal>
-          <Image src="/facebook.svg" />
+          <Image src="/social/facebook.svg" />
         </Link>
         <Link href={radioData.whatsappLink} isExternal>
-          <Image src="/whatsapp.svg" />
+          <Image src="/social/whatsapp.svg" />
         </Link>
         <Link href={radioData.instagramLink} isExternal>
-          <Image src="/instagram.svg" />
+          <Image src="/social/instagram.svg" />
         </Link>
         <Link href={radioData.twitterLink} isExternal>
-          <Image src="/twitter.svg" />
+          <Image src="/social/twitter.svg" />
         </Link>
       </HStack>
     </Box>
