@@ -9,6 +9,7 @@ import {
   MenuButton,
   MenuList,
   Menu,
+  Heading,
 } from '@chakra-ui/react'
 
 import Logo from './Logo'
@@ -42,9 +43,9 @@ const MenuToggle = ({ toggle, isOpen }) => {
 const MenuItem = ({ children, to = '/', ...rest }) => {
   return (
     <Link href={to}>
-      <Text display="block" {...rest}>
+      <Heading size={'sm'} display="block" {...rest}>
         {children}
-      </Text>
+      </Heading>
     </Link>
   )
 }
@@ -64,7 +65,9 @@ const MenuLinks = ({ isOpen }) => {
       >
         <Menu>
           <MenuButton _focus={{ boxShadow: 'outline' }}>
-            Radio <ChevronDownIcon />
+            <Heading size={'sm'} display="block">
+              Radio <ChevronDownIcon boxSize={6} />
+            </Heading>
           </MenuButton>
           <MenuList color="black">
             <MenuItem _hover={{ bg: 'gray.400' }} to="/">
