@@ -9,11 +9,11 @@ import {
   Stack,
   Button,
   StackItem,
-} from '@chakra-ui/react'
-import React from 'react'
-import Header from '@components/navbar/Header'
-import ContactForm from '@components/ContactForm'
-import { EmailIcon, InfoIcon, PhoneIcon } from '@chakra-ui/icons'
+} from "@chakra-ui/react";
+import React from "react";
+import Header from "@components/navbar/Header";
+import ContactForm from "@components/ContactForm";
+import { EmailIcon, InfoIcon, PhoneIcon } from "@chakra-ui/icons";
 
 export default function Home(): JSX.Element {
   return (
@@ -21,7 +21,7 @@ export default function Home(): JSX.Element {
       <Flex
         position="relative"
         direction="column"
-        height={['160vh', '150vh', '100vh']}
+        height={["160vh", "150vh", "100vh"]}
         align="center"
         bgGradient="linear(to-b, primary, secondary)"
       >
@@ -29,10 +29,10 @@ export default function Home(): JSX.Element {
 
         <Center height="50%">
           <Box>
-            <Heading size={'2xl'} color="white" mt={8} textAlign="center">
+            <Heading size={"2xl"} color="white" mt={8} textAlign="center">
               <b>Sistema Brasil Nordestes de Comunicação</b>
             </Heading>
-            <Text fontSize={'3xl'} color="white" mt={8} textAlign="center">
+            <Text fontSize={"3xl"} color="white" mt={8} textAlign="center">
               Grupo das maiores rádios do Nordeste
             </Text>
             <Center py={5}>
@@ -42,13 +42,13 @@ export default function Home(): JSX.Element {
             </Center>
           </Box>
         </Center>
-        <Box position="absolute" bottom={'5vh'} px="5">
+        <Box position="absolute" bottom={"5vh"} px="5">
           <Grid
-            gap={'6vw'}
+            gap={"6vw"}
             templateColumns={[
-              'repeat(2, 1fr)',
-              'repeat(2, 1fr)',
-              'repeat(4, 1fr)',
+              "repeat(2, 1fr)",
+              "repeat(2, 1fr)",
+              "repeat(4, 1fr)",
             ]}
           >
             <RadioCard title="Jovem Pan Caruaru" id="jpcaruaru"></RadioCard>
@@ -59,7 +59,7 @@ export default function Home(): JSX.Element {
         </Box>
       </Flex>
       <Box background="primary" py="10" px="10">
-        <Grid h="100%" templateColumns={['1fr', '1fr', '6fr 5fr']}>
+        <Grid h="100%" templateColumns={["1fr", "1fr", "6fr 5fr"]}>
           <Center w="100%" alignItems="center" mx="auto">
             <Image
               h={[200, 285]}
@@ -69,7 +69,7 @@ export default function Home(): JSX.Element {
             ></Image>
             <Image h={[160, 250]} zIndex="100" src="about.png" />%
           </Center>
-          <Box w="100%" px="5" pt={['10', '10', '0']} my="auto" color="white">
+          <Box w="100%" px="5" pt={["10", "10", "0"]} my="auto" color="white">
             <Heading size="lg" py="3">
               Quem somos
             </Heading>
@@ -89,7 +89,7 @@ export default function Home(): JSX.Element {
         </Grid>
       </Box>
       <Box background="background" py="10" px="10">
-        <Grid h="100%" templateColumns={['1fr', '1fr', '5fr 6fr']}>
+        <Grid h="100%" templateColumns={["1fr", "1fr", "5fr 6fr"]}>
           <Box w="100%" px="5" my="auto" color="white">
             <Heading color="black" size="lg" py="3">
               Anuncie conosco
@@ -107,7 +107,7 @@ export default function Home(): JSX.Element {
               que corresponde a mais de 7 milhões de pernambucanos.
             </Text>
           </Box>
-          <Center w="100%" pt={['20', '20', '0']} alignItems="center" mx="auto">
+          <Center w="100%" pt={["20", "20", "0"]} alignItems="center" mx="auto">
             <Image
               overflow="hidden"
               h={[300, 400]}
@@ -160,15 +160,15 @@ export default function Home(): JSX.Element {
         </Flex>
       </Box>
     </>
-  )
+  );
 }
 
 const RadioCard = ({
   title,
   id,
 }: {
-  title: string
-  id: string
+  title: string;
+  id: string;
 }): JSX.Element => {
   return (
     <Box
@@ -181,10 +181,10 @@ const RadioCard = ({
       justifyContent="center"
       borderRadius={20}
     >
-      <Heading isTruncated size={'md'} textAlign="center">
+      <Heading isTruncated size={"md"} textAlign="center">
         {title}
       </Heading>
-      <Image py={3} mx="auto" maxH={125} src={'logos/' + id + '.png'} />
+      <Image py={3} mx="auto" maxH={125} src={"logos/" + id + ".png"} />
       <Center>
         <Button
           w="80%"
@@ -198,5 +198,5 @@ const RadioCard = ({
         </Button>
       </Center>
     </Box>
-  )
-}
+  );
+};

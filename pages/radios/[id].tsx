@@ -1,27 +1,18 @@
-import { getAllRadioIds, getRadioData } from '../../lib/radios'
+import { getAllRadioIds, getRadioData } from "../../lib/radios";
 import {
   Box,
   Image,
-  Stack,
-  List,
-  ListItem,
-  ListIcon,
   Text,
   Link,
   VStack,
   Grid,
   GridItem,
   HStack,
-  FormControl,
-  FormLabel,
-  Input,
-  Textarea,
   Button,
-  ButtonGroup,
-} from '@chakra-ui/react'
-import Header from '@components/navbar/Header'
-import ContactForm from '@components/ContactForm'
-import ReactPlayer from 'react-player'
+} from "@chakra-ui/react";
+import Header from "@components/navbar/Header";
+import ContactForm from "@components/ContactForm";
+import ReactPlayer from "react-player";
 
 export default function Radio({ radioData }): JSX.Element {
   return (
@@ -95,24 +86,24 @@ export default function Radio({ radioData }): JSX.Element {
         </Grid>
       </HStack>
     </Box>
-  )
+  );
 }
 
 export async function getStaticPaths() {
-  const paths = getAllRadioIds()
+  const paths = getAllRadioIds();
   return {
     paths,
     fallback: false,
-  }
+  };
 }
 
 export async function getStaticProps({ params }) {
-  const radioData = getRadioData(params.id)
+  const radioData = getRadioData(params.id);
   return {
     props: {
       radioData,
     },
-  }
+  };
 }
 
 function SocialMedia({ radioData }) {
@@ -121,7 +112,7 @@ function SocialMedia({ radioData }) {
       <Image
         borderRadius="full"
         boxSize="150px"
-        src={'/' + radioData.name + '.png'}
+        src={"/" + radioData.name + ".png"}
         alt="Logo da Rádio"
         border="2px"
         borderColor="gray.200"
@@ -153,7 +144,7 @@ function SocialMedia({ radioData }) {
         </Link>
       </HStack>
     </Box>
-  )
+  );
 }
 
 function AboutUS({ radioData }) {
@@ -171,7 +162,7 @@ function AboutUS({ radioData }) {
       </Text>
       {/* TODO: Inserir carrossel de imagens */}
     </VStack>
-  )
+  );
 }
 
 function Book({ radioData }) {
@@ -182,8 +173,8 @@ function Book({ radioData }) {
         fontFamily="PT Sans Narrow, sans-serif"
         fontSize="2xl"
       >
-        {' '}
-        Book{' '}
+        {" "}
+        Book{" "}
       </Text>
       <ReactPlayer
         url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
@@ -191,22 +182,22 @@ function Book({ radioData }) {
         height="30vh"
       />
     </VStack>
-  )
+  );
 }
 
 function Calendar({ radioData }) {
-  return <VStack></VStack>
+  return <VStack></VStack>;
 }
 
 function PriceTable({ radioData }) {
   return (
     <VStack>
       <Text fontWeight="bold" fontSize="2xl">
-        {' '}
+        {" "}
         Tabela de Valores
       </Text>
       <Text>
-        {' '}
+        {" "}
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at
         lectus ultrices, volutpat ex at, gravida mi. Cras tristique tincidunt
         metus, vel luctus nulla consequat et.
@@ -215,5 +206,5 @@ function PriceTable({ radioData }) {
       <Button> Acessar Book </Button>
       <Button> Acessar Tabela </Button>
     </VStack>
-  )
+  );
 }
