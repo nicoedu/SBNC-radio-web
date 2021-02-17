@@ -1,28 +1,31 @@
 // theme.js
-import { extendTheme } from '@chakra-ui/react'
-import { createBreakpoints } from '@chakra-ui/theme-tools'
+import { extendTheme } from "@chakra-ui/react";
+import { createBreakpoints } from "@chakra-ui/theme-tools";
 
 const theme = extendTheme({
-  fonts: { body: 'PT Sans Narrow, sans-serif' },
+  fonts: {
+    heading: "PT Sans Narrow, sans-serif",
+    body: "Open Sans', sans-serif",
+  },
   colors: {
-    primary: '#2E3092',
-    secondary: '#D8B6B2',
-    background: '#FFFFFF',
-    darkBackground: '#2E2E2E',
-    contrast: '#FFDE3A',
+    primary: "#2E3092",
+    secondary: "#D8B6B2",
+    background: "#FFFFFF",
+    darkBackground: "#2E2E2E",
+    contrast: "#FFDE3A",
     pan: {
-      100: '#D8B6B2',
-      200: '#AC3639',
+      100: "#D8B6B2",
+      200: "#AC3639",
     },
     music: {
-      100: '#984BAE',
-      200: '#57126B',
+      100: "#984BAE",
+      200: "#57126B",
     },
     band: {
-      100: '#B1EC91',
-      200: '#76C04E',
+      100: "#B1EC91",
+      200: "#76C04E",
     },
   },
   components: {},
-})
-export default theme
+});
+export default theme;

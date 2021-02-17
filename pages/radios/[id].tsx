@@ -9,6 +9,7 @@ import {
   GridItem,
   HStack,
   Button,
+  Heading,
 } from "@chakra-ui/react";
 import Header from "@components/navbar/Header";
 import ContactForm from "@components/ContactForm";
@@ -119,15 +120,9 @@ function SocialMedia({ radioData }) {
         mt={5}
       />
 
-      <Text
-        fontSize="4xl"
-        align="left"
-        fontWeight="bold"
-        fontFamily="PT Sans Narrow, sans-serif"
-        mt={5}
-      >
+      <Heading fontSize="4xl" align="left" fontWeight="bold" mt={5}>
         {radioData.name}
-      </Text>
+      </Heading>
 
       <HStack align="center" mt={5}>
         <Link href={radioData.facebookLink} isExternal>
@@ -150,13 +145,9 @@ function SocialMedia({ radioData }) {
 function AboutUS({ radioData }) {
   return (
     <VStack alignItems="start" mt={5} ml={10}>
-      <Text
-        fontWeight="bold"
-        fontFamily="PT Sans Narrow, sans-serif"
-        fontSize="2xl"
-      >
+      <Heading fontWeight="bold" fontSize="2xl">
         Sobre nós
-      </Text>
+      </Heading>
       <Text noOfLines={10} align="left" fontSize="sm">
         {radioData.aboutUs}
       </Text>
@@ -168,14 +159,9 @@ function AboutUS({ radioData }) {
 function Book({ radioData }) {
   return (
     <VStack alignItems="start" mt={5} ml={10}>
-      <Text
-        fontWeight="bold"
-        fontFamily="PT Sans Narrow, sans-serif"
-        fontSize="2xl"
-      >
-        {" "}
-        Book{" "}
-      </Text>
+      <Heading fontWeight="bold" fontSize="2xl">
+        Book
+      </Heading>
       <ReactPlayer
         url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
         width="70%"
@@ -191,20 +177,18 @@ function Calendar({ radioData }) {
 
 function PriceTable({ radioData }) {
   return (
-    <VStack>
-      <Text fontWeight="bold" fontSize="2xl">
-        {" "}
+    <Box>
+      <Heading fontWeight="bold" fontSize="2xl">
         Tabela de Valores
-      </Text>
+      </Heading>
       <Text>
-        {" "}
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at
         lectus ultrices, volutpat ex at, gravida mi. Cras tristique tincidunt
         metus, vel luctus nulla consequat et.
       </Text>
 
-      <Button> Acessar Book </Button>
-      <Button> Acessar Tabela </Button>
-    </VStack>
+      <Button colorScheme="contrast"> Acessar Book </Button>
+      <Button colorScheme={radioData.colorName}> Acessar Tabela </Button>
+    </Box>
   );
 }
