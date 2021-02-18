@@ -10,6 +10,18 @@ import {
   HStack,
   Button,
   Heading,
+  Modal,
+  ModalBody,
+  ModalHeader,
+  ModalContent,
+  ModalFooter,
+  ModalCloseButton,
+  ModalOverlay,
+  useDisclosure,
+  FormControl,
+  FormLabel,
+  Input,
+  Divider,
 } from "@chakra-ui/react";
 import Header from "@components/navbar/Header";
 import ContactForm from "@components/ContactForm";
@@ -18,11 +30,12 @@ import ReactPlayer from "react-player";
 export default function Radio({ radioData }): JSX.Element {
   return (
     <Box
-      bgGradient="linear-gradient(180deg, #2E3092 0%, #D8B6B2 100%)"
+      bgGradient="linear(to-b, primary, secondary)"
       h="100vh"
       w="100%"
       align="center"
       justify="center"
+      overflow="hidden"
     >
       <Header />
       <HStack
@@ -46,20 +59,21 @@ export default function Radio({ radioData }): JSX.Element {
           <GridItem
             rowSpan={1}
             colSpan={1}
-            border="1px solid"
+            borderRight="1px solid"
             borderColor="pink.300"
           >
             <SocialMedia radioData={radioData} />
           </GridItem>
 
-          <GridItem colSpan={3} border="1px solid" borderColor="pink.300">
+          <GridItem colSpan={3}>
             <Book radioData={radioData} />
           </GridItem>
 
           <GridItem
             rowSpan={2}
             colSpan={1}
-            border="1px solid"
+            borderRight="1px solid"
+            borderTop="1px solid"
             borderColor="pink.300"
           >
             <AboutUS radioData={radioData} />
@@ -68,7 +82,7 @@ export default function Radio({ radioData }): JSX.Element {
           <GridItem
             colSpan={3}
             rowSpan={2}
-            border="1px solid"
+            borderTop="1px solid"
             borderColor="pink.300"
           >
             <ContactForm />
@@ -188,8 +202,65 @@ function PriceTable({ radioData }) {
         metus, vel luctus nulla consequat et.
       </Text>
 
+      <DownloadModal />
       <Button colorScheme="contrast"> Acessar Book </Button>
       <Button colorScheme={radioData.colorName}> Acessar Tabela </Button>
     </Box>
+  );
+}
+
+function DownloadModal() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  return (
+    <>
+      <Button onClick={onOpen}>Open Modal</Button>
+
+      <Modal isOpen={isOpen} onClose={onClose} isCentered size="xl">
+        <ModalOverlay />
+        <ModalContent borderRadius={30}>
+          <ModalHeader bg="red" color="white" borderTopRadius={30}>
+            <Heading align="center"> Baixe a tabela agora mesmo </Heading>
+          </ModalHeader>
+          <ModalBody>
+            <FormControl id="first-name" isRequired mt={5}>
+              <FormLabel>Nome</FormLabel>
+              <Input
+                variant="outline"
+                placeholder="Seu nome"
+                borderRadius={30}
+              />
+            </FormControl>
+
+            <FormControl id="phone" isRequired mt={5}>
+              <FormLabel>Telefone</FormLabel>
+              <Input
+                variant="outline"
+                borderRadius={30}
+                placeholder="+55(81)9999999"
+              />
+            </FormControl>
+
+            <FormControl id="email" isRequired mt={5}>
+              <FormLabel>E-mail</FormLabel>
+              <Input
+                variant="outline"
+                borderRadius={30}
+                placeholder="Seu e-mail"
+                type="email"
+              />
+            </FormControl>
+          </ModalBody>
+
+          <ModalFooter mt={5}>
+            <Button colorScheme="red" mr={3} onClick={onClose} d="block" h={50}>
+              Receber tabela por e-mail
+            </Button>
+            <Button variant="ghost" onClick={onClose} d="block">
+              Não agora, obrigado!
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+    </>
   );
 }

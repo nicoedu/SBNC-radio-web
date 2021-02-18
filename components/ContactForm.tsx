@@ -22,8 +22,8 @@ export default function ContactForm() {
           </Heading>
           <HStack mb={3}>
             <FormControl id="first-name" isRequired w="45%" mr={5}>
-              <FormLabel>Primeiro nome</FormLabel>
-              <Input variant="flushed" placeholder="Primeiro Nome" />
+              <FormLabel>Nome</FormLabel>
+              <Input variant="flushed" placeholder="Seu nome" />
             </FormControl>
 
             <FormControl id="phone" isRequired w="45%">
