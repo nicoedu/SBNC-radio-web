@@ -202,24 +202,34 @@ function PriceTable({ radioData }) {
         metus, vel luctus nulla consequat et.
       </Text>
 
-      <DownloadModal />
-      <Button colorScheme="contrast"> Acessar Book </Button>
-      <Button colorScheme={radioData.colorName}> Acessar Tabela </Button>
+      <DownloadModal isBook={true} />
+      <DownloadModal isBook={false} />
     </Box>
   );
 }
 
-function DownloadModal() {
+function DownloadModal({ isBook }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const buttonsName = isBook ? "Book" : "Tabela";
   return (
     <>
-      <Button onClick={onOpen}>Open Modal</Button>
+      <Button onClick={onOpen} colorScheme="blue" w={40} h={20} mb={5}>
+        {"Acessar " + buttonsName}
+      </Button>
 
       <Modal isOpen={isOpen} onClose={onClose} isCentered size="xl">
         <ModalOverlay />
         <ModalContent borderRadius={30}>
-          <ModalHeader bg="red" color="white" borderTopRadius={30}>
-            <Heading align="center"> Baixe a tabela agora mesmo </Heading>
+          <ModalHeader
+            bg="red"
+            color="white"
+            borderTopRadius={30}
+            pt={7}
+            pb={7}
+          >
+            <Heading align="center">
+              Baixe {buttonsName.toLowerCase()} agora mesmo
+            </Heading>
           </ModalHeader>
           <ModalBody>
             <FormControl id="first-name" isRequired mt={5}>
