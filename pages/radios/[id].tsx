@@ -41,6 +41,7 @@ export default function Radio({ radioData }): JSX.Element {
           h="75vh"
           bg="white"
           mr="2%"
+          borderRadius={20}
         >
           <GridItem
             rowSpan={1}
