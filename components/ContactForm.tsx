@@ -9,15 +9,16 @@ import {
   Heading,
   Box,
   Image,
-} from "@chakra-ui/react";
-import React from "react";
+  Flex,
+} from '@chakra-ui/react'
+import React from 'react'
 
-export default function ContactForm() {
+export default function ContactForm({ isHome = false }) {
   return (
-    <Box pos="relative" w="100%" h="100%">
+    <Box pos="relative" w="100%" h="100%" py={2} pr={2}>
       <form>
-        <Box alignItems="start" ml={10}>
-          <Heading fontWeight="bold" mb={5} mt={3} align="left">
+        <Box alignItems="start" ml={5}>
+          <Heading fontWeight="bold" mb={1} align="left">
             Fale Conosco
           </Heading>
           <HStack mb={3}>
@@ -26,7 +27,7 @@ export default function ContactForm() {
               <Input variant="flushed" placeholder="Seu nome" />
             </FormControl>
 
-            <FormControl id="phone" isRequired w="45%">
+            <FormControl id="phone" w="45%">
               <FormLabel>Telefone</FormLabel>
               <Input variant="flushed" placeholder="+55(81)9999999" />
             </FormControl>
@@ -47,27 +48,40 @@ export default function ContactForm() {
           <HStack mb={5}>
             <Textarea placeholder="Sua mensagem" variant="flushed" w="95%" />
           </HStack>
-
-          <Button colorScheme="blue" type="submit" w="20%" borderRadius={30}>
+        </Box>
+        <Flex>
+          <Button
+            background="primary"
+            color="white"
+            mx="auto"
+            alignSelf="center"
+            type="submit"
+            w={['60%', '40%', '30%']}
+            borderRadius={isHome ? 20 : 30}
+          >
             Enviar
           </Button>
-        </Box>
+        </Flex>
       </form>
-      <Image
-        src="/Ball.png"
-        pos="absolute"
-        bottom={10}
-        right={8}
-        h="20%"
-        zIndex={2}
-      />
-      <Image
-        src="/Detail.png"
-        pos="absolute"
-        height={100}
-        bottom={3}
-        right={0}
-      />
+      {isHome ? null : (
+        <>
+          <Image
+            src="/Ball.png"
+            pos="absolute"
+            bottom={10}
+            right={8}
+            h="20%"
+            zIndex={2}
+          />
+          <Image
+            src="/Detail.png"
+            pos="absolute"
+            height={100}
+            bottom={3}
+            right={0}
+          />
+        </>
+      )}
     </Box>
-  );
+  )
 }

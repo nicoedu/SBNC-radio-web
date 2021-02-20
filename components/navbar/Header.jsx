@@ -10,6 +10,7 @@ import {
   MenuList,
   Menu,
   Heading,
+  Center,
 } from '@chakra-ui/react'
 
 import Logo from './Logo'
@@ -34,9 +35,9 @@ const NavBar = (props) => {
 
 const MenuToggle = ({ toggle, isOpen }) => {
   return (
-    <Box display={{ base: 'block', md: 'none' }} onClick={toggle}>
+    <Center display={{ base: 'block', md: 'none' }} onClick={toggle}>
       {isOpen ? <CloseIcon /> : <HamburgerIcon />}
-    </Box>
+    </Center>
   )
 }
 
@@ -52,13 +53,14 @@ const MenuItem = ({ children, to = '/', ...rest }) => {
 
 const MenuLinks = ({ isOpen }) => {
   return (
-    <Box
+    <Center
       display={{ base: isOpen ? 'block' : 'none', md: 'block' }}
       flexBasis={{ base: '100%', md: 'auto' }}
     >
       <Stack
+        background={isOpen ? 'primary' : null}
+        my="auto"
         spacing={8}
-        align="center"
         justify={['center', 'space-between', 'flex-end', 'flex-end']}
         direction={['column', 'row', 'row', 'row']}
         pt={[4, 4, 0, 0]}
@@ -87,7 +89,7 @@ const MenuLinks = ({ isOpen }) => {
         <MenuItem to="/faetures">Quem somos </MenuItem>
         <MenuItem to="/pricing">Fale conosco </MenuItem>
       </Stack>
-    </Box>
+    </Center>
   )
 }
 
@@ -112,12 +114,12 @@ const NavBarContainer = ({ children, ...props }) => {
     <Flex
       zIndex="1000"
       as="nav"
+      h="10vh"
       align="center"
       boxShadow="base"
       justify="space-between"
       wrap="wrap"
       w="100%"
-      py={3}
       px={4}
       position={scrolled ? 'fixed' : 'static'}
       bg={scrolled ? 'primary' : 'transparent'}

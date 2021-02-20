@@ -1,4 +1,4 @@
-import { getAllRadioIds, getRadioData } from "../../lib/radios";
+import { getAllRadioIds, getRadioData } from '../../lib/radios'
 import {
   Box,
   Image,
@@ -22,10 +22,11 @@ import {
   FormLabel,
   Input,
   Divider,
-} from "@chakra-ui/react";
-import Header from "@components/navbar/Header";
-import ContactForm from "@components/ContactForm";
-import ReactPlayer from "react-player";
+  Flex,
+} from '@chakra-ui/react'
+import Header from '@components/navbar/Header'
+import ContactForm from '@components/ContactForm'
+import ReactPlayer from 'react-player'
 
 export default function Radio({ radioData }): JSX.Element {
   return (
@@ -38,50 +39,64 @@ export default function Radio({ radioData }): JSX.Element {
       overflow="hidden"
     >
       <Header />
-      <HStack
+      <Flex
         bg="rgba(255, 255, 255, 0.35)"
         backdrop-filter="blur(10px)"
         w="95vw"
-        h="80vh"
-        mt="3%"
+        h="90vh"
+        mt={1}
         align="center"
         justify="center"
       >
         <Grid
-          templateRows="repeat(3, 1fr)"
-          templateColumns="repeat(4, 1fr)"
+          templateRows={['repeat(16, 1fr)']}
+          templateColumns={['1fr 1fr 1fr']}
           w="60vw"
-          h="75vh"
+          h="85vh"
           bg="white"
           mr="2%"
           borderRadius={20}
         >
           <GridItem
-            rowSpan={1}
+            rowStart={1}
+            rowSpan={7}
+            colStart={1}
             colSpan={1}
             borderRight="1px solid"
             borderColor="pink.300"
+            overflow="hidden"
           >
             <SocialMedia radioData={radioData} />
           </GridItem>
 
-          <GridItem colSpan={3}>
+          <GridItem
+            overflow="hidden"
+            rowStart={1}
+            rowSpan={10}
+            colStart={2}
+            colSpan={2}
+          >
             <Book radioData={radioData} />
           </GridItem>
 
           <GridItem
-            rowSpan={2}
+            rowStart={8}
+            rowSpan={9}
+            colStart={1}
             colSpan={1}
             borderRight="1px solid"
             borderTop="1px solid"
+            overflow="hidden"
             borderColor="pink.300"
           >
             <AboutUS radioData={radioData} />
           </GridItem>
-
           <GridItem
-            colSpan={3}
-            rowSpan={2}
+            overflow="auto"
+            rowStart={9}
+            rowSpan={8}
+            colSpan={2}
+            colStart={2}
             borderTop="1px solid"
             borderColor="pink.300"
           >
@@ -100,26 +115,26 @@ export default function Radio({ radioData }): JSX.Element {
           <Calendar radioData={radioData} />
           <PriceTable radioData={radioData} />
         </Grid>
-      </HStack>
+      </Flex>
     </Box>
-  );
+  )
 }
 
 export async function getStaticPaths() {
-  const paths = getAllRadioIds();
+  const paths = getAllRadioIds()
   return {
     paths,
     fallback: false,
-  };
+  }
 }
 
 export async function getStaticProps({ params }) {
-  const radioData = getRadioData(params.id);
+  const radioData = getRadioData(params.id)
   return {
     props: {
       radioData,
     },
-  };
+  }
 }
 
 function SocialMedia({ radioData }) {
@@ -128,14 +143,14 @@ function SocialMedia({ radioData }) {
       <Image
         borderRadius="full"
         boxSize="150px"
-        src={"/" + radioData.name + ".png"}
+        src={'/' + radioData.name + '.png'}
         alt="Logo da Rádio"
         border="2px"
         borderColor="gray.200"
         mt={5}
       />
 
-      <Heading fontSize="4xl" align="left" fontWeight="bold" mt={5}>
+      <Heading fontSize="4xl" align="left" fontWeight="bold" mt={2}>
         {radioData.name}
       </Heading>
 
@@ -154,7 +169,7 @@ function SocialMedia({ radioData }) {
         </Link>
       </HStack>
     </Box>
-  );
+  )
 }
 
 function AboutUS({ radioData }) {
@@ -168,7 +183,7 @@ function AboutUS({ radioData }) {
       </Text>
       {/* TODO: Inserir carrossel de imagens */}
     </VStack>
-  );
+  )
 }
 
 function Book({ radioData }) {
@@ -183,11 +198,11 @@ function Book({ radioData }) {
         height="30vh"
       />
     </VStack>
-  );
+  )
 }
 
 function Calendar({ radioData }) {
-  return <VStack></VStack>;
+  return <VStack></VStack>
 }
 
 function PriceTable({ radioData }) {
@@ -205,16 +220,16 @@ function PriceTable({ radioData }) {
       <DownloadModal isBook={true} />
       <DownloadModal isBook={false} />
     </Box>
-  );
+  )
 }
 
 function DownloadModal({ isBook }) {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const buttonsName = isBook ? "Book" : "Tabela";
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const buttonsName = isBook ? 'Book' : 'Tabela'
   return (
     <>
       <Button onClick={onOpen} colorScheme="blue" w={40} h={20} mb={5}>
-        {"Acessar " + buttonsName}
+        {'Acessar ' + buttonsName}
       </Button>
 
       <Modal isOpen={isOpen} onClose={onClose} isCentered size="xl">
@@ -272,5 +287,5 @@ function DownloadModal({ isBook }) {
         </ModalContent>
       </Modal>
     </>
-  );
+  )
 }
