@@ -1,151 +1,166 @@
-import { getAllRadioIds, getRadioData } from "../../lib/radios";
 import {
   Box,
-  Image,
-  Text,
-  Link,
-  VStack,
-  Grid,
-  GridItem,
-  HStack,
   Button,
-  Heading,
-  Modal,
-  ModalBody,
-  ModalHeader,
-  ModalContent,
-  ModalFooter,
-  ModalCloseButton,
-  ModalOverlay,
-  useDisclosure,
+  Center,
+  Flex,
   FormControl,
   FormLabel,
+  Grid,
+  GridItem,
+  Heading,
+  HStack,
+  Image,
   Input,
-  Divider,
-  Tabs,
-  Tab,
+  Link,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  Text,
+  useDisclosure,
+  VStack,
   TabList,
-  TabPanels,
   TabPanel,
-} from "@chakra-ui/react";
-import Header from "@components/navbar/Header";
-import ContactForm from "@components/ContactForm";
-import ReactPlayer from "react-player";
+  Tabs,
+  TabPanels,
+  Tab
+} from '@chakra-ui/react'
+import ContactForm from '@components/ContactForm'
+import SvgVideoLayout from '@components/layout/background-video-radios'
+import Header from '@components/navbar/Header'
+import { IRadioData } from 'global'
+import { GetStaticPaths, GetStaticProps } from 'next'
+import ReactPlayer from 'react-player'
+import { getAllRadioIds, getRadioData } from '../../lib/radios'
 
-export default function Radio({ radioData }): JSX.Element {
+export default function Radio({
+  radioData
+}: {
+  radioData: IRadioData
+}): JSX.Element {
   return (
     <Box
       bgGradient="linear(to-b, primary, secondary)"
-      h="100vh"
+      // h="100vh"
       w="100%"
       align="center"
       justify="center"
       overflow="hidden"
     >
       <Header />
-      <HStack
+      <Flex
         bg="rgba(255, 255, 255, 0.35)"
         backdrop-filter="blur(10px)"
         w="95vw"
-        h="80vh"
-        mt="3%"
+        h={['auto', '90vh']}
+        mt={1}
+        flexDirection={['column', 'row']}
         align="center"
         justify="center"
       >
         <Grid
-          templateRows="repeat(3, 1fr)"
-          templateColumns="repeat(4, 1fr)"
-          w="60vw"
-          h="75vh"
+          templateRows={['1fr', 'repeat(16, 1fr)']}
+          templateColumns={['1fr', '1fr 1fr 1fr']}
+          w={['100vw', '60vw']}
+          h={['auto', '85vh']}
           bg="white"
-          mr="2%"
-          borderRadius={20}
+          borderRadius={[0, 20]}
         >
           <GridItem
-            rowSpan={1}
-            colSpan={1}
+            rowStart={['auto', 1]}
+            rowSpan={['auto', 7]}
+            colStart={['auto', 1]}
+            colSpan={['auto', 1]}
             borderRight="1px solid"
             borderColor="pink.300"
+            overflow="hidden"
           >
             <SocialMedia radioData={radioData} />
           </GridItem>
 
-          <GridItem colSpan={3}>
+          <GridItem
+            overflow="hidden"
+            rowStart={['auto', 1]}
+            rowSpan={['auto', 10]}
+            colStart={['auto', 2]}
+            colSpan={['auto', 2]}
+          >
             <Book radioData={radioData} />
           </GridItem>
 
           <GridItem
-            rowSpan={2}
-            colSpan={1}
+            rowStart={['auto', 8]}
+            rowSpan={['auto', 9]}
+            colStart={['auto', 1]}
+            colSpan={['auto', 1]}
             borderRight="1px solid"
             borderTop="1px solid"
+            overflow="hidden"
             borderColor="pink.300"
           >
             <AboutUS radioData={radioData} />
           </GridItem>
-
           <GridItem
-            colSpan={3}
-            rowSpan={2}
+            overflow="auto"
+            rowStart={['auto', 9]}
+            rowSpan={['auto', 8]}
+            colSpan={['auto', 2]}
+            colStart={['auto', 2]}
             borderTop="1px solid"
             borderColor="pink.300"
           >
-            <ContactForm />
+            <ContactForm radioColor={radioData.color} />
           </GridItem>
         </Grid>
 
-        <Grid
-          templateRows="repeat(3, 1fr)"
-          templateColumns="repeat(4, 1fr)"
-          w="20vw"
+        <Flex
+          flexDirection="column"
+          w={['100vw', '20vw']}
           h="70vh"
           bg="white"
           ml="2%"
         >
-          <GridItem colSpan={4}>
-            <Calendar radioData={radioData} />
-          </GridItem>
-
-          <GridItem colSpan={4}>
-            <PriceTable radioData={radioData} />
-          </GridItem>
-        </Grid>
-      </HStack>
+          <Calendar radioData={radioData} />
+          <PriceTable radioData={radioData} />
+        </Flex>
+      </Flex>
     </Box>
-  );
+  )
 }
 
-export async function getStaticPaths() {
-  const paths = getAllRadioIds();
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = getAllRadioIds()
   return {
     paths,
-    fallback: false,
-  };
+    fallback: false
+  }
 }
 
-export async function getStaticProps({ params }) {
-  const radioData = getRadioData(params.id);
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const radioData: IRadioData = getRadioData(params?.id)
   return {
     props: {
-      radioData,
-    },
-  };
+      radioData
+    }
+  }
 }
 
-function SocialMedia({ radioData }) {
+function SocialMedia({ radioData }: { radioData: IRadioData }) {
   return (
     <Box ml={10}>
       <Image
         borderRadius="full"
         boxSize="150px"
-        src={"/" + radioData.name + ".png"}
+        src={'/' + radioData.name + '.png'}
         alt="Logo da Rádio"
         border="2px"
         borderColor="gray.200"
         mt={5}
       />
 
-      <Heading fontSize="4xl" align="left" fontWeight="bold" mt={5}>
+      <Heading fontSize="4xl" align="left" fontWeight="bold" mt={2}>
         {radioData.name}
       </Heading>
 
@@ -164,12 +179,12 @@ function SocialMedia({ radioData }) {
         </Link>
       </HStack>
     </Box>
-  );
+  )
 }
 
-function AboutUS({ radioData }) {
+function AboutUS({ radioData }: { radioData: IRadioData }) {
   return (
-    <VStack alignItems="start" mt={5} ml={10}>
+    <VStack alignItems="start" p={4}>
       <Heading fontWeight="bold" fontSize="2xl">
         Sobre nós
       </Heading>
@@ -178,22 +193,38 @@ function AboutUS({ radioData }) {
       </Text>
       {/* TODO: Inserir carrossel de imagens */}
     </VStack>
-  );
+  )
 }
 
-function Book({ radioData }) {
+function Book({ radioData }: { radioData: IRadioData }) {
   return (
-    <VStack alignItems="start" mt={5} ml={10}>
-      <Heading fontWeight="bold" fontSize="2xl">
-        Book
-      </Heading>
-      <ReactPlayer
-        url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
-        width="70%"
-        height="30vh"
-      />
-    </VStack>
-  );
+    <Box position="relative" overflow="hidden" h="100%">
+      <Flex flexDirection="column" alignItems="start" p={4} pb={6}>
+        <Heading fontWeight="bold" fontSize="2xl">
+          Book
+        </Heading>
+        <Box alignSelf="center" zIndex="100">
+          <ReactPlayer
+            url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
+            width="100%"
+            height="640 px"
+          />
+        </Box>
+      </Flex>
+      <Center
+        position="absolute"
+        width={['100%', '100%']}
+        height={['100%', '80%']}
+        align="center"
+        top={[2, 0]}
+        bottom="0"
+        left="0"
+        right="0"
+      >
+        <SvgVideoLayout height="90%" width="90%" color={radioData.color} />
+      </Center>
+    </Box>
+  )
 }
 
 function Calendar({ radioData }) {
@@ -256,15 +287,14 @@ function Calendar({ radioData }) {
       </Tabs>
     </Box>
   );
-}
 
-function PriceTable({ radioData }) {
+function PriceTable({ radioData }: { radioData: IRadioData }) {
   return (
-    <Box>
+    <Flex flexDirection="column" align="center">
       <Heading fontWeight="bold" fontSize="2xl">
         Tabela de Valores
       </Heading>
-      <Text>
+      <Text mb={10}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at
         lectus ultrices, volutpat ex at, gravida mi. Cras tristique tincidunt
         metus, vel luctus nulla consequat et.
@@ -272,17 +302,17 @@ function PriceTable({ radioData }) {
 
       <DownloadModal isBook={true} />
       <DownloadModal isBook={false} />
-    </Box>
-  );
+    </Flex>
+  )
 }
 
-function DownloadModal({ isBook }) {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const buttonsName = isBook ? "Book" : "Tabela";
+function DownloadModal({ isBook }: { isBook: boolean }) {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const buttonsName = isBook ? 'Book' : 'Tabela'
   return (
     <>
       <Button onClick={onOpen} colorScheme="blue" w={40} h={20} mb={5}>
-        {"Acessar " + buttonsName}
+        {'Acessar ' + buttonsName}
       </Button>
 
       <Modal isOpen={isOpen} onClose={onClose} isCentered size="xl">
@@ -340,5 +370,5 @@ function DownloadModal({ isBook }) {
         </ModalContent>
       </Modal>
     </>
-  );
+  )
 }
