@@ -1,21 +1,26 @@
 import {
-  VStack,
-  HStack,
+  Box,
+  Button,
+  Flex,
   FormControl,
   FormLabel,
-  Input,
-  Textarea,
-  Button,
   Heading,
-  Box,
-  Image,
-  Flex,
+  HStack,
+  Input,
+  Textarea
 } from '@chakra-ui/react'
-import React from 'react'
+import SvgCornerRadio from '@components/layout/corner-radio'
+import theme from 'theme'
 
-export default function ContactForm({ isHome = false }) {
+export default function ContactForm({
+  isHome = false,
+  radioColor
+}: {
+  isHome?: boolean
+  radioColor?: string
+}): JSX.Element {
   return (
-    <Box pos="relative" w="100%" h="100%" py={2} pr={2}>
+    <Box position="relative" w="100%" h="100%" py={2} pr={2}>
       <form>
         <Box alignItems="start" ml={5}>
           <Heading fontWeight="bold" mb={1} align="left">
@@ -62,26 +67,12 @@ export default function ContactForm({ isHome = false }) {
             Enviar
           </Button>
         </Flex>
+        {isHome ? null : radioColor ? (
+          <Box position="absolute" bottom="0" right="0">
+            <SvgCornerRadio height={80} color={radioColor} />
+          </Box>
+        ) : null}
       </form>
-      {isHome ? null : (
-        <>
-          <Image
-            src="/Ball.png"
-            pos="absolute"
-            bottom={10}
-            right={8}
-            h="20%"
-            zIndex={2}
-          />
-          <Image
-            src="/Detail.png"
-            pos="absolute"
-            height={100}
-            bottom={3}
-            right={0}
-          />
-        </>
-      )}
     </Box>
   )
 }

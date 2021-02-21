@@ -1,6 +1,6 @@
-import { ChakraProvider } from "@chakra-ui/react";
-import type { AppProps /*, AppContext */ } from "next/app";
-import theme from "theme";
+import { ChakraProvider } from '@chakra-ui/react'
+import type { AppProps /*, AppContext */ } from 'next/app'
+import theme from 'theme'
 
 const App = ({ Component, pageProps }: AppProps): JSX.Element => {
   return (
@@ -16,7 +16,7 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
         rel="stylesheet"
       ></link>
     </ChakraProvider>
-  );
-};
+  )
+}
 
-export default App;
+export default App

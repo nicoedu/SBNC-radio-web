@@ -8,11 +8,12 @@ import {
   Heading,
   Image,
   Stack,
-  Text,
+  Text
 } from '@chakra-ui/react'
 import ContactForm from '@components/ContactForm'
+import SvgCornerHome from '@components/layout/corner-home'
 import Header from '@components/navbar/Header'
-import React from 'react'
+import theme from 'theme'
 
 export default function Home(): JSX.Element {
   return (
@@ -197,15 +198,13 @@ const ContactInfoLayout = () => (
             </Flex>
           </Stack>
         </Flex>
-        <Image
-          position="absolute"
-          height={150}
-          bottom="-2px"
-          fill="primary"
-          color="primary"
-          right="-1px"
-          src="layout/corner-blue.svg"
-        />
+        <Box position="absolute" bottom="-2px" right="-1px">
+          <SvgCornerHome height={150} color={theme.colors.primary} />
+        </Box>
+        {/* <Image
+         
+          src="layout/corner-home.svg"
+        /> */}
       </Flex>
     </Grid>
   </Box>
@@ -213,7 +212,7 @@ const ContactInfoLayout = () => (
 
 const RadioCard = ({
   title,
-  id,
+  id
 }: {
   title: string
   id: string
