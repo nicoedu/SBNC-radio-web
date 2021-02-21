@@ -206,8 +206,8 @@ function Book({ radioData }: { radioData: IRadioData }) {
         <Box alignSelf="center" zIndex="100">
           <ReactPlayer
             url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
-            width="100%"
-            height="640 px"
+            width="448px"
+            height="252px"
           />
         </Box>
       </Flex>
@@ -228,65 +228,54 @@ function Book({ radioData }: { radioData: IRadioData }) {
 }
 
 function Calendar({ radioData }) {
+  const months = [
+    'Janeiro',
+    'Fevereiro',
+    'Março',
+    'Abril',
+    'Maio',
+    'Junho',
+    'Julho',
+    'Agosto',
+    'Setembro',
+    'Outubro',
+    'Novembro',
+    'Dezembro'
+  ]
   return (
     <Box h="50%" overflow="scroll">
       <Heading bg="blue.900" color="white" pb={4} pt={4}>
-        Calendário Comercial
+        Calendário comercial
       </Heading>
-      <Tabs
-        isManual
-        w="100%"
-        orientation="vertical"
-        borderBottom="1px solid pink"
-      >
+      <Tabs isManual w="100%" orientation="vertical" border="0">
         <TabList>
-          <Tab
-            _selected={{ color: "black", bg: "blue.300" }}
-            w={20}
-            h={20}
-            bg="blue.900"
-            color="white"
-          >
-            Janeiro
-          </Tab>
-          <Tab
-            _selected={{ color: "black", bg: "blue.300" }}
-            w={20}
-            h={20}
-            bg="blue.500"
-            color="white"
-          >
-            Fevereiro
-          </Tab>
-          {() => {
-            let months = [];
-            for (var i = 0; i < 10; i++) {
-              months.push(
-                <Tab
-                  _selected={{ color: "black", bg: "blue.300" }}
-                  w={20}
-                  h={20}
-                  bg="blue.900"
-                  color="white"
-                >
-                  Março
-                </Tab>
-              );
-            }
-            return <Box> {months} </Box>;
-          }}
+          {months.map((value, index) => {
+            return (
+              <Tab
+                _selected={{ color: 'black', bg: 'blue.300' }}
+                w={20}
+                h={20}
+                bg={index % 2 === 0 ? 'blue.900' : 'blue.500'}
+                color="white"
+              >
+                {value}
+              </Tab>
+            )
+          })}
         </TabList>
         <TabPanels>
-          <TabPanel>
-            <p>one!</p>
-          </TabPanel>
-          <TabPanel>
-            <p>two!</p>
-          </TabPanel>
+          {months.map((value, index) => {
+            return (
+              <TabPanel>
+                <p> {index} </p>
+              </TabPanel>
+            )
+          })}
         </TabPanels>
       </Tabs>
     </Box>
-  );
+  )
+}
 
 function PriceTable({ radioData }: { radioData: IRadioData }) {
   return (
@@ -300,18 +289,18 @@ function PriceTable({ radioData }: { radioData: IRadioData }) {
         metus, vel luctus nulla consequat et.
       </Text>
 
-      <DownloadModal isBook={true} />
-      <DownloadModal isBook={false} />
+      <DownloadModal isBook={true} color={radioData.color} />
+      <DownloadModal isBook={false} color="blue" />
     </Flex>
   )
 }
 
-function DownloadModal({ isBook }: { isBook: boolean }) {
+function DownloadModal({ isBook, color }: { isBook: boolean; color: string }) {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const buttonsName = isBook ? 'Book' : 'Tabela'
   return (
     <>
-      <Button onClick={onOpen} colorScheme="blue" w={40} h={20} mb={5}>
+      <Button onClick={onOpen} colorScheme={color} w={40} h={10} mb={5}>
         {'Acessar ' + buttonsName}
       </Button>
 

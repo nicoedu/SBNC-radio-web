@@ -10,7 +10,7 @@ import {
   MenuList,
   Menu,
   Heading,
-  Center,
+  Center
 } from '@chakra-ui/react'
 
 import Logo from './Logo'
@@ -72,16 +72,16 @@ const MenuLinks = ({ isOpen }) => {
             </Heading>
           </MenuButton>
           <MenuList color="black">
-            <MenuItem _hover={{ bg: 'gray.400' }} to="/">
+            <MenuItem _hover={{ bg: 'gray.400' }} to="/radios/jprecife">
               Jovem Pan Recife
             </MenuItem>
-            <MenuItem _hover={{ bg: 'gray.400' }} to="/">
+            <MenuItem _hover={{ bg: 'gray.400' }} to="/radios/jpcaruaru">
               Jovem Pan Caruaru
             </MenuItem>
-            <MenuItem _hover={{ bg: 'gray.400' }} to="/">
+            <MenuItem _hover={{ bg: 'gray.400' }} to="/radios/music">
               Music FM
             </MenuItem>
-            <MenuItem _hover={{ bg: 'gray.400' }} to="/">
+            <MenuItem _hover={{ bg: 'gray.400' }} to="/radios/band">
               Band FM
             </MenuItem>
           </MenuList>
