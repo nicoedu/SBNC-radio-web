@@ -22,6 +22,11 @@ import {
   FormLabel,
   Input,
   Divider,
+  Tabs,
+  Tab,
+  TabList,
+  TabPanels,
+  TabPanel,
 } from "@chakra-ui/react";
 import Header from "@components/navbar/Header";
 import ContactForm from "@components/ContactForm";
@@ -97,8 +102,13 @@ export default function Radio({ radioData }): JSX.Element {
           bg="white"
           ml="2%"
         >
-          <Calendar radioData={radioData} />
-          <PriceTable radioData={radioData} />
+          <GridItem colSpan={4}>
+            <Calendar radioData={radioData} />
+          </GridItem>
+
+          <GridItem colSpan={4}>
+            <PriceTable radioData={radioData} />
+          </GridItem>
         </Grid>
       </HStack>
     </Box>
@@ -187,7 +197,65 @@ function Book({ radioData }) {
 }
 
 function Calendar({ radioData }) {
-  return <VStack></VStack>;
+  return (
+    <Box h="50%" overflow="scroll">
+      <Heading bg="blue.900" color="white" pb={4} pt={4}>
+        Calendário Comercial
+      </Heading>
+      <Tabs
+        isManual
+        w="100%"
+        orientation="vertical"
+        borderBottom="1px solid pink"
+      >
+        <TabList>
+          <Tab
+            _selected={{ color: "black", bg: "blue.300" }}
+            w={20}
+            h={20}
+            bg="blue.900"
+            color="white"
+          >
+            Janeiro
+          </Tab>
+          <Tab
+            _selected={{ color: "black", bg: "blue.300" }}
+            w={20}
+            h={20}
+            bg="blue.500"
+            color="white"
+          >
+            Fevereiro
+          </Tab>
+          {() => {
+            let months = [];
+            for (var i = 0; i < 10; i++) {
+              months.push(
+                <Tab
+                  _selected={{ color: "black", bg: "blue.300" }}
+                  w={20}
+                  h={20}
+                  bg="blue.900"
+                  color="white"
+                >
+                  Março
+                </Tab>
+              );
+            }
+            return <Box> {months} </Box>;
+          }}
+        </TabList>
+        <TabPanels>
+          <TabPanel>
+            <p>one!</p>
+          </TabPanel>
+          <TabPanel>
+            <p>two!</p>
+          </TabPanel>
+        </TabPanels>
+      </Tabs>
+    </Box>
+  );
 }
 
 function PriceTable({ radioData }) {
