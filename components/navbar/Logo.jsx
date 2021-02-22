@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Center, Flex, Image, Text } from '@chakra-ui/react'
+import { Flex, Image } from '@chakra-ui/react'
 
 export default function Logo(props) {
   return (
@@ -8,7 +8,7 @@ export default function Logo(props) {
         position="absolute"
         top={[0, -4, -6, -6]}
         // left={[0, 0, 0, 8]}
-        src="logos/sbnc2.svg"
+        src="logos/sbnc.svg"
         width="auto"
         maxHeight="150%"
         zIndex="200"

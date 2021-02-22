@@ -14,7 +14,12 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
       <link
         href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap"
         rel="stylesheet"
-      ></link>
+      />
+
+      <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
+      />
     </ChakraProvider>
   )
 }

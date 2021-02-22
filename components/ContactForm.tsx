@@ -19,13 +19,25 @@ export default function ContactForm({
   radioColor?: string
 }): JSX.Element {
   return (
-    <Box position="relative" w="100%" h="100%" py={2} pr={2}>
+    <Box
+      position="relative"
+      w="100%"
+      py={2}
+      pr={2}
+      mb={['0']}
+      overflow="hidden"
+    >
       <form>
         <Box alignItems="start" ml={5}>
-          <Heading fontWeight="bold" mb={3} size="md" align="left">
+          <Heading
+            fontWeight="bold"
+            mb={3}
+            fontSize={['3xl', 'md']}
+            align="left"
+          >
             Fale Conosco
           </Heading>
-          <HStack mb={3}>
+          <HStack mb={5}>
             <FormControl id="first-name" isRequired w="45%" mr={5}>
               <FormLabel fontSize="sm">Nome</FormLabel>
               <Input size="sm" variant="flushed" placeholder="Seu nome" />
@@ -37,7 +49,7 @@ export default function ContactForm({
             </FormControl>
           </HStack>
 
-          <HStack mb={3}>
+          <HStack mb={5}>
             <FormControl id="subject" isRequired w="45%" mr={5}>
               <FormLabel fontSize="sm">Assunto</FormLabel>
               <Input size="sm" variant="flushed" placeholder="O assunto" />
@@ -55,12 +67,14 @@ export default function ContactForm({
           </HStack>
 
           <HStack mb={5}>
-            <Textarea
-              size="sm"
-              placeholder="Sua mensagem"
-              variant="flushed"
-              w="95%"
-            />
+            <FormControl id="message" isRequired w="95%">
+              <FormLabel fontSize="sm">Mensagem</FormLabel>
+              <Textarea
+                size="sm"
+                placeholder="Sua mensagem"
+                variant="flushed"
+              />
+            </FormControl>
           </HStack>
         </Box>
         <Flex>
@@ -78,7 +92,7 @@ export default function ContactForm({
         </Flex>
         {isHome ? null : radioColor ? (
           <Box position="absolute" bottom="0" right="0">
-            <SvgCornerRadio height={80} color={radioColor} />
+            <SvgCornerRadio height={60} color={radioColor} />
           </Box>
         ) : null}
       </form>

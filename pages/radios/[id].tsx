@@ -43,7 +43,6 @@ export default function Radio({
   return (
     <Box
       bgGradient="linear(to-b, primary, secondary)"
-      // h="100vh"
       w="100%"
       align="center"
       justify="center"
@@ -73,7 +72,7 @@ export default function Radio({
             rowSpan={['auto', 7]}
             colStart={['auto', 1]}
             colSpan={['auto', 1]}
-            borderRight="1px solid"
+            borderRight={['', '1px solid']}
             borderColor="pink.300"
             overflow="hidden"
           >
@@ -95,8 +94,8 @@ export default function Radio({
             rowSpan={['auto', 9]}
             colStart={['auto', 1]}
             colSpan={['auto', 1]}
-            borderRight="1px solid"
-            borderTop="1px solid"
+            borderRight={['', '1px solid']}
+            borderTop={['', '1px solid']}
             overflow="hidden"
             borderColor="pink.300"
           >
@@ -108,7 +107,7 @@ export default function Radio({
             rowSpan={['auto', 8]}
             colSpan={['auto', 2]}
             colStart={['auto', 2]}
-            borderTop="1px solid"
+            borderTop={['', '1px solid']}
             borderColor="pink.300"
           >
             <ContactForm radioColor={radioData.color} />
@@ -149,23 +148,29 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 function SocialMedia({ radioData }: { radioData: IRadioData }) {
   return (
-    <Box ml={10}>
+    <Box ml={[0, 10]} mb={'5'}>
       <Image
         borderRadius="full"
-        boxSize="150px"
+        boxSize={['200px']}
         src={'/' + radioData.name + '.png'}
         alt="Logo da Rádio"
         border="2px"
+        objectFit="contain"
         borderColor="gray.200"
         mt={5}
       />
 
-      <Heading fontSize="4xl" align="left" fontWeight="bold" mt={2}>
+      <Heading
+        fontSize="4xl"
+        align={['center', 'left']}
+        fontWeight="bold"
+        mt={2}
+      >
         {radioData.name}
       </Heading>
 
-      <HStack align="center" mt={5}>
-        <Link href={radioData.facebookLink} isExternal>
+      <HStack align={'center'} mt={5} spacing={'4'}>
+        <Link href={radioData.facebookLink} isExternal ml={'auto'}>
           <Image src="/social/facebook.svg" />
         </Link>
         <Link href={radioData.whatsappLink} isExternal>
@@ -174,7 +179,7 @@ function SocialMedia({ radioData }: { radioData: IRadioData }) {
         <Link href={radioData.instagramLink} isExternal>
           <Image src="/social/instagram.svg" />
         </Link>
-        <Link href={radioData.twitterLink} isExternal>
+        <Link href={radioData.twitterLink} isExternal mr={'auto'}>
           <Image src="/social/twitter.svg" />
         </Link>
       </HStack>
@@ -185,7 +190,7 @@ function SocialMedia({ radioData }: { radioData: IRadioData }) {
 function AboutUS({ radioData }: { radioData: IRadioData }) {
   return (
     <VStack alignItems="start" p={4}>
-      <Heading fontWeight="bold" fontSize="2xl">
+      <Heading fontWeight="bold" fontSize={['3xl', '2xl']}>
         Sobre nós
       </Heading>
       <Text noOfLines={10} align="left" fontSize="sm">
@@ -200,26 +205,26 @@ function Book({ radioData }: { radioData: IRadioData }) {
   return (
     <Box position="relative" overflow="hidden" h="100%">
       <Flex flexDirection="column" alignItems="start" p={4} pb={6}>
-        <Heading fontWeight="bold" fontSize="2xl">
+        <Heading fontWeight="bold" fontSize={['3xl']} mb={['5']}>
           Book
         </Heading>
         <Box alignSelf="center" zIndex="100">
           <ReactPlayer
             url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
-            width="448px"
+            width="90vw"
             height="252px"
           />
         </Box>
       </Flex>
       <Center
         position="absolute"
-        width={['100%', '100%']}
+        width={['100vw', '100%']}
         height={['100%', '80%']}
         align="center"
-        top={[2, 0]}
+        top={[14, 0]}
         bottom="0"
         left="0"
-        right="0"
+        right={[0]}
       >
         <SvgVideoLayout height="90%" width="90%" color={radioData.color} />
       </Center>
@@ -267,7 +272,19 @@ function Calendar({ radioData }) {
           {months.map((value, index) => {
             return (
               <TabPanel>
-                <p> {index} </p>
+                <VStack>
+                  <HStack>
+                    <Box w={[20]} h={[20]} background={['gray.300']}></Box>
+                    <Box w={[20]} h={[20]} background={['gray.300']}></Box>
+                    <Box w={[20]} h={[20]} background={['gray.300']}></Box>
+                  </HStack>
+
+                  <HStack>
+                    <Box w={[20]} h={[20]} background={['gray.300']}></Box>
+                    <Box w={[20]} h={[20]} background={['gray.300']}></Box>
+                    <Box w={[20]} h={[20]} background={['gray.300']}></Box>
+                  </HStack>
+                </VStack>
               </TabPanel>
             )
           })}

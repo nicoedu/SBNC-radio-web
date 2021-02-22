@@ -22,6 +22,26 @@ export default function Home(): JSX.Element {
       <AboutUsLayout />
       <ContactUsLayout />
       <ContactInfoLayout />
+      <a
+        href="https://api.whatsapp.com/send?phone=5581992656003&text=Ol%C3%A1%2C%20estou%20interessado(a)%20em%20conhecer%20mais%20sobre%20voc%C3%AAs"
+        style={{
+          position: 'fixed',
+          width: '60px',
+          height: '60px',
+          bottom: '40px',
+          right: '40px',
+          backgroundColor: '#25d366',
+          color: '#FFF',
+          borderRadius: '50px',
+          textAlign: 'center',
+          fontSize: '30px',
+          boxShadow: '2px 2px 3px #999',
+          zIndex: '100'
+        }}
+        target="_blank"
+      >
+        <i className="fa fa-whatsapp" style={{ marginTop: '16px' }}></i>
+      </a>
     </>
   )
 }
