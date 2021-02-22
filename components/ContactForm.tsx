@@ -11,7 +11,10 @@ import {
 } from '@chakra-ui/react'
 import SvgCornerRadio from '@components/layout/corner-radio'
 
-export default function ContactForm({isHome = false,radioColor}: {
+export default function ContactForm({
+  isHome = false,
+  radioColor
+}: {
   isHome?: boolean
   radioColor?: string
 }): JSX.Element {
@@ -25,35 +28,36 @@ export default function ContactForm({isHome = false,radioColor}: {
       overflow="hidden"
     >
       <form>
-        <Box alignItems="start" ml={5}>
+        <Box alignItems="start" ml={5} mt={['', '5%', '0%']}>
           <Heading
             fontWeight="bold"
             mb={3}
-            fontSize={['3xl', 'md']}
+            fontSize={['3xl', '', '2xl']}
             align="left"
+            display={['', 'none', 'block']}
           >
             Fale Conosco
           </Heading>
-          <HStack mb={5}>
-            <FormControl id="first-name" isRequired w="45%" mr={5}>
-              <FormLabel fontSize="sm">Nome</FormLabel>
+          <HStack mb={[5, 2]}>
+            <FormControl id="first-name" isRequired w="45%" mr={[5, 2]}>
+              <FormLabel fontSize={['sm', 'xs']}>Nome</FormLabel>
               <Input size="sm" variant="flushed" placeholder="Seu nome" />
             </FormControl>
 
             <FormControl id="phone" w="45%" isRequired>
-              <FormLabel fontSize="sm">Telefone</FormLabel>
+              <FormLabel fontSize={['sm', 'xs']}>Telefone</FormLabel>
               <Input size="sm" variant="flushed" placeholder="+55(81)9999999" />
             </FormControl>
           </HStack>
 
           <HStack mb={5}>
-            <FormControl id="subject" isRequired w="45%" mr={5}>
-              <FormLabel fontSize="sm">Assunto</FormLabel>
+            <FormControl id="subject" isRequired w="45%" mr={[5, 2]}>
+              <FormLabel fontSize={['sm', 'xs']}>Assunto</FormLabel>
               <Input size="sm" variant="flushed" placeholder="O assunto" />
             </FormControl>
 
             <FormControl id="email" isRequired w="45%">
-              <FormLabel fontSize="sm">E-mail</FormLabel>
+              <FormLabel fontSize={['sm', 'xs']}>E-mail</FormLabel>
               <Input
                 size="sm"
                 variant="flushed"
@@ -63,11 +67,11 @@ export default function ContactForm({isHome = false,radioColor}: {
             </FormControl>
           </HStack>
 
-          <HStack mb={5}>
+          <HStack mb={[5, 2]}>
             <FormControl id="message" isRequired w="95%">
-              <FormLabel fontSize="sm">Mensagem</FormLabel>
+              <FormLabel fontSize={['sm', 'xs']}>Mensagem</FormLabel>
               <Textarea
-                size="sm"
+                size="xs"
                 placeholder="Sua mensagem"
                 variant="flushed"
               />
@@ -82,6 +86,7 @@ export default function ContactForm({isHome = false,radioColor}: {
             alignSelf="center"
             type="submit"
             w={['60%', '40%', '30%']}
+            h={['', '30px']}
             borderRadius={isHome ? 20 : 30}
           >
             Enviar
@@ -89,7 +94,7 @@ export default function ContactForm({isHome = false,radioColor}: {
         </Flex>
         {isHome ? null : radioColor ? (
           <Box position="absolute" bottom="0" right="0">
-            <SvgCornerRadio height={60} color={radioColor} />
+            <SvgCornerRadio height={[60, 0]} color={radioColor} />
           </Box>
         ) : null}
       </form>

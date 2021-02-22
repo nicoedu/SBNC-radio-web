@@ -66,6 +66,7 @@ export default function Radio({
           h={['auto', '85vh']}
           bg="white"
           borderRadius={[0, 20]}
+          mr={['', '05%']}
         >
           <GridItem
             rowStart={['auto', 1]}
@@ -82,7 +83,7 @@ export default function Radio({
           <GridItem
             overflow="hidden"
             rowStart={['auto', 1]}
-            rowSpan={['auto', 10]}
+            rowSpan={['auto', 8]}
             colStart={['auto', 2]}
             colSpan={['auto', 2]}
           >
@@ -103,8 +104,8 @@ export default function Radio({
           </GridItem>
           <GridItem
             overflow="auto"
-            rowStart={['auto', 9]}
-            rowSpan={['auto', 8]}
+            rowStart={['auto', 8, 9]}
+            rowSpan={['auto', 9]}
             colSpan={['auto', 2]}
             colStart={['auto', 2]}
             borderTop={['', '1px solid']}
@@ -116,10 +117,9 @@ export default function Radio({
 
         <Flex
           flexDirection="column"
-          w={['100vw', '20vw']}
-          h={['100vh']}
+          w={['100vw', '25vw']}
+          h={['100vh', '80vh']}
           bg="white"
-          // ml="2%"
         >
           <Calendar radioColor={radioData.color} />
           <PriceTable radioColor={radioData.color} />
@@ -148,10 +148,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 function SocialMedia({ radioData }: { radioData: IRadioData }) {
   return (
-    <Box ml={[0, 10]} mb={'5'}>
+    <Box ml={[0, 1]} mr={[0, 1]} mb={'5'}>
       <Image
         borderRadius="full"
-        boxSize={['200px']}
+        boxSize={['200px', '90px', '120px']}
         src={'/' + radioData.name + '.png'}
         alt="Logo da Rádio"
         border="2px"
@@ -161,7 +161,7 @@ function SocialMedia({ radioData }: { radioData: IRadioData }) {
       />
 
       <Heading
-        fontSize="4xl"
+        fontSize={['4xl', '2xl', '3xl']}
         align={['center', 'left']}
         fontWeight="bold"
         mt={2}
@@ -169,7 +169,7 @@ function SocialMedia({ radioData }: { radioData: IRadioData }) {
         {radioData.name}
       </Heading>
 
-      <HStack align={'center'} mt={5} spacing={'4'}>
+      <HStack align={['center']} mt={5} spacing={['4', '1', '4']}>
         <Link href={radioData.facebookLink} isExternal ml={'auto'}>
           <Image src="/social/facebook.svg" />
         </Link>
@@ -190,10 +190,10 @@ function SocialMedia({ radioData }: { radioData: IRadioData }) {
 function AboutUS({ radioData }: { radioData: IRadioData }) {
   return (
     <VStack alignItems="start" p={4}>
-      <Heading fontWeight="bold" fontSize={['3xl', '2xl']}>
+      <Heading fontWeight="bold" fontSize={['3xl', 'xl']}>
         Sobre nós
       </Heading>
-      <Text noOfLines={10} align="left" fontSize="sm">
+      <Text noOfLines={10} align="left" fontSize={['sm', 'xs']}>
         {radioData.aboutUs}
       </Text>
       {/* TODO: Inserir carrossel de imagens */}
@@ -203,16 +203,16 @@ function AboutUS({ radioData }: { radioData: IRadioData }) {
 
 function Book({ radioData }: { radioData: IRadioData }) {
   return (
-    <Box position="relative" overflow="hidden" h="100%">
+    <Box position="relative" overflow="hidden" h={['100%']}>
       <Flex flexDirection="column" alignItems="start" p={4} pb={6}>
-        <Heading fontWeight="bold" fontSize={['3xl']} mb={['5']}>
+        <Heading fontWeight="bold" fontSize={['3xl', 'xl']} mb={['5']}>
           Book
         </Heading>
         <Box alignSelf="center" zIndex="100">
           <ReactPlayer
             url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
-            width="90vw"
-            height="252px"
+            width="30vw" //sm - 90vw
+            height="180px" //sm - 252px
           />
         </Box>
       </Flex>
@@ -248,8 +248,15 @@ function Calendar({ radioColor }: { radioColor?: string }): JSX.Element {
     'Dezembro'
   ]
   return (
-    <Flex h="50%" direction="column">
-      <Heading bg={radioColor} color="white" pb={4} pt={4}>
+    <Flex h={['50%', '50%']} direction="column">
+      <Heading
+        bg={radioColor}
+        color="white"
+        pb={4}
+        pt={4}
+        fontSize={['xl', 'md']}
+        borderTopRadius="md"
+      >
         Calendário comercial
       </Heading>
 
@@ -260,10 +267,11 @@ function Calendar({ radioColor }: { radioColor?: string }): JSX.Element {
               return (
                 <Tab
                   _selected={{ color: 'black', bg: 'blue.300' }}
-                  w={20}
-                  h={20}
+                  w={[20, '14']}
+                  h={[20, 10]}
                   bg={index % 2 === 0 ? 'blue.900' : 'blue.500'}
                   color="white"
+                  fontSize={['md', 'xs']}
                 >
                   {value}
                 </Tab>
@@ -273,24 +281,58 @@ function Calendar({ radioColor }: { radioColor?: string }): JSX.Element {
           <TabPanels>
             {months.map((value, index) => {
               return (
-                <TabPanel>
+                <TabPanel p={['', 0]} pt={['', 1]}>
                   <VStack>
                     <HStack>
-                      <Box w={[20]} h={[20]} background={['gray.300']}></Box>
-                      <Box w={[20]} h={[20]} background={['gray.300']}></Box>
-                      <Box w={[20]} h={[20]} background={['gray.300']}></Box>
+                      <Box
+                        w={[20, 8]}
+                        h={[20, 8]}
+                        background={['gray.300']}
+                      ></Box>
+                      <Box
+                        w={[20, 8]}
+                        h={[20, 8]}
+                        background={['gray.300']}
+                      ></Box>
+                      <Box
+                        w={[20, 8]}
+                        h={[20, 8]}
+                        background={['gray.300']}
+                      ></Box>
                     </HStack>
-
                     <HStack>
-                      <Box w={[20]} h={[20]} background={['gray.300']}></Box>
-                      <Box w={[20]} h={[20]} background={['gray.300']}></Box>
-                      <Box w={[20]} h={[20]} background={['gray.300']}></Box>
-                    </HStack>
-
+                      <Box
+                        w={[20, 8]}
+                        h={[20, 8]}
+                        background={['gray.300']}
+                      ></Box>
+                      <Box
+                        w={[20, 8]}
+                        h={[20, 8]}
+                        background={['gray.300']}
+                      ></Box>
+                      <Box
+                        w={[20, 8]}
+                        h={[20, 8]}
+                        background={['gray.300']}
+                      ></Box>
+                    </HStack>{' '}
                     <HStack>
-                      <Box w={[20]} h={[20]} background={['gray.300']}></Box>
-                      <Box w={[20]} h={[20]} background={['gray.300']}></Box>
-                      <Box w={[20]} h={[20]} background={['gray.300']}></Box>
+                      <Box
+                        w={[20, 8]}
+                        h={[20, 8]}
+                        background={['gray.300']}
+                      ></Box>
+                      <Box
+                        w={[20, 8]}
+                        h={[20, 8]}
+                        background={['gray.300']}
+                      ></Box>
+                      <Box
+                        w={[20, 8]}
+                        h={[20, 8]}
+                        background={['gray.300']}
+                      ></Box>
                     </HStack>
                   </VStack>
                 </TabPanel>
@@ -305,18 +347,25 @@ function Calendar({ radioColor }: { radioColor?: string }): JSX.Element {
 
 function PriceTable({ radioColor }: { radioColor?: string }): JSX.Element {
   return (
-    <Flex flexDirection="column" align="center" bg="gray.100" h={'50%'} pl={5}>
+    <Flex
+      flexDirection="column"
+      align="center"
+      bg="gray.100"
+      h={'50%'}
+      pl={[5, 2]}
+      borderBottomRadius="xl"
+    >
       <Heading
         fontWeight="bold"
-        fontSize={['3xl', '2xl']}
-        mb={5}
+        fontSize={['3xl', 'xl']}
+        mb={[5, 3]}
         mt={5}
         textAlign="left"
         w={'100%'}
       >
         Tabela de Valores
       </Heading>
-      <Text mb={10} textAlign="left">
+      <Text mb={[10, 3]} textAlign="left" fontSize={['md', 'xs']}>
         Aqui você pode baixar nossa tabela de preços e conhecer mais do nosso
         book
       </Text>
@@ -338,11 +387,17 @@ function DownloadModal({
   const buttonsName = isBook ? 'Book' : 'Tabela'
   return (
     <>
-      <Button onClick={onOpen} bg={color} color={'gray.200'} size={'lg'} mb={5}>
+      <Button
+        onClick={onOpen}
+        bg={color}
+        color={'gray.200'}
+        size="sm" //Mobile - XL
+        mb={[5, 2]}
+      >
         {'Acessar ' + buttonsName}
       </Button>
 
-      <Modal isOpen={isOpen} onClose={onClose} isCentered size="xl">
+      <Modal isOpen={isOpen} onClose={onClose} size="xl" isCentered>
         <ModalOverlay />
         <ModalContent borderRadius={30}>
           <ModalHeader
