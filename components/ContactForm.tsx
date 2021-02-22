@@ -10,6 +10,7 @@ import {
   Textarea
 } from '@chakra-ui/react'
 import SvgCornerRadio from '@components/layout/corner-radio'
+import React from 'react'
 
 export default function ContactForm({
   isHome = false,
@@ -18,6 +19,8 @@ export default function ContactForm({
   isHome?: boolean
   radioColor?: string
 }): JSX.Element {
+  const [resize, setResize] = React.useState('vertical')
+
   return (
     <Box
       position="relative"
@@ -40,30 +43,34 @@ export default function ContactForm({
           </Heading>
           <HStack mb={[5, 2]}>
             <FormControl id="first-name" isRequired w="45%" mr={[5, 2]}>
-              <FormLabel fontSize={['sm', 'xs']} fontWeight={'bold'}>
+              <FormLabel fontSize={['sm', 'xs']} fontWeight={'bold'} mb={0}>
                 Nome
               </FormLabel>
               <Input size="sm" variant="flushed" placeholder="Seu nome" />
             </FormControl>
 
             <FormControl id="phone" w="45%" isRequired>
-              <FormLabel fontSize={['sm', 'xs']} fontWeight={'bold'}>
+              <FormLabel fontSize={['sm', 'xs']} fontWeight={'bold'} mb={0}>
                 Telefone
               </FormLabel>
-              <Input size="sm" variant="flushed" placeholder="+55(81)9999999" />
+              <Input
+                size="sm"
+                variant="flushed"
+                placeholder="+55 (81) 9999999"
+              />
             </FormControl>
           </HStack>
 
           <HStack mb={5}>
             <FormControl id="subject" isRequired w="45%" mr={[5, 2]}>
-              <FormLabel fontSize={['sm', 'xs']} fontWeight={'bold'}>
+              <FormLabel fontSize={['sm', 'xs']} fontWeight={'bold'} mb={0}>
                 Assunto
               </FormLabel>
               <Input size="sm" variant="flushed" placeholder="O assunto" />
             </FormControl>
 
             <FormControl id="email" isRequired w="45%">
-              <FormLabel fontSize={['sm', 'xs']} fontWeight={'bold'}>
+              <FormLabel fontSize={['sm', 'xs']} fontWeight={'bold'} mb={0}>
                 E-mail
               </FormLabel>
               <Input
@@ -77,10 +84,11 @@ export default function ContactForm({
 
           <HStack mb={[5, 2]}>
             <FormControl id="message" isRequired w="95%">
-              <FormLabel fontSize={['sm', 'xs']} fontWeight={'bold'}>
+              <FormLabel fontSize={['sm', 'xs']} fontWeight={'bold'} mb={0}>
                 Mensagem
               </FormLabel>
               <Textarea
+                resize={resize}
                 size="xs"
                 placeholder="Sua mensagem"
                 variant="flushed"
@@ -96,7 +104,7 @@ export default function ContactForm({
             alignSelf="center"
             type="submit"
             w={['60%', '40%', '30%']}
-            h={['', '30px']}
+            h={['', '30px', '30px']}
             borderRadius={isHome ? 20 : 30}
           >
             Enviar

@@ -54,9 +54,8 @@ export default function Radio({
       <Flex
         bg="rgba(255, 255, 255, 0.35)"
         backdrop-filter="blur(10px)"
-        w="95vw"
-        h={['auto', '90vh']}
-        mt={1}
+        w="90vw"
+        h={['auto', '89.8vh']}
         flexDirection={['column', 'row']}
         align="center"
         justify="center"
@@ -64,7 +63,7 @@ export default function Radio({
         <Grid
           templateRows={['1fr', 'repeat(16, 1fr)']}
           templateColumns={['1fr', '1fr 1fr 1fr']}
-          w={['100vw', '60vw']}
+          w={['100vw', '55vw']}
           h={['auto', '85vh']}
           bg="white"
           borderRadius={[0, 20]}
@@ -106,7 +105,7 @@ export default function Radio({
           </GridItem>
           <GridItem
             overflow="auto"
-            rowStart={['auto', 8, 9]}
+            rowStart={['auto', 8, 8]}
             rowSpan={['auto', 9]}
             colSpan={['auto', 2]}
             colStart={['auto', 2]}
@@ -122,6 +121,7 @@ export default function Radio({
           w={['100vw', '25vw']}
           h={['100vh', '80vh']}
           bg="white"
+          borderRadius={'xl'}
         >
           <Calendar radioColor={radioData.color} />
           <PriceTable radioColor={radioData.color} />
@@ -221,7 +221,7 @@ function Book({ radioData }: { radioData: IRadioData }) {
       <Center
         position="absolute"
         width={['100vw', '100%']}
-        height={['100%', '80%']}
+        height={['100%', '100%']}
         align="center"
         top={[14, 0]}
         bottom="0"
@@ -250,14 +250,22 @@ function Calendar({ radioColor }: { radioColor?: string }): JSX.Element {
     'Dezembro'
   ]
   return (
-    <Flex h={['50%', '50%']} direction="column">
+    <Flex
+      h={['50%', '55%']}
+      w={['', '90%']}
+      ml={['auto']}
+      mt={['', '5']}
+      mr={['', 'auto']}
+      mb={['', '5']}
+      border={['', '1px solid black']}
+      direction="column"
+    >
       <Heading
         bg={radioColor}
         color="white"
         pb={4}
         pt={4}
         fontSize={['xl', 'md']}
-        borderTopRadius="md"
       >
         Calendário comercial
       </Heading>
@@ -352,9 +360,9 @@ function PriceTable({ radioColor }: { radioColor?: string }): JSX.Element {
     <Flex
       flexDirection="column"
       align="center"
-      bg="gray.100"
+      borderTop={['', '1px solid grey']}
       h={'50%'}
-      pl={[5, 2]}
+      pl={[5, 5]}
       borderBottomRadius="xl"
     >
       <Heading
@@ -367,7 +375,7 @@ function PriceTable({ radioColor }: { radioColor?: string }): JSX.Element {
       >
         Tabela de Valores
       </Heading>
-      <Text mb={[10, 3]} textAlign="left" fontSize={['md', 'xs']}>
+      <Text mb={[10, 5]} textAlign="left" fontSize={['md', 'xs']}>
         Aqui você pode baixar nossa tabela de preços e conhecer mais do nosso
         book
       </Text>
