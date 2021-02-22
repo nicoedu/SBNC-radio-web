@@ -11,10 +11,7 @@ import {
 } from '@chakra-ui/react'
 import SvgCornerRadio from '@components/layout/corner-radio'
 
-export default function ContactForm({
-  isHome = false,
-  radioColor
-}: {
+export default function ContactForm({isHome = false,radioColor}: {
   isHome?: boolean
   radioColor?: string
 }): JSX.Element {

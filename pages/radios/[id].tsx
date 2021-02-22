@@ -117,12 +117,12 @@ export default function Radio({
         <Flex
           flexDirection="column"
           w={['100vw', '20vw']}
-          h="70vh"
+          h={['100vh']}
           bg="white"
-          ml="2%"
+          // ml="2%"
         >
-          <Calendar radioData={radioData} />
-          <PriceTable radioData={radioData} />
+          <Calendar radioColor={radioData.color} />
+          <PriceTable radioColor={radioData.color} />
         </Flex>
       </Flex>
     </Box>
@@ -232,7 +232,7 @@ function Book({ radioData }: { radioData: IRadioData }) {
   )
 }
 
-function Calendar({ radioData }) {
+function Calendar({ radioColor }: { radioColor?: string }): JSX.Element {
   const months = [
     'Janeiro',
     'Fevereiro',
@@ -248,76 +248,97 @@ function Calendar({ radioData }) {
     'Dezembro'
   ]
   return (
-    <Box h="50%" overflow="scroll">
-      <Heading bg="blue.900" color="white" pb={4} pt={4}>
+    <Flex h="50%" direction="column">
+      <Heading bg={radioColor} color="white" pb={4} pt={4}>
         Calendário comercial
       </Heading>
-      <Tabs isManual w="100%" orientation="vertical" border="0">
-        <TabList>
-          {months.map((value, index) => {
-            return (
-              <Tab
-                _selected={{ color: 'black', bg: 'blue.300' }}
-                w={20}
-                h={20}
-                bg={index % 2 === 0 ? 'blue.900' : 'blue.500'}
-                color="white"
-              >
-                {value}
-              </Tab>
-            )
-          })}
-        </TabList>
-        <TabPanels>
-          {months.map((value, index) => {
-            return (
-              <TabPanel>
-                <VStack>
-                  <HStack>
-                    <Box w={[20]} h={[20]} background={['gray.300']}></Box>
-                    <Box w={[20]} h={[20]} background={['gray.300']}></Box>
-                    <Box w={[20]} h={[20]} background={['gray.300']}></Box>
-                  </HStack>
 
-                  <HStack>
-                    <Box w={[20]} h={[20]} background={['gray.300']}></Box>
-                    <Box w={[20]} h={[20]} background={['gray.300']}></Box>
-                    <Box w={[20]} h={[20]} background={['gray.300']}></Box>
-                  </HStack>
-                </VStack>
-              </TabPanel>
-            )
-          })}
-        </TabPanels>
-      </Tabs>
-    </Box>
-  )
-}
+      <Box h={'100%'} overflowY="scroll" overflowX="hidden">
+        <Tabs isManual w="100%" orientation="vertical" border="0">
+          <TabList>
+            {months.map((value, index) => {
+              return (
+                <Tab
+                  _selected={{ color: 'black', bg: 'blue.300' }}
+                  w={20}
+                  h={20}
+                  bg={index % 2 === 0 ? 'blue.900' : 'blue.500'}
+                  color="white"
+                >
+                  {value}
+                </Tab>
+              )
+            })}
+          </TabList>
+          <TabPanels>
+            {months.map((value, index) => {
+              return (
+                <TabPanel>
+                  <VStack>
+                    <HStack>
+                      <Box w={[20]} h={[20]} background={['gray.300']}></Box>
+                      <Box w={[20]} h={[20]} background={['gray.300']}></Box>
+                      <Box w={[20]} h={[20]} background={['gray.300']}></Box>
+                    </HStack>
 
-function PriceTable({ radioData }: { radioData: IRadioData }) {
-  return (
-    <Flex flexDirection="column" align="center">
-      <Heading fontWeight="bold" fontSize="2xl">
-        Tabela de Valores
-      </Heading>
-      <Text mb={10}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at
-        lectus ultrices, volutpat ex at, gravida mi. Cras tristique tincidunt
-        metus, vel luctus nulla consequat et.
-      </Text>
+                    <HStack>
+                      <Box w={[20]} h={[20]} background={['gray.300']}></Box>
+                      <Box w={[20]} h={[20]} background={['gray.300']}></Box>
+                      <Box w={[20]} h={[20]} background={['gray.300']}></Box>
+                    </HStack>
 
-      <DownloadModal isBook={true} color={radioData.color} />
-      <DownloadModal isBook={false} color="blue" />
+                    <HStack>
+                      <Box w={[20]} h={[20]} background={['gray.300']}></Box>
+                      <Box w={[20]} h={[20]} background={['gray.300']}></Box>
+                      <Box w={[20]} h={[20]} background={['gray.300']}></Box>
+                    </HStack>
+                  </VStack>
+                </TabPanel>
+              )
+            })}
+          </TabPanels>
+        </Tabs>
+      </Box>
     </Flex>
   )
 }
 
-function DownloadModal({ isBook, color }: { isBook: boolean; color: string }) {
+function PriceTable({ radioColor }: { radioColor?: string }): JSX.Element {
+  return (
+    <Flex flexDirection="column" align="center" bg="gray.100" h={'50%'} pl={5}>
+      <Heading
+        fontWeight="bold"
+        fontSize={['3xl', '2xl']}
+        mb={5}
+        mt={5}
+        textAlign="left"
+        w={'100%'}
+      >
+        Tabela de Valores
+      </Heading>
+      <Text mb={10} textAlign="left">
+        Aqui você pode baixar nossa tabela de preços e conhecer mais do nosso
+        book
+      </Text>
+
+      <DownloadModal isBook={true} color={radioColor} />
+      <DownloadModal isBook={false} color="blue.700" />
+    </Flex>
+  )
+}
+
+function DownloadModal({
+  isBook,
+  color
+}: {
+  isBook?: boolean
+  color?: string
+}): JSX.Element {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const buttonsName = isBook ? 'Book' : 'Tabela'
   return (
     <>
-      <Button onClick={onOpen} colorScheme={color} w={40} h={10} mb={5}>
+      <Button onClick={onOpen} bg={color} color={'gray.200'} size={'lg'} mb={5}>
         {'Acessar ' + buttonsName}
       </Button>
 
@@ -366,10 +387,21 @@ function DownloadModal({ isBook, color }: { isBook: boolean; color: string }) {
           </ModalBody>
 
           <ModalFooter mt={5}>
-            <Button colorScheme="red" mr={3} onClick={onClose} d="block" h={50}>
-              Receber tabela por e-mail
+            <Button
+              colorScheme="red"
+              onClick={onClose}
+              d="block"
+              size={'lg'}
+              fontSize={['sm']}
+            >
+              {'Receber ' + buttonsName}
             </Button>
-            <Button variant="ghost" onClick={onClose} d="block">
+            <Button
+              variant="ghost"
+              onClick={onClose}
+              d="block"
+              fontSize={['sm']}
+            >
               Não agora, obrigado!
             </Button>
           </ModalFooter>
