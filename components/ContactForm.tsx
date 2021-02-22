@@ -40,24 +40,32 @@ export default function ContactForm({
           </Heading>
           <HStack mb={[5, 2]}>
             <FormControl id="first-name" isRequired w="45%" mr={[5, 2]}>
-              <FormLabel fontSize={['sm', 'xs']}>Nome</FormLabel>
+              <FormLabel fontSize={['sm', 'xs']} fontWeight={'bold'}>
+                Nome
+              </FormLabel>
               <Input size="sm" variant="flushed" placeholder="Seu nome" />
             </FormControl>
 
             <FormControl id="phone" w="45%" isRequired>
-              <FormLabel fontSize={['sm', 'xs']}>Telefone</FormLabel>
+              <FormLabel fontSize={['sm', 'xs']} fontWeight={'bold'}>
+                Telefone
+              </FormLabel>
               <Input size="sm" variant="flushed" placeholder="+55(81)9999999" />
             </FormControl>
           </HStack>
 
           <HStack mb={5}>
             <FormControl id="subject" isRequired w="45%" mr={[5, 2]}>
-              <FormLabel fontSize={['sm', 'xs']}>Assunto</FormLabel>
+              <FormLabel fontSize={['sm', 'xs']} fontWeight={'bold'}>
+                Assunto
+              </FormLabel>
               <Input size="sm" variant="flushed" placeholder="O assunto" />
             </FormControl>
 
             <FormControl id="email" isRequired w="45%">
-              <FormLabel fontSize={['sm', 'xs']}>E-mail</FormLabel>
+              <FormLabel fontSize={['sm', 'xs']} fontWeight={'bold'}>
+                E-mail
+              </FormLabel>
               <Input
                 size="sm"
                 variant="flushed"
@@ -69,7 +77,9 @@ export default function ContactForm({
 
           <HStack mb={[5, 2]}>
             <FormControl id="message" isRequired w="95%">
-              <FormLabel fontSize={['sm', 'xs']}>Mensagem</FormLabel>
+              <FormLabel fontSize={['sm', 'xs']} fontWeight={'bold'}>
+                Mensagem
+              </FormLabel>
               <Textarea
                 size="xs"
                 placeholder="Sua mensagem"

@@ -20,6 +20,13 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
         rel="stylesheet"
         href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
       />
+      <script src="https://unpkg.com/react/umd/react.production.min.js"></script>
+
+      <script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"></script>
+
+      <script src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js"></script>
+
+      <script>var Alert = ReactBootstrap.Alert;</script>
     </ChakraProvider>
   )
 }
