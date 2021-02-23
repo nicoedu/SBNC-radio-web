@@ -227,6 +227,7 @@ function Book({ radioData }: { radioData: IRadioData }) {
         bottom="0"
         left="0"
         right={[0]}
+        zIndex={0}
       >
         <SvgVideoLayout height="90%" width="90%" color={radioData.color} />
       </Center>
@@ -265,7 +266,7 @@ function Calendar({ radioColor }: { radioColor?: string }): JSX.Element {
         color="white"
         pb={4}
         pt={4}
-        fontSize={['xl', 'md']}
+        fontSize={['xl', 'md', 'lg']}
       >
         Calendário comercial
       </Heading>
@@ -277,8 +278,8 @@ function Calendar({ radioColor }: { radioColor?: string }): JSX.Element {
               return (
                 <Tab
                   _selected={{ color: 'black', bg: 'blue.300' }}
-                  w={[20, '14']}
-                  h={[20, 10]}
+                  w={[20, 14, '70px']}
+                  h={[20, 10, '70px']}
                   bg={index % 2 === 0 ? 'blue.900' : 'blue.500'}
                   color="white"
                   fontSize={['md', 'xs']}
@@ -295,52 +296,69 @@ function Calendar({ radioColor }: { radioColor?: string }): JSX.Element {
                   <VStack>
                     <HStack>
                       <Box
-                        w={[20, 8]}
-                        h={[20, 8]}
+                        w={[20, 8, '60px']}
+                        h={[20, 8, '60px']}
                         background={['gray.300']}
                       ></Box>
                       <Box
-                        w={[20, 8]}
-                        h={[20, 8]}
+                        w={[20, 8, '60px']}
+                        h={[20, 8, '60px']}
                         background={['gray.300']}
                       ></Box>
                       <Box
-                        w={[20, 8]}
-                        h={[20, 8]}
+                        w={[20, 8, '60px']}
+                        h={[20, 8, '60px']}
                         background={['gray.300']}
                       ></Box>
                     </HStack>
                     <HStack>
                       <Box
-                        w={[20, 8]}
-                        h={[20, 8]}
+                        w={[20, 8, '60px']}
+                        h={[20, 8, '60px']}
                         background={['gray.300']}
                       ></Box>
                       <Box
-                        w={[20, 8]}
-                        h={[20, 8]}
+                        w={[20, 8, '60px']}
+                        h={[20, 8, '60px']}
                         background={['gray.300']}
                       ></Box>
                       <Box
-                        w={[20, 8]}
-                        h={[20, 8]}
+                        w={[20, 8, '60px']}
+                        h={[20, 8, '60px']}
                         background={['gray.300']}
                       ></Box>
-                    </HStack>{' '}
+                    </HStack>
                     <HStack>
                       <Box
-                        w={[20, 8]}
-                        h={[20, 8]}
+                        w={[20, 8, '60px']}
+                        h={[20, 8, '60px']}
                         background={['gray.300']}
                       ></Box>
                       <Box
-                        w={[20, 8]}
-                        h={[20, 8]}
+                        w={[20, 8, '60px']}
+                        h={[20, 8, '60px']}
                         background={['gray.300']}
                       ></Box>
                       <Box
-                        w={[20, 8]}
-                        h={[20, 8]}
+                        w={[20, 8, '60px']}
+                        h={[20, 8, '60px']}
+                        background={['gray.300']}
+                      ></Box>
+                    </HStack>
+                    <HStack>
+                      <Box
+                        w={[20, 8, '60px']}
+                        h={[20, 8, '60px']}
+                        background={['gray.300']}
+                      ></Box>
+                      <Box
+                        w={[20, 8, '60px']}
+                        h={[20, 8, '60px']}
+                        background={['gray.300']}
+                      ></Box>
+                      <Box
+                        w={[20, 8, '60px']}
+                        h={[20, 8, '60px']}
                         background={['gray.300']}
                       ></Box>
                     </HStack>
