@@ -50,7 +50,7 @@ const HeroLayout = () => (
   <Flex
     position="relative"
     direction="column"
-    height={['160vh', '150vh', '100vh']}
+    height={['140vh', '150vh', '100vh']}
     align="center"
     bgGradient="linear(to-b, primary, secondary)"
   >
@@ -85,6 +85,7 @@ const HeroLayout = () => (
             size="lg"
             boxShadow="dark-lg"
             borderRadius={20}
+            mb={10}
           >
             Entre em contato
           </Button>
@@ -252,10 +253,10 @@ const RadioCard = ({
       <Heading size={'md'} textAlign="center">
         {title}
       </Heading>
-      <Image py={3} mx="auto" src={'logos/' + id + '.png'} />
+      <Image mx="auto" src={'logos/' + id + '.png'} />
       <Flex w="100%" alignItems="center" justifyContent="center">
         <Button
-          size="xs"
+          size="md"
           w="90%"
           maxH="0.5 rem"
           background="primary"
@@ -263,6 +264,7 @@ const RadioCard = ({
           borderRadius={20}
           alignSelf="center"
           mx="auto"
+          mb={2}
         >
           <Text fontSize={'sm'}>Saiba Mais</Text>
         </Button>

@@ -67,11 +67,11 @@ export default function ContactForm({
       overflow="hidden"
     >
       <form onSubmit={handleSubmit}>
-        <Box alignItems="start" ml={5} mt={['', '5%', '0%']}>
+        <Box alignItems="start" ml={5} mt={['', '5%', '0%', '1%']}>
           <Heading
             fontWeight="bold"
-            mb={[5, '', '', 8]}
-            fontSize={['3xl', '', '2xl', '4xl']}
+            mb={[5, '', '', 2]}
+            fontSize={['3xl', '', '2xl', '3xl']}
             align="left"
             display={['', 'none', 'block']}
           >
@@ -80,14 +80,15 @@ export default function ContactForm({
           <HStack mb={[5, 2]}>
             <FormControl id="first-name" isRequired w="45%" mr={[5, 2]}>
               <FormLabel
-                fontSize={['md', 'xs', '', 'lg']}
+                fontSize={['md', 'xs', '', 'sm']}
                 fontWeight={'bold'}
                 mb={0}
               >
                 Nome
               </FormLabel>
               <Input
-                size="sm"
+                h={['3%']}
+                fontSize={['sm']}
                 variant="flushed"
                 placeholder="Seu nome"
                 name="name"
@@ -97,14 +98,15 @@ export default function ContactForm({
 
             <FormControl id="phone" w="45%" isRequired>
               <FormLabel
-                fontSize={['md', 'xs', '', 'lg']}
+                fontSize={['md', 'xs', '', 'sm']}
                 fontWeight={'bold'}
                 mb={0}
               >
                 Telefone
               </FormLabel>
               <Input
-                size="sm"
+                h={['3%']}
+                fontSize={['sm']}
                 variant="flushed"
                 placeholder="+55 (81) 9999999"
                 name="phone"
@@ -113,17 +115,18 @@ export default function ContactForm({
             </FormControl>
           </HStack>
 
-          <HStack mb={5}>
+          <HStack mb={[5, 2]}>
             <FormControl id="subject" isRequired w="45%" mr={[5, 2]}>
               <FormLabel
-                fontSize={['md', 'xs', '', 'lg']}
+                fontSize={['md', 'xs', '', 'sm']}
                 fontWeight={'bold'}
                 mb={0}
               >
                 Assunto
               </FormLabel>
               <Input
-                size="sm"
+                h={['3%']}
+                fontSize={['sm']}
                 variant="flushed"
                 placeholder="O assunto"
                 name="subject"
@@ -133,14 +136,15 @@ export default function ContactForm({
 
             <FormControl id="email" isRequired w="45%">
               <FormLabel
-                fontSize={['md', 'xs', '', 'lg']}
+                fontSize={['md', 'xs', '', 'sm']}
                 fontWeight={'bold'}
                 mb={0}
               >
                 E-mail
               </FormLabel>
               <Input
-                size="sm"
+                h={['3%']}
+                fontSize={['sm']}
                 variant="flushed"
                 placeholder="Seu e-mail"
                 type="email"
@@ -153,7 +157,7 @@ export default function ContactForm({
           <HStack mb={[5, 2]}>
             <FormControl id="message" isRequired w="95%">
               <FormLabel
-                fontSize={['md', 'xs', '', 'lg']}
+                fontSize={['md', 'xs', '', 'sm']}
                 fontWeight={'bold'}
                 mb={0}
               >
@@ -175,10 +179,11 @@ export default function ContactForm({
             background={radioColor}
             color="white"
             mx="auto"
+            mt={isHome ? '3%' : null}
             alignSelf="center"
             type="submit"
             w={['60%', '40%', '30%', '45%']}
-            h={['', '30px', '30px', '40px']}
+            h={['40px', '30px', '30px', '40px']}
             borderRadius={isHome ? 20 : 30}
           >
             Enviar

@@ -7,7 +7,6 @@ export default function Logo(props) {
       <Image
         position="absolute"
         top={[0, -4, -6, -6]}
-        // left={[0, 0, 0, 8]}
         src="logos/sbnc.svg"
         width="auto"
         maxHeight="150%"

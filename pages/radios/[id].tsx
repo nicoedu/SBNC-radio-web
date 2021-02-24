@@ -105,7 +105,7 @@ export default function Radio({
           </GridItem>
           <GridItem
             overflow="auto"
-            rowStart={['auto', 8, 8]}
+            rowStart={['auto', 8, 9, 8]}
             rowSpan={['auto', 9]}
             colSpan={['auto', 2]}
             colStart={['auto', 2]}
@@ -119,7 +119,7 @@ export default function Radio({
         <Flex
           flexDirection="column"
           w={['100vw', '25vw']}
-          h={['100vh', '80vh']}
+          h={['130vh', '80vh']}
           bg="white"
           borderRadius={['', 'xl', 'xl', 'xl']}
         >
@@ -153,7 +153,7 @@ function SocialMedia({ radioData }: { radioData: IRadioData }) {
     <Box ml={[0, 1]} mr={[0, 1]} mb={'5'}>
       <Image
         borderRadius="full"
-        boxSize={['200px', '90px', '120px', '180px']}
+        boxSize={['200px', '90px', '120px', '120px']}
         src={'/' + radioData.name + '.png'}
         alt="Logo da Rádio"
         border="2px"
@@ -163,7 +163,7 @@ function SocialMedia({ radioData }: { radioData: IRadioData }) {
       />
 
       <Heading
-        fontSize={['4xl', '2xl', '3xl', '4xl']}
+        fontSize={['4xl', '2xl', '2xl', '3xl']}
         align={['center', 'left']}
         fontWeight="bold"
         mt={2}
@@ -171,33 +171,33 @@ function SocialMedia({ radioData }: { radioData: IRadioData }) {
         {radioData.name}
       </Heading>
 
-      <HStack align={['center']} mt={5} spacing={['4', '1', '4', '5']}>
+      <HStack align={['center']} mt={5} spacing={['4', '1', '3', '3']}>
         <Link href={radioData.facebookLink} isExternal ml={'auto'}>
           <Image
             src="/social/facebook.svg"
-            h={['40px', '', '', '40px']}
-            w={['40px', '', '', '40px']}
+            h={['40px', '', '25px', '30px']}
+            w={['40px', '', '25px', '30px']}
           />
         </Link>
         <Link href={radioData.whatsappLink} isExternal>
           <Image
             src="/social/whatsapp.svg"
-            h={['40px', '', '', '40px']}
-            w={['40px', '', '', '40px']}
+            h={['40px', '', '25px', '30px']}
+            w={['40px', '', '25px', '30px']}
           />
         </Link>
         <Link href={radioData.instagramLink} isExternal>
           <Image
             src="/social/instagram.svg"
-            h={['40px', '', '', '40px']}
-            w={['40px', '', '', '40px']}
+            h={['40px', '', '25px', '30px']}
+            w={['40px', '', '25px', '30px']}
           />
         </Link>
         <Link href={radioData.twitterLink} isExternal mr={'auto'}>
           <Image
             src="/social/twitter.svg"
-            h={['40px', '', '', '40px']}
-            w={['40px', '', '', '40px']}
+            h={['40px', '', '25px', '30px']}
+            w={['40px', '', '25px', '30px']}
           />
         </Link>
       </HStack>
@@ -208,18 +208,18 @@ function SocialMedia({ radioData }: { radioData: IRadioData }) {
 function AboutUS({ radioData }: { radioData: IRadioData }) {
   return (
     <VStack alignItems="start" p={4}>
-      <Heading fontWeight="bold" fontSize={['3xl', 'xl', '', '3xl']}>
+      <Heading fontWeight="bold" fontSize={['3xl', 'xl', '', '2xl']}>
         Sobre nós
       </Heading>
       <Text
         noOfLines={7}
         align="left"
-        fontSize={['sm', 'xs', '', 'md']}
-        mb={[4, '', '', 5]}
+        fontSize={['sm', 'xs', '', 'xs']}
+        mb={[4, '', '', 2]}
       >
         {radioData.aboutUs}
       </Text>
-      <Box ml={4} mr={4} w={'100%'} mb={2}>
+      <Box ml={5} mr={5} w={['100%']} mb={2}>
         <ImagesCarousel />
       </Box>
     </VStack>
@@ -228,11 +228,11 @@ function AboutUS({ radioData }: { radioData: IRadioData }) {
 
 function Book({ radioData }: { radioData: IRadioData }) {
   return (
-    <Box position="relative" overflow="hidden" h={['100%']}>
+    <Box position="relative" h={['100%']}>
       <Flex flexDirection="column" alignItems="start" p={4} pb={6}>
         <Heading
           fontWeight="bold"
-          fontSize={['3xl', 'xl', '', '4xl']}
+          fontSize={['3xl', 'xl', '', '2xl']}
           mb={['5']}
         >
           Book
@@ -279,7 +279,7 @@ function Calendar({ radioColor }: { radioColor?: string }): JSX.Element {
   ]
   return (
     <Flex
-      h={['50%', '55%']}
+      h={['48%', '55%']}
       w={['100%', '90%']}
       ml={['auto']}
       mt={['5', '5']}
@@ -293,7 +293,7 @@ function Calendar({ radioColor }: { radioColor?: string }): JSX.Element {
         color="white"
         pb={4}
         pt={4}
-        fontSize={['xl', 'md', 'lg', '2xl', '4xl']}
+        fontSize={['xl', 'md', 'lg', '2xl', '2xl']}
       >
         Calendário comercial
       </Heading>
@@ -305,8 +305,8 @@ function Calendar({ radioColor }: { radioColor?: string }): JSX.Element {
               return (
                 <Tab
                   _selected={{ color: 'black', bg: 'blue.300' }}
-                  w={['100px', 14, '70px', '100px']}
-                  h={['90px', 10, '70px', '100px']}
+                  w={['100px', 14, '70px', '80px']}
+                  h={['90px', 10, '70px', '80px']}
                   bg={index % 2 === 0 ? 'blue.900' : 'blue.500'}
                   color="white"
                   fontSize={['md', 'xs', '', 'md']}
@@ -319,73 +319,73 @@ function Calendar({ radioColor }: { radioColor?: string }): JSX.Element {
           <TabPanels>
             {months.map((value, index) => {
               return (
-                <TabPanel p={['', 0]} pt={['', 1, '', 5]} pl={['', '', '', 0]}>
+                <TabPanel pt={['', 1, '', 2]} pl={['', '', '', 2]}>
                   <VStack>
-                    <HStack>
+                    <HStack mb={['', '', '', 2]}>
                       <Box
-                        w={[20, 8, '60px', '80px']}
-                        h={[20, 8, '60px', '80px']}
+                        w={[20, 8, '55px', '55px']}
+                        h={[20, 8, '55px', '55px']}
                         background={['gray.300']}
                       ></Box>
                       <Box
-                        w={[20, 8, '60px', '80px']}
-                        h={[20, 8, '60px', '80px']}
+                        w={[20, 8, '55px', '55px']}
+                        h={[20, 8, '55px', '55px']}
                         background={['gray.300']}
                       ></Box>
                       <Box
-                        w={[20, 8, '60px', '80px']}
-                        h={[20, 8, '60px', '80px']}
-                        background={['gray.300']}
-                      ></Box>
-                    </HStack>
-                    <HStack>
-                      <Box
-                        w={[20, 8, '60px', '80px']}
-                        h={[20, 8, '60px', '80px']}
-                        background={['gray.300']}
-                      ></Box>
-                      <Box
-                        w={[20, 8, '60px', '80px']}
-                        h={[20, 8, '60px', '80px']}
-                        background={['gray.300']}
-                      ></Box>
-                      <Box
-                        w={[20, 8, '60px', '80px']}
-                        h={[20, 8, '60px', '80px']}
+                        w={[20, 8, '55px', '55px']}
+                        h={[20, 8, '55px', '55px']}
                         background={['gray.300']}
                       ></Box>
                     </HStack>
-                    <HStack>
+                    <HStack mb={['', '', '', 2]}>
                       <Box
-                        w={[20, 8, '60px', '80px']}
-                        h={[20, 8, '60px', '80px']}
+                        w={[20, 8, '55px', '55px']}
+                        h={[20, 8, '55px', '55px']}
                         background={['gray.300']}
                       ></Box>
                       <Box
-                        w={[20, 8, '60px', '80px']}
-                        h={[20, 8, '60px', '80px']}
+                        w={[20, 8, '55px', '55px']}
+                        h={[20, 8, '55px', '55px']}
                         background={['gray.300']}
                       ></Box>
                       <Box
-                        w={[20, 8, '60px', '80px']}
-                        h={[20, 8, '60px', '80px']}
+                        w={[20, 8, '55px', '55px']}
+                        h={[20, 8, '55px', '55px']}
                         background={['gray.300']}
                       ></Box>
                     </HStack>
-                    <HStack>
+                    <HStack mb={['', '', '', 2]}>
                       <Box
-                        w={[20, 8, '60px', '80px']}
-                        h={[20, 8, '60px', '80px']}
+                        w={[20, 8, '55px', '55px']}
+                        h={[20, 8, '55px', '55px']}
                         background={['gray.300']}
                       ></Box>
                       <Box
-                        w={[20, 8, '60px', '80px']}
-                        h={[20, 8, '60px', '80px']}
+                        w={[20, 8, '55px', '55px']}
+                        h={[20, 8, '55px', '55px']}
                         background={['gray.300']}
                       ></Box>
                       <Box
-                        w={[20, 8, '60px', '80px']}
-                        h={[20, 8, '60px', '80px']}
+                        w={[20, 8, '55px', '55px']}
+                        h={[20, 8, '55px', '55px']}
+                        background={['gray.300']}
+                      ></Box>
+                    </HStack>
+                    <HStack mb={['', '', '', 2]}>
+                      <Box
+                        w={[20, 8, '55px', '55px']}
+                        h={[20, 8, '55px', '55px']}
+                        background={['gray.300']}
+                      ></Box>
+                      <Box
+                        w={[20, 8, '55px', '55px']}
+                        h={[20, 8, '55px', '55px']}
+                        background={['gray.300']}
+                      ></Box>
+                      <Box
+                        w={[20, 8, '55px', '55px']}
+                        h={[20, 8, '55px', '55px']}
                         background={['gray.300']}
                       ></Box>
                     </HStack>
@@ -406,14 +406,14 @@ function PriceTable({ radioColor }: { radioColor?: string }): JSX.Element {
       flexDirection="column"
       align="center"
       borderTop={['', '1px solid grey']}
-      h={'50%'}
+      h={['50%']}
       pl={[5, 5]}
       pr={[5]}
       borderBottomRadius="xl"
     >
       <Heading
         fontWeight="bold"
-        fontSize={['3xl', 'xl', '', '4xl']}
+        fontSize={['3xl', 'xl', '', '2xl']}
         mb={[5, 3]}
         mt={5}
         textAlign="left"
@@ -421,7 +421,11 @@ function PriceTable({ radioColor }: { radioColor?: string }): JSX.Element {
       >
         Tabela de Valores
       </Heading>
-      <Text mb={[10, 5]} textAlign="left" fontSize={['md', 'xs', '', 'md']}>
+      <Text
+        mb={[10, 5, 3, 5]}
+        textAlign="left"
+        fontSize={['md', 'xs', '', 'sm']}
+      >
         Aqui você pode baixar nossa tabela de preços e conhecer mais do nosso
         book
       </Text>
@@ -447,8 +451,9 @@ function DownloadModal({
         onClick={onOpen}
         bg={color}
         color={'gray.200'}
-        size="sm" //Mobile - XL
-        mb={[5, 2]}
+        h={['15%', '25px', '33px', '30px']}
+        w={['50%', '80%', '60%', '60%']}
+        mb={[5, 1, 2, 2]}
       >
         {'Acessar ' + buttonsName}
       </Button>
@@ -528,45 +533,12 @@ function ImagesCarousel() {
       <Carousel.Item>
         <img
           className="d-block"
-          width={'90%'} //Botar essa largura adaptada
+          width={'55%'} //Botar essa largura adaptada
           height={'auto'}
           src="https://jpimg.com.br/uploads/2018/11/RECIFE_LOGO_FM_AFILIADA_3D_VM-500x500.jpg"
           alt="Imagem Jovem pan"
         />
-
-        <Carousel.Caption>
-          <h3>Aquele dia</h3>
-          <p>Minha imagem</p>
-        </Carousel.Caption>
       </Carousel.Item>{' '}
-      <Carousel.Item>
-        <img
-          className="d-block"
-          width={'90%'} //Botar essa largura adaptada
-          height={'auto'}
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_CjrMEHeduquwhCN7h1uzNN5lTiz0ooXp0g&usqp=CAU"
-          alt="Imagem Jovem pan"
-        />
-
-        <Carousel.Caption>
-          <h3>Aquele dia</h3>
-          <p>Minha imagem</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block"
-          width={'90%'} //Botar essa largura adaptada
-          height={'auto'}
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuM2zyUXrHDUgIF0q94O5E1jZe_wK8-8FRHw&usqp=CAU"
-          alt="Imagem Jovem pan"
-        />
-
-        <Carousel.Caption>
-          <h3>Aquele dia</h3>
-          <p>Minha imagem</p>
-        </Carousel.Caption>
-      </Carousel.Item>
     </Carousel>
   )
 }
