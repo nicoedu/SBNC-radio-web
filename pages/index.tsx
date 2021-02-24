@@ -72,7 +72,7 @@ const HeroLayout = () => (
       src="layout/home-ball.svg"
     />
 
-    <Center height="50%" zIndex="10">
+    <Center height={['50%', '50%', '45vh']} zIndex="10">
       <Box w={['90%', '100%']}>
         <Heading
           fontSize={['4xl', '5xl', '5xl', '6xl']}

@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-// eslint-disable-next-line no-use-before-define
 import React, { useReducer } from 'react'
 import {
   Box,
@@ -10,11 +8,21 @@ import {
   Heading,
   HStack,
   Input,
-  Textarea
+  Textarea,
+  useToast
 } from '@chakra-ui/react'
 import SvgCornerRadio from '@components/layout/corner-radio'
+import fetch from 'node-fetch'
 
-const formReducer = (state, event) => {
+type State = {
+  name: string
+  email: string
+  phone: string
+  subject: string
+  message: string
+}
+
+const formReducer = (state: State, event: { name: string; value: string }) => {
   return {
     ...state,
     [event.name]: event.value
@@ -28,30 +36,46 @@ export default function ContactForm({
   isHome?: boolean
   radioColor?: string
 }): JSX.Element {
-  const [formData, setFormData] = useReducer(formReducer, {})
+  const toast = useToast()
+  const [formData, setFormData] = useReducer(formReducer, {
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: ''
+  })
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
-    submitRequest(event)
-  }
-
-  const submitRequest = async (e) => {
-    const json = JSON.stringify(formData)
-    const response = await fetch('http://localhost:9000', {
+    await fetch('/api/send-self-email', {
       method: 'POST',
-      headers: { 'Content-type': 'application/json' },
-      body: json
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
     })
-    const resData = await response.json()
-
-    if (resData.status === 'success') {
-      alert('Message Sent.')
-    } else if (resData.status === 'fail') {
-      alert('Message failed to send.')
-    }
+      .then(() => {
+        toast({
+          title: 'Sucesso',
+          description: 'Email enviado com sucesso',
+          status: 'success',
+          duration: 9000,
+          isClosable: true
+        })
+      })
+      .catch((error) => {
+        console.log(error)
+        toast({
+          title: 'Erro',
+          description: 'Falha ao enviar email, tente novamente mais tarde',
+          status: 'error',
+          duration: 9000,
+          isClosable: true
+        })
+      })
   }
 
-  const handleChange = (event) => {
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       name: event.target.name,
       value: event.target.value
@@ -62,6 +86,7 @@ export default function ContactForm({
     <Box
       position="relative"
       w="100%"
+      h="100%"
       py={2}
       pr={2}
       mb={['0']}
@@ -179,7 +204,7 @@ export default function ContactForm({
                 size={isHome ? 'md' : 'sm'}
                 placeholder="Sua mensagem"
                 variant="flushed"
-                name="mensagem"
+                name="message"
                 onChange={handleChange}
               />
             </FormControl>

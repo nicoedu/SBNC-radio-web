@@ -1,42 +1,32 @@
 import {
   Box,
-  Button,
   Center,
   Flex,
-  FormControl,
-  FormLabel,
   Grid,
   GridItem,
   Heading,
   HStack,
   Image,
-  Input,
   Link,
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
-  Text,
-  useDisclosure,
-  VStack,
+  Tab,
   TabList,
   TabPanel,
-  Tabs,
   TabPanels,
-  Tab
+  Tabs,
+  Text,
+  VStack
 } from '@chakra-ui/react'
 import ContactForm from '@components/ContactForm'
+import DownloadModal from '@components/DownloadModal'
 import SvgVideoLayout from '@components/layout/background-video-radios'
 import Header from '@components/navbar/Header'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import { IRadioData } from 'global'
 import { GetStaticPaths, GetStaticProps } from 'next'
+import Head from 'next/head'
+import Carousel from 'react-bootstrap/Carousel'
 import ReactPlayer from 'react-player'
 import { getAllRadioIds, getRadioData } from '../../lib/radios'
-import Carousel from 'react-bootstrap/Carousel'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import Head from 'next/head'
 
 export default function Radio({
   radioData
@@ -322,9 +312,9 @@ function Calendar({ radioColor }: { radioColor?: string }): JSX.Element {
             })}
           </TabList>
           <TabPanels>
-            {months.map(() => {
+            {months.map((value) => {
               return (
-                <TabPanel pt={['', 1, '', 2]} pl={['', '', '', 2]}>
+                <TabPanel key={value} pt={['', 1, '', 2]} pl={['', '', '', 2]}>
                   <VStack>
                     <HStack mb={['', '', '', 2]}>
                       <Box
@@ -438,98 +428,6 @@ function PriceTable({ radioColor }: { radioColor?: string }): JSX.Element {
       <DownloadModal isBook={true} color={radioColor} />
       <DownloadModal isBook={false} color="blue.700" />
     </Flex>
-  )
-}
-
-function DownloadModal({
-  isBook,
-  color
-}: {
-  isBook?: boolean
-  color?: string
-}): JSX.Element {
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const buttonsName = isBook ? 'Book' : 'Tabela'
-  return (
-    <>
-      <Button
-        onClick={onOpen}
-        bg={color}
-        color={'gray.200'}
-        h={['15%', '25px', '40px', '45px']}
-        w={['50%', '80%', '80%', '60%']}
-        mb={[5, 1, 2, 2]}
-        _hover={{ bg: color }}
-      >
-        {'Acessar ' + buttonsName}
-      </Button>
-
-      <Modal isOpen={isOpen} onClose={onClose} size="xl" isCentered>
-        <ModalOverlay />
-        <ModalContent borderRadius={30}>
-          <ModalHeader
-            bg="red"
-            color="white"
-            borderTopRadius={30}
-            pt={7}
-            pb={7}
-          >
-            <Heading align="center">
-              Baixe {buttonsName.toLowerCase()} agora mesmo
-            </Heading>
-          </ModalHeader>
-          <ModalBody>
-            <FormControl id="first-name" isRequired mt={5}>
-              <FormLabel>Nome</FormLabel>
-              <Input
-                variant="outline"
-                placeholder="Seu nome"
-                borderRadius={30}
-              />
-            </FormControl>
-
-            <FormControl id="phone" isRequired mt={5}>
-              <FormLabel>Telefone</FormLabel>
-              <Input
-                variant="outline"
-                borderRadius={30}
-                placeholder="+55(81)9999999"
-              />
-            </FormControl>
-
-            <FormControl id="email" isRequired mt={5}>
-              <FormLabel>E-mail</FormLabel>
-              <Input
-                variant="outline"
-                borderRadius={30}
-                placeholder="Seu e-mail"
-                type="email"
-              />
-            </FormControl>
-          </ModalBody>
-
-          <ModalFooter mt={5}>
-            <Button
-              colorScheme="red"
-              onClick={onClose}
-              d="block"
-              size={'lg'}
-              fontSize={['sm']}
-            >
-              {'Receber ' + buttonsName}
-            </Button>
-            <Button
-              variant="ghost"
-              onClick={onClose}
-              d="block"
-              fontSize={['sm']}
-            >
-              Não agora, obrigado!
-            </Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
-    </>
   )
 }
 

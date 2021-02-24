@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React, { useEffect, useState } from 'react'
 import {
   Link,
@@ -105,8 +106,7 @@ const NavBarContainer = ({ children, ...props }) => {
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
   })
-  if (scrolled) {
-  }
+
   return (
     <Flex
       zIndex="1000"
