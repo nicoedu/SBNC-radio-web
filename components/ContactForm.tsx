@@ -196,6 +196,7 @@ export default function ContactForm({
             h={['40px', '30px', '30px', '40px']}
             borderRadius={isHome ? 20 : 30}
             mb={isHome ? [5] : ''}
+            _hover={isHome ? { bg: '#5268DF' } : { bg: radioColor }}
           >
             Enviar
           </Button>

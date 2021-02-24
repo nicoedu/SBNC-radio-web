@@ -99,6 +99,7 @@ const HeroLayout = () => (
             borderRadius={20}
             mb={[10]}
             mt={[0, 5]}
+            _hover={{ bg: '#E7C51E', color: '#000000' }}
           >
             Entre em contato
           </Button>

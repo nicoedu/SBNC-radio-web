@@ -451,9 +451,10 @@ function DownloadModal({
         onClick={onOpen}
         bg={color}
         color={'gray.200'}
-        h={['15%', '25px', '33px', '30px']}
+        h={['15%', '25px', '33px', '45px']}
         w={['50%', '80%', '60%', '60%']}
         mb={[5, 1, 2, 2]}
+        _hover={{ bg: color }}
       >
         {'Acessar ' + buttonsName}
       </Button>
