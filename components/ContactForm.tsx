@@ -70,7 +70,8 @@ export default function ContactForm({
         <Box alignItems="start" ml={5} mt={['', '5%', '0%', '1%']}>
           <Heading
             fontWeight="bold"
-            mb={isHome ? [5, '', '', 5] : [5, '', '', 2]}
+            mt={isHome ? [4] : ['']}
+            mb={isHome ? [5] : [5, '', '', 2]}
             fontSize={['3xl', '', '2xl', '3xl']}
             align="left"
             display={['', 'none', 'block']}

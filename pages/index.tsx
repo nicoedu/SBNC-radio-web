@@ -51,7 +51,7 @@ const HeroLayout = () => (
   <Flex
     position="relative"
     direction="column"
-    minH="100vh"
+    minH={['100vh', '72vh']}
     height="auto"
     align="center"
     bgGradient="linear(to-b, primary, secondary)"
