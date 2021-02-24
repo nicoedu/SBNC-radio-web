@@ -15,10 +15,18 @@ import ContactForm from '@components/ContactForm'
 import SvgCornerHome from '@components/layout/corner-home'
 import Header from '@components/navbar/Header'
 import theme from 'theme'
+import Head from 'next/head'
 
 export default function Home(): JSX.Element {
   return (
     <>
+      <Head>
+        <title>SBNC - Sistema Brasil Nordeste de Comunicação </title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+
+      <Header />
+
       <HeroLayout />
       <AboutUsLayout />
       <ContactUsLayout />
@@ -56,7 +64,6 @@ const HeroLayout = () => (
     align="center"
     bgGradient="linear(to-b, primary, secondary)"
   >
-    <Header />
     <Image
       position="absolute"
       width={['60vw', '50vw']}

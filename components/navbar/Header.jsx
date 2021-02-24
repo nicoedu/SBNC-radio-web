@@ -1,131 +1,63 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import React, { useEffect, useState } from 'react'
-import {
-  Link,
-  Flex,
-  Stack,
-  MenuButton,
-  MenuList,
-  Menu,
-  Heading,
-  Center
-} from '@chakra-ui/react'
+import React from 'react'
+import { Image } from '@chakra-ui/react'
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
+import NavDropdown from 'react-bootstrap/NavDropdown'
 
-import Logo from './Logo'
-import { ChevronDownIcon, CloseIcon, HamburgerIcon } from '@chakra-ui/icons'
-
-const NavBar = (props) => {
-  const [isOpen, setIsOpen] = React.useState(false)
-
-  const toggle = () => setIsOpen(!isOpen)
-
+const Header = () => {
   return (
-    <NavBarContainer {...props}>
-      <Logo
-        w="300px"
-        color={['black', 'black', 'primary.500', 'primary.500']}
-      />
-      <MenuToggle toggle={toggle} isOpen={isOpen} />
-      <MenuLinks isOpen={isOpen} />
-    </NavBarContainer>
-  )
-}
-
-const MenuToggle = ({ toggle, isOpen }) => {
-  return (
-    <Center display={{ base: 'block', md: 'none' }} onClick={toggle}>
-      {isOpen ? <CloseIcon /> : <HamburgerIcon />}
-    </Center>
-  )
-}
-
-const MenuItem = ({ children, to = '/', ...rest }) => {
-  return (
-    <Link href={to}>
-      <Heading size={'sm'} display="block" {...rest}>
-        {children}
-      </Heading>
-    </Link>
-  )
-}
-
-const MenuLinks = ({ isOpen }) => {
-  return (
-    <Center
-      display={{ base: isOpen ? 'block' : 'none', md: 'block' }}
-      flexBasis={{ base: '100%', md: 'auto' }}
+    <Navbar
+      collapseOnSelect
+      expand="xl"
+      bg="#2E3092"
+      variant="dark"
+      style={{ minHeight: '70px', width: '100%' }}
     >
-      <Stack
-        background={isOpen ? 'primary' : null}
-        my="auto"
-        spacing={8}
-        justify={['center', 'space-between', 'flex-end', 'flex-end']}
-        direction={['column', 'row', 'row', 'row']}
-        pt={[4, 4, 0, 0]}
-      >
-        <Menu>
-          <MenuButton _focus={{ boxShadow: 'outline' }}>
-            <Heading size={'sm'} display="block">
-              Radio <ChevronDownIcon boxSize={6} />
-            </Heading>
-          </MenuButton>
-          <MenuList color="black">
-            <MenuItem _hover={{ bg: 'gray.400' }} to="/radios/jprecife">
+      <Navbar.Brand href="/">
+        <Image
+          src="/sbnc.svg"
+          h={['55px']}
+          left={['5.5vw']}
+          top={0}
+          zIndex={1}
+          position="absolute"
+        />
+        <Image
+          src="/white-background.png"
+          position="absolute"
+          h={'65px'}
+          top={0}
+          left={['4vw']}
+        />
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav">
+        <Nav className="ml-auto" style={{ color: 'white' }}>
+          <NavDropdown
+            title="Rádios"
+            id="collasible-nav-dropdown"
+            style={{ color: 'white' }}
+          >
+            <NavDropdown.Item href="/radios/jprecife">
               Jovem Pan Recife
-            </MenuItem>
-            <MenuItem _hover={{ bg: 'gray.400' }} to="/radios/jpcaruaru">
+            </NavDropdown.Item>
+            <NavDropdown.Item href="/radios/jpcaruaru">
               Jovem Pan Caruaru
-            </MenuItem>
-            <MenuItem _hover={{ bg: 'gray.400' }} to="/radios/music">
-              Music FM
-            </MenuItem>
-            <MenuItem _hover={{ bg: 'gray.400' }} to="/radios/band">
-              Band FM
-            </MenuItem>
-          </MenuList>
-        </Menu>
-        <MenuItem to="/faetures">Quem somos </MenuItem>
-        <MenuItem to="/pricing">Fale conosco </MenuItem>
-      </Stack>
-    </Center>
+            </NavDropdown.Item>
+            <NavDropdown.Item href="/radios/band">Band FM</NavDropdown.Item>
+            <NavDropdown.Item href="/radios/music">Music FM</NavDropdown.Item>
+          </NavDropdown>
+          <Nav.Link href="#deets" style={{ color: 'white' }}>
+            Quem somos
+          </Nav.Link>
+          <Nav.Link eventKey={2} href="#memes" style={{ color: 'white' }}>
+            Anuncie conosco
+          </Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   )
 }
 
-const NavBarContainer = ({ children, ...props }) => {
-  const [scrolled, setScrolled] = useState(false)
-  const handleScroll = () => {
-    console.log('hey')
-    const offset = window.scrollY
-    if (offset > 200) {
-      setScrolled(true)
-    } else {
-      setScrolled(false)
-    }
-  }
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll)
-  })
-
-  return (
-    <Flex
-      zIndex="1000"
-      as="nav"
-      h="10vh"
-      align="center"
-      boxShadow="base"
-      justify="space-between"
-      wrap="wrap"
-      w="100%"
-      px={4}
-      position={scrolled ? 'fixed' : 'static'}
-      bg={scrolled ? 'primary' : 'transparent'}
-      color={['white']}
-      {...props}
-    >
-      {children}
-    </Flex>
-  )
-}
-
-export default NavBar
+export default Header
