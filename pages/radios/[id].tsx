@@ -456,8 +456,8 @@ function DownloadModal({
         onClick={onOpen}
         bg={color}
         color={'gray.200'}
-        h={['15%', '25px', '33px', '45px']}
-        w={['50%', '80%', '60%', '60%']}
+        h={['15%', '25px', '40px', '45px']}
+        w={['50%', '80%', '80%', '60%']}
         mb={[5, 1, 2, 2]}
         _hover={{ bg: color }}
       >
@@ -537,10 +537,10 @@ function ImagesCarousel() {
   return (
     <Carousel controls={false}>
       <Carousel.Item>
-        <img
+        <Image
           className="d-block"
-          width={'100%'}
-          height={'auto'}
+          width={'auto'}
+          maxH={['', '180px']}
           src="https://jpimg.com.br/uploads/2018/11/RECIFE_LOGO_FM_AFILIADA_3D_VM-500x500.jpg"
           alt="Imagem Jovem pan"
         />
