@@ -322,7 +322,7 @@ function Calendar({ radioColor }: { radioColor?: string }): JSX.Element {
             })}
           </TabList>
           <TabPanels>
-            {months.map((value, index) => {
+            {months.map(() => {
               return (
                 <TabPanel pt={['', 1, '', 2]} pl={['', '', '', 2]}>
                   <VStack>
@@ -538,7 +538,7 @@ function ImagesCarousel() {
     <Carousel controls={false}>
       <Carousel.Item>
         <img
-          display="relative"
+          className="d-block"
           width={'100%'}
           height={'auto'}
           src="https://jpimg.com.br/uploads/2018/11/RECIFE_LOGO_FM_AFILIADA_3D_VM-500x500.jpg"

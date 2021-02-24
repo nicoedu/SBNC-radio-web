@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+// eslint-disable-next-line no-use-before-define
 import React, { useReducer } from 'react'
 import {
   Box,

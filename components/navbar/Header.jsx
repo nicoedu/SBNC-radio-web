@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {
   Link,
-  Box,
   Flex,
-  Text,
-  Button,
   Stack,
   MenuButton,
   MenuList,
