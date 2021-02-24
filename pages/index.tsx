@@ -277,8 +277,17 @@ const RadioCard = ({
           alignSelf="center"
           mx="auto"
           mb={2}
+          _hover={{
+            bg: /* '#4052B4' */ '#5268DF',
+            color: '#E9E9E9',
+            textDecoration: 'none'
+          }}
         >
-          <Link href={'/radios/' + id} fontSize={'sm'}>
+          <Link
+            href={'/radios/' + id}
+            fontSize={'sm'}
+            _hover={{ textDecoration: 'none' }}
+          >
             Saiba Mais
           </Link>
           <Text></Text>
