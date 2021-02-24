@@ -29,8 +29,8 @@ export default function Home(): JSX.Element {
           position: 'fixed',
           width: '60px',
           height: '60px',
-          bottom: '40px',
-          right: '40px',
+          bottom: '20px',
+          right: '20px',
           backgroundColor: '#25d366',
           color: '#FFF',
           borderRadius: '50px',
@@ -72,21 +72,32 @@ const HeroLayout = () => (
     />
 
     <Center height="50%" zIndex="10">
-      <Box>
-        <Heading size={'2xl'} color="white" mt={8} textAlign="center">
+      <Box w={['90%', '100%']}>
+        <Heading
+          fontSize={['4xl', '5xl', '5xl', '5xl']}
+          color="white"
+          mt={8}
+          textAlign="center"
+        >
           <b>Sistema Brasil Nordestes de Comunicação</b>
         </Heading>
-        <Text fontSize={'2xl'} color="white" mt={8} textAlign="center">
+        <Text
+          fontSize={['md', '2xl']}
+          color="white"
+          mt={[0, 3]}
+          textAlign="center"
+        >
           Grupo das maiores rádios do Nordeste
         </Text>
         <Center py={5}>
           <Button
-            w={['80vw', '40vw', '30vw', '25vw']}
+            w={['70vw', '40vw', '30vw', '25vw']}
             background="contrast"
             size="lg"
             boxShadow="dark-lg"
             borderRadius={20}
             mb={[10]}
+            mt={[0, 5]}
           >
             Entre em contato
           </Button>
