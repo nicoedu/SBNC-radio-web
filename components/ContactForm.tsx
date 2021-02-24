@@ -190,7 +190,7 @@ export default function ContactForm({
             background={isHome ? 'blue' : radioColor}
             color="white"
             mx="auto"
-            mt={isHome ? '3%' : null}
+            mt={isHome ? '3%' : 'undefined' }
             alignSelf="center"
             type="submit"
             w={['60%', '40%', '30%', '45%']}

@@ -36,6 +36,7 @@ import ReactPlayer from 'react-player'
 import { getAllRadioIds, getRadioData } from '../../lib/radios'
 import Carousel from 'react-bootstrap/Carousel'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import Head from 'next/head'
 
 export default function Radio({
   radioData
@@ -50,6 +51,10 @@ export default function Radio({
       justify="center"
       overflow="hidden"
     >
+      <Head>
+        <title>{radioData.name}</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <Header />
       <Flex
         bg="rgba(255, 255, 255, 0.35)"
@@ -219,7 +224,7 @@ function AboutUS({ radioData }: { radioData: IRadioData }) {
       >
         {radioData.aboutUs}
       </Text>
-      <Box ml={5} mr={5} w={['100%']} h={['40px']} mb={2}>
+      <Box ml={5} mr={5} w={['100%']} mb={2}>
         <ImagesCarousel />
       </Box>
     </VStack>
