@@ -153,7 +153,7 @@ function SocialMedia({ radioData }: { radioData: IRadioData }) {
     <Box ml={[0, 1]} mr={[0, 1]} mb={'5'}>
       <Image
         borderRadius="full"
-        boxSize={['200px', '90px', '120px', '120px']}
+        boxSize={['200px', '90px', '120px', '150px']}
         src={'/' + radioData.name + '.png'}
         alt="Logo da Rádio"
         border="2px"
@@ -163,7 +163,7 @@ function SocialMedia({ radioData }: { radioData: IRadioData }) {
       />
 
       <Heading
-        fontSize={['4xl', '2xl', '2xl', '3xl']}
+        fontSize={['4xl', '2xl', '2xl', '4xl']}
         align={['center', 'left']}
         fontWeight="bold"
         mt={2}
@@ -175,29 +175,29 @@ function SocialMedia({ radioData }: { radioData: IRadioData }) {
         <Link href={radioData.facebookLink} isExternal ml={'auto'}>
           <Image
             src="/social/facebook.svg"
-            h={['40px', '', '25px', '30px']}
-            w={['40px', '', '25px', '30px']}
+            h={['40px', '', '25px', '35px']}
+            w={['40px', '', '25px', '35px']}
           />
         </Link>
         <Link href={radioData.whatsappLink} isExternal>
           <Image
             src="/social/whatsapp.svg"
-            h={['40px', '', '25px', '30px']}
-            w={['40px', '', '25px', '30px']}
+            h={['40px', '', '25px', '35px']}
+            w={['40px', '', '25px', '35px']}
           />
         </Link>
         <Link href={radioData.instagramLink} isExternal>
           <Image
             src="/social/instagram.svg"
-            h={['40px', '', '25px', '30px']}
-            w={['40px', '', '25px', '30px']}
+            h={['40px', '', '25px', '35px']}
+            w={['40px', '', '25px', '35px']}
           />
         </Link>
         <Link href={radioData.twitterLink} isExternal mr={'auto'}>
           <Image
             src="/social/twitter.svg"
-            h={['40px', '', '25px', '30px']}
-            w={['40px', '', '25px', '30px']}
+            h={['40px', '', '25px', '35px']}
+            w={['40px', '', '25px', '35px']}
           />
         </Link>
       </HStack>
@@ -219,7 +219,7 @@ function AboutUS({ radioData }: { radioData: IRadioData }) {
       >
         {radioData.aboutUs}
       </Text>
-      <Box ml={5} mr={5} w={['100%']} mb={2}>
+      <Box ml={5} mr={5} w={['100%']} h={['40px']} mb={2}>
         <ImagesCarousel />
       </Box>
     </VStack>
@@ -237,11 +237,11 @@ function Book({ radioData }: { radioData: IRadioData }) {
         >
           Book
         </Heading>
-        <Box alignSelf="center" zIndex="100">
+        <Box alignSelf="center" zIndex="100" w={['100%']} h={['250px']}>
           <ReactPlayer
             url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
-            width="30vw" //sm - 90vw
-            height="180px" //sm - 252px
+            width="100%"
+            height="100%"
           />
         </Box>
       </Flex>
@@ -534,7 +534,7 @@ function ImagesCarousel() {
       <Carousel.Item>
         <img
           className="d-block"
-          width={'55%'} //Botar essa largura adaptada
+          width={'100%'}
           height={'auto'}
           src="https://jpimg.com.br/uploads/2018/11/RECIFE_LOGO_FM_AFILIADA_3D_VM-500x500.jpg"
           alt="Imagem Jovem pan"
