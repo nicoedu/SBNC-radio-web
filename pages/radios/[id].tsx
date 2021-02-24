@@ -105,7 +105,7 @@ export default function Radio({
           </GridItem>
           <GridItem
             overflow="auto"
-            rowStart={['auto', 8, 9, 8]}
+            rowStart={['auto', 9]}
             rowSpan={['auto', 9]}
             colSpan={['auto', 2]}
             colStart={['auto', 2]}

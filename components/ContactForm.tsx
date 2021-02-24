@@ -70,25 +70,27 @@ export default function ContactForm({
         <Box alignItems="start" ml={5} mt={['', '5%', '0%', '1%']}>
           <Heading
             fontWeight="bold"
-            mb={[5, '', '', 2]}
+            mb={isHome ? [5, '', '', 5] : [5, '', '', 2]}
             fontSize={['3xl', '', '2xl', '3xl']}
             align="left"
             display={['', 'none', 'block']}
           >
             Fale Conosco
           </Heading>
-          <HStack mb={[5, 2]}>
+          <HStack mb={isHome ? [6] : [5, 2]}>
             <FormControl id="first-name" isRequired w="45%" mr={[5, 2]}>
               <FormLabel
-                fontSize={['md', 'xs', '', 'sm']}
+                fontSize={
+                  isHome ? ['md', 'xs', '', 'md'] : ['md', 'xs', '', 'sm']
+                }
                 fontWeight={'bold'}
-                mb={0}
+                mb={isHome ? 3 : 0}
               >
                 Nome
               </FormLabel>
               <Input
-                h={['3%']}
-                fontSize={['sm']}
+                h={isHome ? [''] : ['3%']}
+                fontSize={isHome ? ['md'] : ['sm']}
                 variant="flushed"
                 placeholder="Seu nome"
                 name="name"
@@ -98,15 +100,17 @@ export default function ContactForm({
 
             <FormControl id="phone" w="45%" isRequired>
               <FormLabel
-                fontSize={['md', 'xs', '', 'sm']}
+                fontSize={
+                  isHome ? ['md', 'xs', '', 'md'] : ['md', 'xs', '', 'sm']
+                }
                 fontWeight={'bold'}
-                mb={0}
+                mb={isHome ? 3 : 0}
               >
                 Telefone
               </FormLabel>
               <Input
-                h={['3%']}
-                fontSize={['sm']}
+                h={isHome ? [''] : ['3%']}
+                fontSize={isHome ? ['md'] : ['sm']}
                 variant="flushed"
                 placeholder="+55 (81) 9999999"
                 name="phone"
@@ -115,18 +119,20 @@ export default function ContactForm({
             </FormControl>
           </HStack>
 
-          <HStack mb={[5, 2]}>
+          <HStack mb={isHome ? [6] : [5, 2]}>
             <FormControl id="subject" isRequired w="45%" mr={[5, 2]}>
               <FormLabel
-                fontSize={['md', 'xs', '', 'sm']}
+                fontSize={
+                  isHome ? ['md', 'xs', '', 'md'] : ['md', 'xs', '', 'sm']
+                }
                 fontWeight={'bold'}
-                mb={0}
+                mb={isHome ? 3 : 0}
               >
                 Assunto
               </FormLabel>
               <Input
-                h={['3%']}
-                fontSize={['sm']}
+                h={isHome ? [''] : ['3%']}
+                fontSize={isHome ? ['md'] : ['sm']}
                 variant="flushed"
                 placeholder="O assunto"
                 name="subject"
@@ -136,15 +142,17 @@ export default function ContactForm({
 
             <FormControl id="email" isRequired w="45%">
               <FormLabel
-                fontSize={['md', 'xs', '', 'sm']}
+                fontSize={
+                  isHome ? ['md', 'xs', '', 'md'] : ['md', 'xs', '', 'sm']
+                }
                 fontWeight={'bold'}
-                mb={0}
+                mb={isHome ? 3 : 0}
               >
                 E-mail
               </FormLabel>
               <Input
-                h={['3%']}
-                fontSize={['sm']}
+                h={isHome ? [''] : ['3%']}
+                fontSize={isHome ? ['md'] : ['sm']}
                 variant="flushed"
                 placeholder="Seu e-mail"
                 type="email"
@@ -154,18 +162,20 @@ export default function ContactForm({
             </FormControl>
           </HStack>
 
-          <HStack mb={[5, 2]}>
+          <HStack mb={isHome ? [3] : [5, 2]}>
             <FormControl id="message" isRequired w="95%">
               <FormLabel
-                fontSize={['md', 'xs', '', 'sm']}
+                fontSize={
+                  isHome ? ['md', 'xs', '', 'md'] : ['md', 'xs', '', 'sm']
+                }
                 fontWeight={'bold'}
-                mb={0}
+                mb={isHome ? 3 : 0}
               >
                 Mensagem
               </FormLabel>
               <Textarea
                 resize={resize}
-                size="xs"
+                size={isHome ? 'md' : 'xs'}
                 placeholder="Sua mensagem"
                 variant="flushed"
                 name="mensagem"
@@ -176,7 +186,7 @@ export default function ContactForm({
         </Box>
         <Flex>
           <Button
-            background={radioColor}
+            background={isHome ? 'blue' : radioColor}
             color="white"
             mx="auto"
             mt={isHome ? '3%' : null}
@@ -185,6 +195,7 @@ export default function ContactForm({
             w={['60%', '40%', '30%', '45%']}
             h={['40px', '30px', '30px', '40px']}
             borderRadius={isHome ? 20 : 30}
+            mb={isHome ? [5] : ''}
           >
             Enviar
           </Button>

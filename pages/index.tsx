@@ -86,14 +86,14 @@ const HeroLayout = () => (
             size="lg"
             boxShadow="dark-lg"
             borderRadius={20}
-            mb={10}
+            mb={[10]}
           >
             Entre em contato
           </Button>
         </Center>
       </Box>
     </Center>
-    <Box position="absolute" bottom={'5vh'} px="5">
+    <Box position="relative" bottom={'5vh'} px="5">
       <Grid
         gap={'6vw'}
         templateColumns={['repeat(2, 1fr)', 'repeat(2, 1fr)', 'repeat(4, 1fr)']}
@@ -183,7 +183,7 @@ const ContactUsLayout = () => (
 const ContactInfoLayout = () => (
   <Box background="darkBackground" py={20} position="relative" overflow="auto">
     <Grid
-      w="80vw"
+      w={['100vw', '80vw']}
       mx="auto"
       background="background"
       borderRadius={40}
