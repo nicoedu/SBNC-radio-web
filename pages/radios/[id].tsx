@@ -40,12 +40,21 @@ export default function Radio({
       align="center"
       justify="center"
       overflow="hidden"
+      position="relative"
     >
       <Head>
         <title>{radioData.name}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Header />
+      <Image
+        position="absolute"
+        width={['100vw', '150vw']}
+        right={['0']}
+        zIndex="100"
+        // right={['10', '5vw']}
+        src="/home-ball.svg"
+      />
       <Flex
         bg="rgba(255, 255, 255, 0.35)"
         backdrop-filter="blur(10px)"
@@ -149,7 +158,7 @@ function SocialMedia({ radioData }: { radioData: IRadioData }) {
       <Image
         borderRadius="full"
         boxSize={['200px', '90px', '120px', '150px']}
-        src={'/' + radioData.name + '.png'}
+        src={'/' + radioData.id + '.png'}
         alt="Logo da Rádio"
         border="2px"
         objectFit="contain"
@@ -169,28 +178,28 @@ function SocialMedia({ radioData }: { radioData: IRadioData }) {
       <HStack align={['center']} mt={5} spacing={['4', '1', '3', '3']}>
         <Link href={radioData.facebookLink} isExternal ml={'auto'}>
           <Image
-            src="/social/facebook.svg"
+            src="/facebook.svg"
             h={['40px', '', '25px', '35px']}
             w={['40px', '', '25px', '35px']}
           />
         </Link>
         <Link href={radioData.whatsappLink} isExternal>
           <Image
-            src="/social/whatsapp.svg"
+            src="/whatsapp.svg"
             h={['40px', '', '25px', '35px']}
             w={['40px', '', '25px', '35px']}
           />
         </Link>
         <Link href={radioData.instagramLink} isExternal>
           <Image
-            src="/social/instagram.svg"
+            src="/instagram.svg"
             h={['40px', '', '25px', '35px']}
             w={['40px', '', '25px', '35px']}
           />
         </Link>
         <Link href={radioData.twitterLink} isExternal mr={'auto'}>
           <Image
-            src="/social/twitter.svg"
+            src="/twitter.svg"
             h={['40px', '', '25px', '35px']}
             w={['40px', '', '25px', '35px']}
           />
@@ -299,6 +308,7 @@ function Calendar({ radioColor }: { radioColor?: string }): JSX.Element {
             {months.map((value, index) => {
               return (
                 <Tab
+                  key={value}
                   _selected={{ color: 'black', bg: 'blue.300' }}
                   w={['100px', 14, '70px', '80px']}
                   h={['90px', 10, '70px', '80px']}

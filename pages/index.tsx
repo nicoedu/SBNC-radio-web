@@ -62,14 +62,14 @@ const HeroLayout = () => (
       width={['60vw', '50vw']}
       top={['20vh', '5vh']}
       left={['10', '5vw']}
-      src="layout/home-balls.svg"
+      src="layout-home-balls.svg"
     />
     <Image
       position="absolute"
       width={['20vw', '15vw']}
       bottom={['20vh', '5vh']}
       right={['10', '5vw']}
-      src="layout/home-ball.svg"
+      src="layout-home-ball.svg"
     />
 
     <Center height={['50%', '50%', '45vh']} zIndex="10">
@@ -138,7 +138,7 @@ const AboutUsLayout = () => (
         <Image
           h={[200, 285]}
           pl={5}
-          src="layout/image-bg-pink.svg"
+          src="layout-image-bg-pink.svg"
           position="absolute"
         ></Image>
         <Image h={[160, 250]} zIndex="100" src="about.png" />%
@@ -194,7 +194,7 @@ const ContactUsLayout = () => (
         <Image
           overflow="hidden"
           h={[300, 400]}
-          src="layout/image-bg-blue.svg"
+          src="layout-image-bg-blue.svg"
           position="absolute"
         ></Image>
         <Image h={[160, 250]} zIndex="100" src="about2.png" />%
@@ -246,10 +246,6 @@ const ContactInfoLayout = () => (
         <Box position="absolute" bottom="-2px" right="-1px">
           <SvgCornerHome height={150} color={theme.colors.primary} />
         </Box>
-        {/* <Image
-         
-          src="layout/corner-home.svg"
-        /> */}
       </Flex>
     </Grid>
   </Box>
@@ -277,7 +273,7 @@ const RadioCard = ({
       <Heading size={'md'} textAlign="center">
         {title}
       </Heading>
-      <Image mx="auto" src={'logos/' + id + '.png'} />
+      <Image mx="auto" src={id + '.png'} />
       <Flex w="100%" alignItems="center" justifyContent="center">
         <Button
           size="md"

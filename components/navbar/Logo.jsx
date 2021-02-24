@@ -7,13 +7,16 @@ export default function Logo(props) {
     <Flex {...props} position="relative" h="100%" w="25vw" overflow="hidden">
       <Image
         position="absolute"
-        width={['200px', '205px']}
-        top={[4, '3%']}
-        left={['0']}
+        width={['205px']}
+        // h={['100px']}
+        h="auto"
+        top={['0']}
+        // left={['10%']}
+        left="0"
         src="white-background.png"
       />
       <Image
-        src="logos/sbnc.svg"
+        src="sbnc.svg"
         position="absolute"
         h={['100px']}
         top={['0']}

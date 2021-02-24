@@ -1,4 +1,5 @@
 export interface IRadioData {
+  id?: string
   name?: string
   facebookLink?: string
   whatsappLink?: string
