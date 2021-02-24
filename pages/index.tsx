@@ -37,7 +37,7 @@ export default function Home(): JSX.Element {
           textAlign: 'center',
           fontSize: '30px',
           boxShadow: '2px 2px 3px #999',
-          zIndex: '100'
+          zIndex: 100
         }}
         target="_blank"
       >
@@ -51,7 +51,8 @@ const HeroLayout = () => (
   <Flex
     position="relative"
     direction="column"
-    height={['140vh', '150vh', '100vh']}
+    minH="100vh"
+    height="auto"
     align="center"
     bgGradient="linear(to-b, primary, secondary)"
   >
@@ -104,7 +105,7 @@ const HeroLayout = () => (
         </Center>
       </Box>
     </Center>
-    <Box position="relative" bottom={'5vh'} px="5">
+    <Box p="5" zIndex="10">
       <Grid
         gap={'6vw'}
         templateColumns={['repeat(2, 1fr)', 'repeat(2, 1fr)', 'repeat(4, 1fr)']}
@@ -126,7 +127,12 @@ const AboutUsLayout = () => (
     position="relative"
     overflow="hidden"
   >
-    <Grid h="100%" templateColumns={['1fr', '1fr', '6fr 5fr']}>
+    <Grid
+      h="100%"
+      templateColumns={['1fr', '1fr', '6fr 5fr']}
+      maxW={'1300px'}
+      mx="auto"
+    >
       <Center w="100%" alignItems="center" mx="auto">
         <Image
           h={[200, 285]}
@@ -158,7 +164,12 @@ const AboutUsLayout = () => (
 
 const ContactUsLayout = () => (
   <Box background="background" py="10" px="10">
-    <Grid h="100%" templateColumns={['1fr', '1fr', '5fr 6fr']}>
+    <Grid
+      h="100%"
+      templateColumns={['1fr', '1fr', '5fr 6fr']}
+      maxW={'1300px'}
+      mx="auto"
+    >
       <Box w="100%" px="5" my="auto" color="white">
         <Heading color="black" size="lg" py="3">
           Anuncie conosco
