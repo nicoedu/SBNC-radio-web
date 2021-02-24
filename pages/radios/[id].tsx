@@ -539,7 +539,7 @@ function ImagesCarousel() {
           src="https://jpimg.com.br/uploads/2018/11/RECIFE_LOGO_FM_AFILIADA_3D_VM-500x500.jpg"
           alt="Imagem Jovem pan"
         />
-      </Carousel.Item>{' '}
+      </Carousel.Item>
     </Carousel>
   )
 }
