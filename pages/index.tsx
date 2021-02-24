@@ -8,7 +8,8 @@ import {
   Heading,
   Image,
   Stack,
-  Text
+  Text,
+  Link
 } from '@chakra-ui/react'
 import ContactForm from '@components/ContactForm'
 import SvgCornerHome from '@components/layout/corner-home'
@@ -266,7 +267,10 @@ const RadioCard = ({
           mx="auto"
           mb={2}
         >
-          <Text fontSize={'sm'}>Saiba Mais</Text>
+          <Link href={'/radios/' + id} fontSize={'sm'}>
+            Saiba Mais
+          </Link>
+          <Text></Text>
         </Button>
       </Flex>
     </Box>
