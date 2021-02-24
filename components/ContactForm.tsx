@@ -27,7 +27,6 @@ export default function ContactForm({
   radioColor?: string
 }): JSX.Element {
   const [formData, setFormData] = useReducer(formReducer, {})
-  const [resize, setResize] = React.useState('vertical')
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -175,8 +174,7 @@ export default function ContactForm({
                 Mensagem
               </FormLabel>
               <Textarea
-                resize={resize}
-                size={isHome ? 'md' : 'xs'}
+                size={isHome ? 'md' : 'sm'}
                 placeholder="Sua mensagem"
                 variant="flushed"
                 name="mensagem"
@@ -190,7 +188,7 @@ export default function ContactForm({
             background={isHome ? 'blue' : radioColor}
             color="white"
             mx="auto"
-            mt={isHome ? '3%' : 'undefined' }
+            mt={isHome ? '3%' : 'undefined'}
             alignSelf="center"
             type="submit"
             w={['60%', '40%', '30%', '45%']}

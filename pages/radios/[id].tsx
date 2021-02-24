@@ -538,7 +538,7 @@ function ImagesCarousel() {
     <Carousel controls={false}>
       <Carousel.Item>
         <img
-          className="d-block"
+          display="relative"
           width={'100%'}
           height={'auto'}
           src="https://jpimg.com.br/uploads/2018/11/RECIFE_LOGO_FM_AFILIADA_3D_VM-500x500.jpg"
