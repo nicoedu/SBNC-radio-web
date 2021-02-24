@@ -16,6 +16,7 @@ import SvgCornerHome from '@components/layout/corner-home'
 import Header from '@components/navbar/Header'
 import theme from 'theme'
 import Head from 'next/head'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 export default function Home(): JSX.Element {
   return (

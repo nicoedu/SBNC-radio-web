@@ -10,9 +10,8 @@ const Header = () => {
     <Navbar
       collapseOnSelect
       expand="xl"
-      bg="#2E3092"
-      variant="dark"
-      style={{ minHeight: '70px', width: '100%' }}
+      sticky="top"
+      style={{ minHeight: '70px', width: '100%', backgroundColor: '#2E3092' }}
     >
       <Navbar.Brand href="/">
         <Image
