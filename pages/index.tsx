@@ -51,7 +51,7 @@ const HeroLayout = () => (
   <Flex
     position="relative"
     direction="column"
-    minH={['100vh', '72vh']}
+    minH={['100vh', '72vh', '100vh']}
     height="auto"
     align="center"
     bgGradient="linear(to-b, primary, secondary)"
@@ -75,7 +75,7 @@ const HeroLayout = () => (
     <Center height="50%" zIndex="10">
       <Box w={['90%', '100%']}>
         <Heading
-          fontSize={['4xl', '5xl', '5xl', '5xl']}
+          fontSize={['4xl', '5xl', '5xl', '6xl']}
           color="white"
           mt={8}
           textAlign="center"
@@ -108,12 +108,12 @@ const HeroLayout = () => (
     </Center>
     <Box p="5" zIndex="10">
       <Grid
-        gap={'6vw'}
+        gap={['6vw', '4vw', '6vw']}
         templateColumns={['repeat(2, 1fr)', 'repeat(2, 1fr)', 'repeat(4, 1fr)']}
       >
-        <RadioCard title="Jovem Pan Caruaru" id="jpcaruaru"></RadioCard>
+        <RadioCard title="JovemPan Caruaru" id="jpcaruaru"></RadioCard>
         <RadioCard title="Music FM Recife" id="music"></RadioCard>
-        <RadioCard title="Jovem Pan Recife" id="jprecife"></RadioCard>
+        <RadioCard title="JovemPan Recife" id="jprecife"></RadioCard>
         <RadioCard title="Band FM Caruaru" id="band"></RadioCard>
       </Grid>
     </Box>
