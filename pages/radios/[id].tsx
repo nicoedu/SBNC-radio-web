@@ -293,7 +293,7 @@ function Calendar({ radioColor }: { radioColor?: string }): JSX.Element {
         color="white"
         pb={4}
         pt={4}
-        fontSize={['xl', 'md', 'lg', '4xl']}
+        fontSize={['xl', 'md', 'lg', '2xl', '4xl']}
       >
         Calendário comercial
       </Heading>

@@ -1,3 +1,4 @@
+import React, { useReducer } from 'react'
 import {
   Box,
   Button,
@@ -10,7 +11,13 @@ import {
   Textarea
 } from '@chakra-ui/react'
 import SvgCornerRadio from '@components/layout/corner-radio'
-import React from 'react'
+
+const formReducer = (state, event) => {
+  return {
+    ...state,
+    [event.name]: event.value
+  }
+}
 
 export default function ContactForm({
   isHome = false,
@@ -19,7 +26,36 @@ export default function ContactForm({
   isHome?: boolean
   radioColor?: string
 }): JSX.Element {
+  const [formData, setFormData] = useReducer(formReducer, {})
   const [resize, setResize] = React.useState('vertical')
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    submitRequest(event)
+  }
+
+  const submitRequest = async (e) => {
+    const json = JSON.stringify(formData)
+    const response = await fetch('http://localhost:9000', {
+      method: 'POST',
+      headers: { 'Content-type': 'application/json' },
+      body: json
+    })
+    const resData = await response.json()
+
+    if (resData.status === 'success') {
+      alert('Message Sent.')
+    } else if (resData.status === 'fail') {
+      alert('Message failed to send.')
+    }
+  }
+
+  const handleChange = (event) => {
+    setFormData({
+      name: event.target.name,
+      value: event.target.value
+    })
+  }
 
   return (
     <Box
@@ -30,7 +66,7 @@ export default function ContactForm({
       mb={['0']}
       overflow="hidden"
     >
-      <form>
+      <form onSubmit={handleSubmit}>
         <Box alignItems="start" ml={5} mt={['', '5%', '0%']}>
           <Heading
             fontWeight="bold"
@@ -50,7 +86,13 @@ export default function ContactForm({
               >
                 Nome
               </FormLabel>
-              <Input size="sm" variant="flushed" placeholder="Seu nome" />
+              <Input
+                size="sm"
+                variant="flushed"
+                placeholder="Seu nome"
+                name="name"
+                onChange={handleChange}
+              />
             </FormControl>
 
             <FormControl id="phone" w="45%" isRequired>
@@ -65,6 +107,8 @@ export default function ContactForm({
                 size="sm"
                 variant="flushed"
                 placeholder="+55 (81) 9999999"
+                name="phone"
+                onChange={handleChange}
               />
             </FormControl>
           </HStack>
@@ -78,7 +122,13 @@ export default function ContactForm({
               >
                 Assunto
               </FormLabel>
-              <Input size="sm" variant="flushed" placeholder="O assunto" />
+              <Input
+                size="sm"
+                variant="flushed"
+                placeholder="O assunto"
+                name="subject"
+                onChange={handleChange}
+              />
             </FormControl>
 
             <FormControl id="email" isRequired w="45%">
@@ -94,6 +144,8 @@ export default function ContactForm({
                 variant="flushed"
                 placeholder="Seu e-mail"
                 type="email"
+                name="email"
+                onChange={handleChange}
               />
             </FormControl>
           </HStack>
@@ -112,6 +164,8 @@ export default function ContactForm({
                 size="xs"
                 placeholder="Sua mensagem"
                 variant="flushed"
+                name="mensagem"
+                onChange={handleChange}
               />
             </FormControl>
           </HStack>
@@ -132,7 +186,7 @@ export default function ContactForm({
         </Flex>
         {isHome ? null : radioColor ? (
           <Box position="absolute" bottom="0" right="0">
-            <SvgCornerRadio height={[60, 0]} color={radioColor} />
+            <SvgCornerRadio height={[60]} color={radioColor} />
           </Box>
         ) : null}
       </form>
