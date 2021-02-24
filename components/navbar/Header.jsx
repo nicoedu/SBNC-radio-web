@@ -11,6 +11,7 @@ const Header = () => {
       collapseOnSelect
       expand="xl"
       sticky="top"
+      variant="white"
       style={{ minHeight: '70px', width: '100%', backgroundColor: '#2E3092' }}
     >
       <Navbar.Brand href="/">
@@ -47,10 +48,8 @@ const Header = () => {
             <NavDropdown.Item href="/radios/band">Band FM</NavDropdown.Item>
             <NavDropdown.Item href="/radios/music">Music FM</NavDropdown.Item>
           </NavDropdown>
-          <Nav.Link href="#deets" style={{ color: 'white' }}>
-            Quem somos
-          </Nav.Link>
-          <Nav.Link eventKey={2} href="#memes" style={{ color: 'white' }}>
+          <Nav.Link href="#deets">Quem somos</Nav.Link>
+          <Nav.Link eventKey={2} href="#memes">
             Anuncie conosco
           </Nav.Link>
         </Nav>
