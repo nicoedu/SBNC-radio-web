@@ -14,7 +14,9 @@ import {
   TabPanels,
   Tabs,
   Text,
-  VStack
+  useTheme,
+  VStack,
+  css
 } from '@chakra-ui/react'
 import ContactForm from '@components/ContactForm'
 import DownloadModal from '@components/DownloadModal'
@@ -32,13 +34,16 @@ export default function Radio({
 }: {
   radioData: IRadioData
 }): JSX.Element {
+  const theme = useTheme()
+  const styles = css({ backdropFilter: 'blur(5px)' })(theme)
   return (
     <Box
       bgGradient="linear(to-b, primary, secondary)"
       w="100%"
+      minH="100vh"
       align="center"
       justify="center"
-      overflow="hidden"
+      // overflow="hidden"
       position="relative"
     >
       <Head>
@@ -48,35 +53,39 @@ export default function Radio({
       <Header isHome={false} />
       <Image
         position="absolute"
-        width={['100vw', '150vw']}
-        right={['0']}
-        zIndex="100"
+        width={['20vw']}
+        left={['2']}
+        top={['10vh']}
+        zIndex="10"
         // right={['10', '5vw']}
-        src="/home-ball.svg"
+        src="/layout-home-ball.svg"
       />
       <Flex
         bg="rgba(255, 255, 255, 0.35)"
-        backdrop-filter="blur(10px)"
+        css={styles}
+        zIndex="100"
+        my="auto"
+        position="relative"
         w="90vw"
-        h={['auto', '89.8vh']}
-        flexDirection={['column', 'row']}
+        h={['auto', 'auto', '89.8vh']}
+        flexDirection={['column', 'column', 'row']}
         align="center"
         justify="center"
       >
         <Grid
-          templateRows={['1fr', 'repeat(16, 1fr)']}
-          templateColumns={['1fr', '1fr 1fr 1fr']}
+          templateRows={['1fr', '1fr', 'repeat(16, 1fr)']}
+          templateColumns={['1fr', '1fr', '1fr 1fr 1fr']}
           w={['100vw', '55vw']}
-          h={['auto', '85vh']}
+          h={['auto', 'auto', '85vh']}
           bg="white"
           borderRadius={[0, 20]}
           mr={['', '05%']}
         >
           <GridItem
-            rowStart={['auto', 1]}
-            rowSpan={['auto', 7]}
-            colStart={['auto', 1]}
-            colSpan={['auto', 1]}
+            rowStart={['auto', 'auto', 1]}
+            rowSpan={['auto', 'auto', 7]}
+            colStart={['auto', 'auto', 1]}
+            colSpan={['auto', 'auto', 1]}
             borderRight={['', '1px solid']}
             borderColor="pink.300"
             overflow="hidden"
@@ -85,20 +94,10 @@ export default function Radio({
           </GridItem>
 
           <GridItem
-            overflow="hidden"
-            rowStart={['auto', 1]}
-            rowSpan={['auto', 8]}
-            colStart={['auto', 2]}
-            colSpan={['auto', 2]}
-          >
-            <Book radioData={radioData} />
-          </GridItem>
-
-          <GridItem
-            rowStart={['auto', 8]}
-            rowSpan={['auto', 9]}
-            colStart={['auto', 1]}
-            colSpan={['auto', 1]}
+            rowStart={['auto', 'auto', 8]}
+            rowSpan={['auto', 'auto', 9]}
+            colStart={['auto', 'auto', 1]}
+            colSpan={['auto', 'auto', 1]}
             borderRight={['', '1px solid']}
             borderTop={['', '1px solid']}
             overflow="hidden"
@@ -106,12 +105,25 @@ export default function Radio({
           >
             <AboutUS radioData={radioData} />
           </GridItem>
+
+          <GridItem
+            bg={['darkBackground', 'darkBackground', 'background']}
+            color={['white', 'white', null]}
+            overflow="hidden"
+            rowStart={['auto', 'auto', 1]}
+            rowSpan={['auto', 'auto', 8]}
+            colStart={['auto', 'auto', 2]}
+            colSpan={['auto', 'auto', 2]}
+          >
+            <Book radioData={radioData} />
+          </GridItem>
+
           <GridItem
             overflow="auto"
-            rowStart={['auto', 9]}
-            rowSpan={['auto', 9]}
-            colSpan={['auto', 2]}
-            colStart={['auto', 2]}
+            rowStart={['auto', 'auto', 9]}
+            rowSpan={['auto', 'auto', 9]}
+            colSpan={['auto', 'auto', 2]}
+            colStart={['auto', 'auto', 2]}
             borderTop={['', '1px solid']}
             borderColor="pink.300"
           >
@@ -121,10 +133,10 @@ export default function Radio({
 
         <Flex
           flexDirection="column"
-          w={['100vw', '25vw']}
-          h={['130vh', '80vh']}
+          w={['100vw', '100vw', '25vw']}
+          h={['auto', 'auto', '80vh']}
           bg="white"
-          borderRadius={['', 'xl', 'xl', 'xl']}
+          borderRadius={['0', '0', 'xl']}
         >
           <Calendar radioColor={radioData.color} />
           <PriceTable radioColor={radioData.color} />
@@ -284,7 +296,7 @@ function Calendar({ radioColor }: { radioColor?: string }): JSX.Element {
     <Flex
       h={['48%', '55%']}
       w={['100%', '90%']}
-      ml={['auto']}
+      ml={'auto'}
       mt={['5', '5']}
       mr={['', 'auto']}
       mb={['', '5']}

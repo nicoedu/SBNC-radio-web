@@ -9,7 +9,9 @@ import {
   Image,
   Stack,
   Text,
-  Link
+  Link,
+  css,
+  useTheme
 } from '@chakra-ui/react'
 import ContactForm from '@components/ContactForm'
 import SvgCornerHome from '@components/layout/corner-home'
@@ -19,8 +21,8 @@ import Head from 'next/head'
 import React, { useRef } from 'react'
 
 export default function Home(): JSX.Element {
-  const aboutUsDiv = useRef()
-  const contactUsDiv = useRef()
+  const aboutUsDiv = useRef(null)
+  const contactUsDiv = useRef(null)
 
   const scrollToAbout = () => {
     aboutUsDiv.current.scrollIntoView({ behavior: 'smooth' })
@@ -31,7 +33,7 @@ export default function Home(): JSX.Element {
   }
 
   return (
-    <>
+    <Box w={'100%'}>
       <Head>
         <title>SBNC - Sistema Brasil Nordeste de Comunicação </title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -67,7 +69,7 @@ export default function Home(): JSX.Element {
       >
         <i className="fa fa-whatsapp" style={{ marginTop: '16px' }}></i>
       </a>
-    </>
+    </Box>
   )
 }
 
@@ -146,55 +148,61 @@ const HeroLayout = () => (
 const AboutUsLayout = ({
   scroll
 }: {
-  scroll: React.MutableRefObject<HTMLDivElement>
-}) => (
-  <Box
-    background="primary"
-    py="10"
-    px="10"
-    position="relative"
-    overflow="hidden"
-    ref={scroll}
-  >
-    <Grid
-      h="100%"
-      templateColumns={['1fr', '1fr', '6fr 5fr']}
-      maxW={'1300px'}
-      mx="auto"
+  scroll: React.MutableRefObject<null>
+}) => {
+  const styles = css({ scrollPaddingBottom: '0' })(useTheme())
+
+  return (
+    <Box
+      css={styles}
+      background="primary"
+      py="10"
+      px="10"
+      position="relative"
+      overflow="hidden"
+      ref={scroll}
     >
-      <Center w="100%" alignItems="center" mx="auto">
-        <Image
-          h={[200, 285]}
-          pl={5}
-          src="layout-image-bg-pink.svg"
-          position="absolute"
-        ></Image>
-        <Image h={[160, 250]} zIndex="100" src="about.png" />%
-      </Center>
-      <Box w="100%" px="5" pt={['10', '10', '0']} my="auto" color="white">
-        <Heading size="lg" py="3">
-          Quem somos
-        </Heading>
-        <Text align="justify">
-          O SBNC - Sistema Brasil Nordeste de Comunicação foi fundado em julho
-          de 1983, fruto do espírito empreendedor do casal de empresários Isabel
-          Christina e Ricardo de Araújo Pinto, entusiastas da radiodifusão.
-          <br />
-          Em quase 40 anos de atuação, o Grupo SBNC continua expandindo,
-          investindo em tecnologia, recursos, profissionais, e, levando o melhor
-          de sua programação com qualidade e força para cerca de 80% do estado
-          de Pernambuco, 118 municípios e toda a Grande Recife, o que
-          corresponde a mais de 7 milhões de pernambucanos.
-        </Text>
-      </Box>
-    </Grid>
-  </Box>
-)
+      <Grid
+        h="100%"
+        templateColumns={['1fr', '1fr', '6fr 5fr']}
+        maxW={'1300px'}
+        mx="auto"
+      >
+        <Center w="100%" alignItems="center" mx="auto">
+          <Image
+            h={[200, 285]}
+            pl={5}
+            src="layout-image-bg-pink.svg"
+            position="absolute"
+          ></Image>
+          <Image h={[160, 250]} zIndex="100" src="about.png" />%
+        </Center>
+        <Box w="100%" px="5" pt={['10', '10', '0']} my="auto" color="white">
+          <Heading size="lg" py="3">
+            Quem somos
+          </Heading>
+          <Text align="justify">
+            O SBNC - Sistema Brasil Nordeste de Comunicação foi fundado em julho
+            de 1983, fruto do espírito empreendedor do casal de empresários
+            Isabel Christina e Ricardo de Araújo Pinto, entusiastas da
+            radiodifusão.
+            <br />
+            Em quase 40 anos de atuação, o Grupo SBNC continua expandindo,
+            investindo em tecnologia, recursos, profissionais, e, levando o
+            melhor de sua programação com qualidade e força para cerca de 80% do
+            estado de Pernambuco, 118 municípios e toda a Grande Recife, o que
+            corresponde a mais de 7 milhões de pernambucanos.
+          </Text>
+        </Box>
+      </Grid>
+    </Box>
+  )
+}
 
 const ContactUsLayout = ({
   scroll
 }: {
-  scroll: React.MutableRefObject<HTMLDivElement>
+  scroll: React.MutableRefObject<null>
 }) => (
   <Box background="background" py="10" px="10" ref={scroll}>
     <Grid

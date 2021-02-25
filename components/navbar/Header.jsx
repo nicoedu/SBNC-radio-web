@@ -5,6 +5,7 @@ import { Image } from '@chakra-ui/react'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const Header = ({
   scrollToAbout = () => {},
@@ -13,6 +14,7 @@ const Header = ({
 }) => {
   return (
     <Navbar
+      fixed="top"
       collapseOnSelect
       expand="xl"
       sticky="top"
