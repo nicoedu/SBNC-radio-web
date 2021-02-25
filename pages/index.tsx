@@ -16,17 +16,17 @@ import SvgCornerHome from '@components/layout/corner-home'
 import Header from '@components/navbar/Header'
 import theme from 'theme'
 import Head from 'next/head'
-import React, { createRef } from 'react'
+import React, { useRef } from 'react'
 
 export default function Home(): JSX.Element {
-  const aboutUsDiv = createRef()
-  const contactUsDiv = createRef()
+  const aboutUsDiv = useRef()
+  const contactUsDiv = useRef()
 
-  let scrollToAbout = () => {
+  const scrollToAbout = () => {
     aboutUsDiv.current.scrollIntoView({ behavior: 'smooth' })
   }
 
-  let scrollToContact = () => {
+  const scrollToContact = () => {
     contactUsDiv.current.scrollIntoView({ behavior: 'smooth' })
   }
 
@@ -143,7 +143,11 @@ const HeroLayout = () => (
   </Flex>
 )
 
-const AboutUsLayout = ({ scroll }) => (
+const AboutUsLayout = ({
+  scroll
+}: {
+  scroll: React.MutableRefObject<HTMLDivElement>
+}) => (
   <Box
     background="primary"
     py="10"
@@ -187,7 +191,11 @@ const AboutUsLayout = ({ scroll }) => (
   </Box>
 )
 
-const ContactUsLayout = ({ scroll }) => (
+const ContactUsLayout = ({
+  scroll
+}: {
+  scroll: React.MutableRefObject<HTMLDivElement>
+}) => (
   <Box background="background" py="10" px="10" ref={scroll}>
     <Grid
       h="100%"

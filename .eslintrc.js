@@ -18,6 +18,7 @@ module.exports = {
     JSX: true,
     React: true,
     HTMLInputElement: true,
-    HTMLTextAreaElement: true
+    HTMLTextAreaElement: true,
+    HTMLDivElement: true
   }
 }

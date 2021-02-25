@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from 'react'
 import { Image } from '@chakra-ui/react'
@@ -5,7 +6,11 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 
-const Header = ({ scrollToAbout = '', scrollToContact = '', isHome }) => {
+const Header = ({
+  scrollToAbout = () => {},
+  scrollToContact = () => {},
+  isHome
+}) => {
   return (
     <Navbar
       collapseOnSelect
@@ -48,16 +53,16 @@ const Header = ({ scrollToAbout = '', scrollToContact = '', isHome }) => {
             <NavDropdown.Item href="/radios/band">Band FM</NavDropdown.Item>
             <NavDropdown.Item href="/radios/music">Music FM</NavDropdown.Item>
           </NavDropdown>
-          <Nav.Link href={isHome ? '' : '/'} onClick={scrollToAbout}>
-            Quem somos
-          </Nav.Link>
-          <Nav.Link
-            href={isHome ? '' : '/'}
-            eventKey={2}
-            onClick={scrollToContact}
-          >
-            Anuncie conosco
-          </Nav.Link>
+          {isHome ? (
+            <>
+              <Nav.Link href={''} onClick={scrollToAbout}>
+                Quem somos
+              </Nav.Link>
+              <Nav.Link href={''} eventKey={2} onClick={scrollToContact}>
+                Anuncie conosco
+              </Nav.Link>
+            </>
+          ) : null}
         </Nav>
       </Navbar.Collapse>
     </Navbar>
