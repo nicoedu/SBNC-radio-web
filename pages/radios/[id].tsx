@@ -43,7 +43,7 @@ export default function Radio({
       minH="100vh"
       align="center"
       justify="center"
-      // overflow="hidden"
+      overflow="hidden"
       position="relative"
     >
       <Head>
@@ -54,8 +54,17 @@ export default function Radio({
       <Image
         position="absolute"
         width={['20vw']}
-        left={['2']}
+        left={[2, 2, 2, 2, 5, 20]}
         top={['10vh']}
+        zIndex="10"
+        // right={['10', '5vw']}
+        src="/layout-home-ball.svg"
+      />
+      <Image
+        position="absolute"
+        width={['40vw']}
+        right={['5']}
+        top={['50vh']}
         zIndex="10"
         // right={['10', '5vw']}
         src="/layout-home-ball.svg"
@@ -65,9 +74,12 @@ export default function Radio({
         css={styles}
         zIndex="100"
         my="auto"
+        mx={[0, 0, 5, 5, 'auto']}
         position="relative"
-        w="90vw"
-        h={['auto', 'auto', '89.8vh']}
+        // w="90vw"
+        maxWidth="1200px"
+        padding={5}
+        // h={['auto', 'auto', '89.8vh']}
         flexDirection={['column', 'column', 'row']}
         align="center"
         justify="center"
@@ -75,18 +87,18 @@ export default function Radio({
         <Grid
           templateRows={['1fr', '1fr', 'repeat(16, 1fr)']}
           templateColumns={['1fr', '1fr', '1fr 1fr 1fr']}
-          w={['100vw', '55vw']}
+          w={['100vw', '70vw', '55vw']}
           h={['auto', 'auto', '85vh']}
-          bg="white"
+          bg={['transparent', 'transparent', 'white']}
           borderRadius={[0, 20]}
-          mr={['', '05%']}
+          mr={['', '', '5%']}
         >
           <GridItem
             rowStart={['auto', 'auto', 1]}
             rowSpan={['auto', 'auto', 7]}
             colStart={['auto', 'auto', 1]}
             colSpan={['auto', 'auto', 1]}
-            borderRight={['', '1px solid']}
+            borderRight={['', '', '1px solid']}
             borderColor="pink.300"
             overflow="hidden"
           >
@@ -98,17 +110,18 @@ export default function Radio({
             rowSpan={['auto', 'auto', 9]}
             colStart={['auto', 'auto', 1]}
             colSpan={['auto', 'auto', 1]}
-            borderRight={['', '1px solid']}
-            borderTop={['', '1px solid']}
+            borderRight={['', '', '1px solid']}
+            borderTop={['', '', '1px solid']}
             overflow="hidden"
             borderColor="pink.300"
+            bg="white"
           >
             <AboutUS radioData={radioData} />
           </GridItem>
 
           <GridItem
             bg={['darkBackground', 'darkBackground', 'background']}
-            color={['white', 'white', null]}
+            color={['white', 'white', 'black']}
             overflow="hidden"
             rowStart={['auto', 'auto', 1]}
             rowSpan={['auto', 'auto', 8]}
@@ -124,8 +137,9 @@ export default function Radio({
             rowSpan={['auto', 'auto', 9]}
             colSpan={['auto', 'auto', 2]}
             colStart={['auto', 'auto', 2]}
-            borderTop={['', '1px solid']}
+            borderTop={['', '', '1px solid']}
             borderColor="pink.300"
+            bg="white"
           >
             <ContactForm radioColor={radioData.color} />
           </GridItem>
@@ -165,7 +179,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 function SocialMedia({ radioData }: { radioData: IRadioData }) {
   return (
-    <Box ml={[0, 1]} mr={[0, 1]} mb={'5'}>
+    <Box mx={[10, 1]} mb={[10, '5']}>
       <Image
         borderRadius="full"
         boxSize={['200px', '90px', '120px', '150px']}
@@ -226,12 +240,7 @@ function AboutUS({ radioData }: { radioData: IRadioData }) {
       <Heading fontWeight="bold" fontSize={['3xl', 'xl', '', '2xl']}>
         Sobre nós
       </Heading>
-      <Text
-        noOfLines={7}
-        align="left"
-        fontSize={['sm', 'xs', '', 'xs']}
-        mb={[4, '', '', 2]}
-      >
+      <Text noOfLines={7} align="left" mb={[4, '', '', 2]}>
         {radioData.aboutUs}
       </Text>
       <Box ml={5} mr={5} w={['100%']} mb={2}>
@@ -244,7 +253,7 @@ function AboutUS({ radioData }: { radioData: IRadioData }) {
 function Book({ radioData }: { radioData: IRadioData }) {
   return (
     <Box position="relative" h={['100%']}>
-      <Flex flexDirection="column" alignItems="start" p={4} pb={6}>
+      <Flex flexDirection="column" alignItems="start" p={4} pb={6} h="100%">
         <Heading
           fontWeight="bold"
           fontSize={['3xl', 'xl', '', '2xl']}
@@ -252,7 +261,7 @@ function Book({ radioData }: { radioData: IRadioData }) {
         >
           Book
         </Heading>
-        <Box alignSelf="center" zIndex="100" w={['100%']} h={['250px']}>
+        <Box my="auto" zIndex="100" w={['100%']} h={['250px']}>
           <ReactPlayer
             url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
             width="100%"
@@ -261,17 +270,18 @@ function Book({ radioData }: { radioData: IRadioData }) {
         </Box>
       </Flex>
       <Center
+        p={1}
         position="absolute"
-        width={['100vw', '100%']}
+        width={['100vw', '100%', '100%']}
         height={['100%', '100%']}
         align="center"
-        top={[14, 0]}
+        top={[0, 10, 5]}
         bottom="0"
         left="0"
         right={[0]}
         zIndex={0}
       >
-        <SvgVideoLayout height="90%" width="90%" color={radioData.color} />
+        <SvgVideoLayout color={radioData.color} />
       </Center>
     </Box>
   )

@@ -5,6 +5,8 @@ function SvgVideoLayout({ color, ...props }) {
     <svg
       viewBox="0 0 431 322"
       fill="none"
+      height="100%"
+      width="100%"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
