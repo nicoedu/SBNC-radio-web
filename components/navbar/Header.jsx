@@ -5,7 +5,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 
-const Header = () => {
+const Header = ({ scrollToAbout = '', scrollToContact = '', isHome }) => {
   return (
     <Navbar
       collapseOnSelect
@@ -48,8 +48,14 @@ const Header = () => {
             <NavDropdown.Item href="/radios/band">Band FM</NavDropdown.Item>
             <NavDropdown.Item href="/radios/music">Music FM</NavDropdown.Item>
           </NavDropdown>
-          <Nav.Link href="#deets">Quem somos</Nav.Link>
-          <Nav.Link eventKey={2} href="#memes">
+          <Nav.Link href={isHome ? '' : '/'} onClick={scrollToAbout}>
+            Quem somos
+          </Nav.Link>
+          <Nav.Link
+            href={isHome ? '' : '/'}
+            eventKey={2}
+            onClick={scrollToContact}
+          >
             Anuncie conosco
           </Nav.Link>
         </Nav>

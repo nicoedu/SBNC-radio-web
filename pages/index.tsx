@@ -16,9 +16,20 @@ import SvgCornerHome from '@components/layout/corner-home'
 import Header from '@components/navbar/Header'
 import theme from 'theme'
 import Head from 'next/head'
-
+import React, { createRef } from 'react'
 
 export default function Home(): JSX.Element {
+  const aboutUsDiv = createRef()
+  const contactUsDiv = createRef()
+
+  let scrollToAbout = () => {
+    aboutUsDiv.current.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  let scrollToContact = () => {
+    contactUsDiv.current.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <>
       <Head>
@@ -26,11 +37,15 @@ export default function Home(): JSX.Element {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
 
-      <Header />
+      <Header
+        scrollToAbout={scrollToAbout}
+        scrollToContact={scrollToContact}
+        isHome={true}
+      />
 
       <HeroLayout />
-      <AboutUsLayout />
-      <ContactUsLayout />
+      <AboutUsLayout scroll={aboutUsDiv} />
+      <ContactUsLayout scroll={contactUsDiv} />
       <ContactInfoLayout />
       <a
         href="https://api.whatsapp.com/send?phone=5581992656003&text=Ol%C3%A1%2C%20estou%20interessado(a)%20em%20conhecer%20mais%20sobre%20voc%C3%AAs"
@@ -128,13 +143,14 @@ const HeroLayout = () => (
   </Flex>
 )
 
-const AboutUsLayout = () => (
+const AboutUsLayout = ({ scroll }) => (
   <Box
     background="primary"
     py="10"
     px="10"
     position="relative"
     overflow="hidden"
+    ref={scroll}
   >
     <Grid
       h="100%"
@@ -171,8 +187,8 @@ const AboutUsLayout = () => (
   </Box>
 )
 
-const ContactUsLayout = () => (
-  <Box background="background" py="10" px="10">
+const ContactUsLayout = ({ scroll }) => (
+  <Box background="background" py="10" px="10" ref={scroll}>
     <Grid
       h="100%"
       templateColumns={['1fr', '1fr', '5fr 6fr']}

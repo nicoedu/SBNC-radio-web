@@ -45,7 +45,7 @@ export default function Radio({
         <title>{radioData.name}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <Header />
+      <Header isHome={false} />
       <Image
         position="absolute"
         width={['100vw', '150vw']}

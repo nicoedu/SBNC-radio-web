@@ -153,6 +153,7 @@ export default function DownloadModal({
               d="block"
               size={'lg'}
               fontSize={['sm']}
+              _hover={{ bg: color }}
             >
               {'Receber ' + buttonsName}
             </Button>
