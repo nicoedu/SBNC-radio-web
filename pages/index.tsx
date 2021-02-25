@@ -124,7 +124,7 @@ const HeroLayout = () => (
             borderRadius={20}
             mb={[10]}
             mt={[0, 5]}
-            _hover={{ bg: '#E7C51E', color: '#000000' }}
+            _hover={{ bg: 'yellow.400', color: '#000000' }}
           >
             Entre em contato
           </Button>
@@ -168,7 +168,7 @@ const AboutUsLayout = ({
         maxW={'1300px'}
         mx="auto"
       >
-        <Center w="100%" alignItems="center" mx="auto">
+        <Center w="100%" alignItems="center" data-aos="zoom-out" mx="auto">
           <Image
             h={[200, 285]}
             pl={5}
@@ -177,7 +177,14 @@ const AboutUsLayout = ({
           ></Image>
           <Image h={[160, 250]} zIndex="100" src="about.png" />%
         </Center>
-        <Box w="100%" px="5" pt={['10', '10', '0']} my="auto" color="white">
+        <Box
+          w="100%"
+          px="5"
+          pt={['10', '10', '0']}
+          my="auto"
+          data-aos="zoom-in"
+          color="white"
+        >
           <Heading size="lg" py="3">
             Quem somos
           </Heading>
@@ -204,14 +211,14 @@ const ContactUsLayout = ({
 }: {
   scroll: React.MutableRefObject<null>
 }) => (
-  <Box background="background" py="10" px="10" ref={scroll}>
+  <Box background="background" py="10" px="10" ref={scroll} overflow="hidden">
     <Grid
       h="100%"
       templateColumns={['1fr', '1fr', '5fr 6fr']}
       maxW={'1300px'}
       mx="auto"
     >
-      <Box w="100%" px="5" my="auto" color="white">
+      <Box w="100%" px="5" my="auto" color="white" data-aos="zoom-in">
         <Heading color="black" size="lg" py="3">
           Anuncie conosco
         </Heading>
@@ -230,7 +237,13 @@ const ContactUsLayout = ({
           Band FM Caruaru 102,1.
         </Text>
       </Box>
-      <Center w="100%" pt={['20', '20', '0']} alignItems="center" mx="auto">
+      <Center
+        w="100%"
+        pt={['20', '20', '0']}
+        data-aos="zoom-out"
+        alignItems="center"
+        mx="auto"
+      >
         <Image
           overflow="hidden"
           h={[300, 400]}
@@ -309,6 +322,7 @@ const RadioCard = ({
       alignItems="center"
       justifyContent="center"
       borderRadius={20}
+      data-aos="flip-left"
     >
       <Heading size={'md'} textAlign="center">
         {title}
@@ -323,6 +337,8 @@ const RadioCard = ({
           color="white"
           borderRadius={20}
           alignSelf="center"
+          href={'/radios/' + id}
+          as={Link}
           mx="auto"
           mb={2}
           _hover={{
@@ -331,13 +347,7 @@ const RadioCard = ({
             textDecoration: 'none'
           }}
         >
-          <Link
-            href={'/radios/' + id}
-            fontSize={'sm'}
-            _hover={{ textDecoration: 'none' }}
-          >
-            Saiba Mais
-          </Link>
+          Saiba Mais
           <Text></Text>
         </Button>
       </Flex>
