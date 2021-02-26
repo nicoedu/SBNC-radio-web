@@ -9,9 +9,7 @@ import {
   Image,
   Stack,
   Text,
-  Link,
-  css,
-  useTheme
+  Link
 } from '@chakra-ui/react'
 import ContactForm from '@components/ContactForm'
 import SvgCornerHome from '@components/layout/corner-home'
@@ -25,11 +23,23 @@ export default function Home(): JSX.Element {
   const contactUsDiv = useRef(null)
 
   const scrollToAbout = () => {
-    aboutUsDiv.current.scrollIntoView({ behavior: 'smooth' })
+    if (aboutUsDiv.current) {
+      window.scrollTo({
+        top: aboutUsDiv.current.offsetTop - 70,
+        left: 0,
+        behavior: 'smooth'
+      })
+    }
   }
 
   const scrollToContact = () => {
-    contactUsDiv.current.scrollIntoView({ behavior: 'smooth' })
+    if (contactUsDiv.current) {
+      window.scrollTo({
+        top: contactUsDiv.current.offsetTop - 70,
+        left: 0,
+        behavior: 'smooth'
+      })
+    }
   }
 
   return (
@@ -45,10 +55,10 @@ export default function Home(): JSX.Element {
         isHome={true}
       />
 
-      <HeroLayout />
+      <HeroLayout scrollToContact={scrollToContact} />
       <AboutUsLayout scroll={aboutUsDiv} />
-      <ContactUsLayout scroll={contactUsDiv} />
-      <ContactInfoLayout />
+      <ContactUsLayout />
+      <ContactInfoLayout scroll={contactUsDiv} />
       <a
         href="https://api.whatsapp.com/send?phone=5581992656003&text=Ol%C3%A1%2C%20estou%20interessado(a)%20em%20conhecer%20mais%20sobre%20voc%C3%AAs"
         style={{
@@ -73,7 +83,7 @@ export default function Home(): JSX.Element {
   )
 }
 
-const HeroLayout = () => (
+const HeroLayout = ({ scrollToContact }: { scrollToContact: () => void }) => (
   <Flex
     position="relative"
     direction="column"
@@ -121,6 +131,7 @@ const HeroLayout = () => (
             background="contrast"
             size="lg"
             boxShadow="dark-lg"
+            onClick={scrollToContact}
             borderRadius={20}
             mb={[10]}
             mt={[0, 5]}
@@ -149,69 +160,59 @@ const AboutUsLayout = ({
   scroll
 }: {
   scroll: React.MutableRefObject<null>
-}) => {
-  const styles = css({ scrollPaddingBottom: '0' })(useTheme())
-
-  return (
-    <Box
-      css={styles}
-      background="primary"
-      py="10"
-      px="10"
-      position="relative"
-      overflow="hidden"
-      ref={scroll}
-    >
-      <Grid
-        h="100%"
-        templateColumns={['1fr', '1fr', '6fr 5fr']}
-        maxW={'1300px'}
-        mx="auto"
-      >
-        <Center w="100%" alignItems="center" data-aos="zoom-out" mx="auto">
-          <Image
-            h={[200, 285]}
-            pl={5}
-            src="layout-image-bg-pink.svg"
-            position="absolute"
-          ></Image>
-          <Image h={[160, 250]} zIndex="100" src="about.png" />%
-        </Center>
-        <Box
-          w="100%"
-          px="5"
-          pt={['10', '10', '0']}
-          my="auto"
-          data-aos="zoom-in"
-          color="white"
-        >
-          <Heading size="lg" py="3">
-            Quem somos
-          </Heading>
-          <Text align="justify">
-            O SBNC - Sistema Brasil Nordeste de Comunicação foi fundado em julho
-            de 1983, fruto do espírito empreendedor do casal de empresários
-            Isabel Christina e Ricardo de Araújo Pinto, entusiastas da
-            radiodifusão.
-            <br />
-            Em quase 40 anos de atuação, o Grupo SBNC continua expandindo,
-            investindo em tecnologia, recursos, profissionais, e, levando o
-            melhor de sua programação com qualidade e força para cerca de 80% do
-            estado de Pernambuco, 118 municípios e toda a Grande Recife, o que
-            corresponde a mais de 7 milhões de pernambucanos.
-          </Text>
-        </Box>
-      </Grid>
-    </Box>
-  )
-}
-
-const ContactUsLayout = ({
-  scroll
-}: {
-  scroll: React.MutableRefObject<null>
 }) => (
-  <Box background="background" py="10" px="10" ref={scroll} overflow="hidden">
+  <Box
+    background="primary"
+    py="10"
+    px="10"
+    position="relative"
+    overflow="hidden"
+    ref={scroll}
+  >
+    <Grid
+      h="100%"
+      templateColumns={['1fr', '1fr', '6fr 5fr']}
+      maxW={'1300px'}
+      mx="auto"
+    >
+      <Center w="100%" alignItems="center" data-aos="zoom-out" mx="auto">
+        <Image
+          h={[200, 285]}
+          pl={5}
+          src="layout-image-bg-pink.svg"
+          position="absolute"
+        ></Image>
+        <Image h={[160, 250]} zIndex="100" src="about.png" />%
+      </Center>
+      <Box
+        w="100%"
+        px="5"
+        pt={['10', '10', '0']}
+        my="auto"
+        data-aos="zoom-in"
+        color="white"
+      >
+        <Heading size="lg" py="3">
+          Quem somos
+        </Heading>
+        <Text align="justify">
+          O SBNC - Sistema Brasil Nordeste de Comunicação foi fundado em julho
+          de 1983, fruto do espírito empreendedor do casal de empresários Isabel
+          Christina e Ricardo de Araújo Pinto, entusiastas da radiodifusão.
+          <br />
+          Em quase 40 anos de atuação, o Grupo SBNC continua expandindo,
+          investindo em tecnologia, recursos, profissionais, e, levando o melhor
+          de sua programação com qualidade e força para cerca de 80% do estado
+          de Pernambuco, 118 municípios e toda a Grande Recife, o que
+          corresponde a mais de 7 milhões de pernambucanos.
+        </Text>
+      </Box>
+    </Grid>
+  </Box>
+)
+
+const ContactUsLayout = () => (
+  <Box background="background" py="10" px="10" overflow="hidden">
     <Grid
       h="100%"
       templateColumns={['1fr', '1fr', '5fr 6fr']}
@@ -256,8 +257,18 @@ const ContactUsLayout = ({
   </Box>
 )
 
-const ContactInfoLayout = () => (
-  <Box background="darkBackground" py={20} position="relative" overflow="auto">
+const ContactInfoLayout = ({
+  scroll
+}: {
+  scroll: React.MutableRefObject<null>
+}) => (
+  <Box
+    ref={scroll}
+    background="darkBackground"
+    py={20}
+    position="relative"
+    overflow="auto"
+  >
     <Grid
       w={['100vw', '80vw']}
       mx="auto"
@@ -322,7 +333,7 @@ const RadioCard = ({
       alignItems="center"
       justifyContent="center"
       borderRadius={20}
-      data-aos="flip-left"
+      data-aos="fade-up"
     >
       <Heading size={'md'} textAlign="center">
         {title}
