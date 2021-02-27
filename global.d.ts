@@ -8,4 +8,12 @@ export interface IRadioData {
   colorName?: string
   color?: string
   aboutUs?: string
+  events?: [IRadioEvent]
+}
+
+export interface IRadioEvent {
+  month?: string
+  title?: string
+  description?: string
+  photoUrl?: string
 }

@@ -1,6 +1,7 @@
 import {
   Box,
   Center,
+  css,
   Flex,
   Grid,
   GridItem,
@@ -8,16 +9,11 @@ import {
   HStack,
   Image,
   Link,
-  Tab,
-  TabList,
-  TabPanel,
-  TabPanels,
-  Tabs,
   Text,
   useTheme,
-  VStack,
-  css
+  VStack
 } from '@chakra-ui/react'
+import Calendar from '@components/Calendar'
 import ContactForm from '@components/ContactForm'
 import DownloadModal from '@components/DownloadModal'
 import SvgVideoLayout from '@components/layout/background-video-radios'
@@ -152,7 +148,10 @@ export default function Radio({
           bg="white"
           borderRadius={['0', '0', 'xl']}
         >
-          <Calendar radioColor={radioData.color} />
+          <Calendar
+            radioColor={radioData.color}
+            radioEvents={radioData.events}
+          />
           <PriceTable radioColor={radioData.color} />
         </Flex>
       </Flex>
@@ -287,48 +286,6 @@ function Book({ radioData }: { radioData: IRadioData }) {
   )
 }
 
-function Calendar({ radioColor }: { radioColor?: string }): JSX.Element {
-  const months = [
-    'Janeiro',
-    'Fevereiro',
-    'Março',
-    'Abril',
-    'Maio',
-    'Junho',
-    'Julho',
-    'Agosto',
-    'Setembro',
-    'Outubro',
-    'Novembro',
-    'Dezembro'
-  ]
-  return (
-    <Flex
-      h={['80%']}
-      w={['100%']}
-      ml={'auto'}
-      mr={['', 'auto']}
-      mb={['', '5']}
-      direction="column"
-      overflow={'scroll'}
-    >
-      <Heading
-        bg={radioColor}
-        color="white"
-        pb={4}
-        pt={4}
-        fontSize={['xl', 'md', 'lg', '2xl', '2xl']}
-      >
-        Calendário comercial
-      </Heading>
-      <CalendarEvent />
-      <CalendarEvent />
-      <CalendarEvent />
-      <CalendarEvent />
-    </Flex>
-  )
-}
-
 function PriceTable({ radioColor }: { radioColor?: string }): JSX.Element {
   return (
     <Flex
@@ -359,70 +316,5 @@ function ImagesCarousel() {
         />
       </Carousel.Item>
     </Carousel>
-  )
-}
-
-function CalendarEvent() {
-  return (
-    <Box
-      w={['90%']}
-      h={'110px'}
-      ml={['5%']}
-      mr={['5%']}
-      mt={['5%']}
-      boxShadow="lg"
-      borderRadius="lg"
-      border={'1px solid #B1B1B1'}
-      position={'relative'}
-    >
-      <Box
-        position={'absolute'}
-        bg={'#AC3639'}
-        w={'50px'}
-        h={['50px']}
-        right={'0'}
-        borderTopRightRadius={'lg'}
-        borderBottomLeftRadius={'110px'}
-        textAlign={'center'}
-        verticalAlign={'middle'}
-      >
-        <Heading
-          fontWeight={'bold'}
-          color={'white'}
-          fontSize={'xl'}
-          mt={['09px']}
-          ml={['06px']}
-        >
-          JAN
-        </Heading>
-      </Box>
-
-      <HStack mt={'3%'}>
-        <Image
-          src="/Festa-Pan.png"
-          w={['80px']}
-          h={['80px']}
-          mr={'6px'}
-          ml={'10px'}
-        />
-
-        <Box mr={'3%'}>
-          <Heading
-            fontWeight={'bold'}
-            fontSize={'xl'}
-            textAlign={'left'}
-            ml={'auto'}
-          >
-            Festa Pan
-          </Heading>
-          <Text fontSize={'0.7rem'} textAlign={'left'} noOfLines={4}>
-            A Jovem Pan e a Marca X vão surpreender os ouvintes, invadindo
-            vários locais de interesse do cliente, como a praia de Boa Viagem,
-            Porto de Galinhas, Tamandaré, Itamaracá e municípios próximos...Ler
-            mais
-          </Text>
-        </Box>
-      </HStack>
-    </Box>
   )
 }
