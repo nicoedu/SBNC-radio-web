@@ -83,15 +83,7 @@ export default function ContactForm({
   }
 
   return (
-    <Box
-      position="relative"
-      w="100%"
-      h="100%"
-      py={2}
-      pr={2}
-      mb={['0']}
-      overflow="hidden"
-    >
+    <Box position="relative" w="100%" h="100%" py={2} pr={2} mb={['0']}>
       <form onSubmit={handleSubmit}>
         <Box alignItems="start" ml={5} mt={['', '5%', '0%', '1%']}>
           <Heading
@@ -209,8 +201,6 @@ export default function ContactForm({
               />
             </FormControl>
           </HStack>
-        </Box>
-        <Flex>
           <Button
             background={isHome ? 'blue' : radioColor}
             color="white"
@@ -226,12 +216,12 @@ export default function ContactForm({
           >
             Enviar
           </Button>
-        </Flex>
-        {isHome ? null : radioColor ? (
-          <Box position="absolute" bottom="0" right="0">
-            <SvgCornerRadio height={[60]} color={radioColor} />
-          </Box>
-        ) : null}
+          {isHome ? null : radioColor ? (
+            <Box position="absolute" bottom="0" right="0">
+              <SvgCornerRadio height={[60]} color={radioColor} />
+            </Box>
+          ) : null}
+        </Box>
       </form>
     </Box>
   )
