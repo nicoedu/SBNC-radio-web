@@ -304,14 +304,13 @@ function Calendar({ radioColor }: { radioColor?: string }): JSX.Element {
   ]
   return (
     <Flex
-      h={['48%', '55%']}
-      w={['100%', '90%']}
+      h={['80%']}
+      w={['100%']}
       ml={'auto'}
-      mt={['5', '5']}
       mr={['', 'auto']}
       mb={['', '5']}
-      border={['1px solid black']}
       direction="column"
+      overflow={'scroll'}
     >
       <Heading
         bg={radioColor}
@@ -322,106 +321,10 @@ function Calendar({ radioColor }: { radioColor?: string }): JSX.Element {
       >
         Calendário comercial
       </Heading>
-
-      <Box h={'100%'} overflowY="scroll" overflowX="hidden">
-        <Tabs isManual w="100%" orientation="vertical" border="0">
-          <TabList>
-            {months.map((value, index) => {
-              return (
-                <Tab
-                  key={value}
-                  _selected={{ color: 'black', bg: 'blue.300' }}
-                  w={['100px', 14, '70px', '80px']}
-                  h={['90px', 10, '70px', '80px']}
-                  bg={index % 2 === 0 ? 'blue.900' : 'blue.500'}
-                  color="white"
-                  fontSize={['md', 'xs', '', 'md']}
-                >
-                  {value}
-                </Tab>
-              )
-            })}
-          </TabList>
-          <TabPanels>
-            {months.map((value) => {
-              return (
-                <TabPanel key={value} pt={['', 1, '', 2]} pl={['', '', '', 2]}>
-                  <VStack>
-                    <HStack mb={['', '', '', 2]}>
-                      <Box
-                        w={[20, 8, '55px', '55px']}
-                        h={[20, 8, '55px', '55px']}
-                        background={['gray.300']}
-                      ></Box>
-                      <Box
-                        w={[20, 8, '55px', '55px']}
-                        h={[20, 8, '55px', '55px']}
-                        background={['gray.300']}
-                      ></Box>
-                      <Box
-                        w={[20, 8, '55px', '55px']}
-                        h={[20, 8, '55px', '55px']}
-                        background={['gray.300']}
-                      ></Box>
-                    </HStack>
-                    <HStack mb={['', '', '', 2]}>
-                      <Box
-                        w={[20, 8, '55px', '55px']}
-                        h={[20, 8, '55px', '55px']}
-                        background={['gray.300']}
-                      ></Box>
-                      <Box
-                        w={[20, 8, '55px', '55px']}
-                        h={[20, 8, '55px', '55px']}
-                        background={['gray.300']}
-                      ></Box>
-                      <Box
-                        w={[20, 8, '55px', '55px']}
-                        h={[20, 8, '55px', '55px']}
-                        background={['gray.300']}
-                      ></Box>
-                    </HStack>
-                    <HStack mb={['', '', '', 2]}>
-                      <Box
-                        w={[20, 8, '55px', '55px']}
-                        h={[20, 8, '55px', '55px']}
-                        background={['gray.300']}
-                      ></Box>
-                      <Box
-                        w={[20, 8, '55px', '55px']}
-                        h={[20, 8, '55px', '55px']}
-                        background={['gray.300']}
-                      ></Box>
-                      <Box
-                        w={[20, 8, '55px', '55px']}
-                        h={[20, 8, '55px', '55px']}
-                        background={['gray.300']}
-                      ></Box>
-                    </HStack>
-                    <HStack mb={['', '', '', 2]}>
-                      <Box
-                        w={[20, 8, '55px', '55px']}
-                        h={[20, 8, '55px', '55px']}
-                        background={['gray.300']}
-                      ></Box>
-                      <Box
-                        w={[20, 8, '55px', '55px']}
-                        h={[20, 8, '55px', '55px']}
-                        background={['gray.300']}
-                      ></Box>
-                      <Box
-                        w={[20, 8, '55px', '55px']}
-                        h={[20, 8, '55px', '55px']}
-                        background={['gray.300']}
-                      ></Box>
-                    </HStack>
-                  </VStack>
-                </TabPanel>
-              )
-            })}
-          </TabPanels>
-        </Tabs>
-      </Box>
+      <CalendarEvent />
+      <CalendarEvent />
+      <CalendarEvent />
+      <CalendarEvent />
     </Flex>
   )
 }
@@ -432,32 +335,13 @@ function PriceTable({ radioColor }: { radioColor?: string }): JSX.Element {
       flexDirection="column"
       align="center"
       borderTop={['', '1px solid grey']}
-      h={['50%']}
       pl={[5, 5]}
+      pt={[5]}
       pr={[5]}
       borderBottomRadius="xl"
     >
-      <Heading
-        fontWeight="bold"
-        fontSize={['3xl', 'xl', '', '2xl']}
-        mb={[5, 3]}
-        mt={5}
-        textAlign="left"
-        w={'100%'}
-      >
-        Tabela de Valores
-      </Heading>
-      <Text
-        mb={[10, 5, 3, 5]}
-        textAlign="left"
-        fontSize={['md', 'xs', '', 'sm']}
-      >
-        Aqui você pode baixar nossa tabela de preços e conhecer mais do nosso
-        book
-      </Text>
-
       <DownloadModal isBook={true} color={radioColor} />
-      <DownloadModal isBook={false} color="blue.700" />
+      {/* <DownloadModal isBook={false} color="blue.700" /> */}
     </Flex>
   )
 }
@@ -475,5 +359,70 @@ function ImagesCarousel() {
         />
       </Carousel.Item>
     </Carousel>
+  )
+}
+
+function CalendarEvent() {
+  return (
+    <Box
+      w={['90%']}
+      h={'110px'}
+      ml={['5%']}
+      mr={['5%']}
+      mt={['5%']}
+      boxShadow="lg"
+      borderRadius="lg"
+      border={'1px solid #B1B1B1'}
+      position={'relative'}
+    >
+      <Box
+        position={'absolute'}
+        bg={'#AC3639'}
+        w={'50px'}
+        h={['50px']}
+        right={'0'}
+        borderTopRightRadius={'lg'}
+        borderBottomLeftRadius={'110px'}
+        textAlign={'center'}
+        verticalAlign={'middle'}
+      >
+        <Heading
+          fontWeight={'bold'}
+          color={'white'}
+          fontSize={'xl'}
+          mt={['09px']}
+          ml={['06px']}
+        >
+          JAN
+        </Heading>
+      </Box>
+
+      <HStack mt={'3%'}>
+        <Image
+          src="/Festa-Pan.png"
+          w={['80px']}
+          h={['80px']}
+          mr={'6px'}
+          ml={'10px'}
+        />
+
+        <Box mr={'3%'}>
+          <Heading
+            fontWeight={'bold'}
+            fontSize={'xl'}
+            textAlign={'left'}
+            ml={'auto'}
+          >
+            Festa Pan
+          </Heading>
+          <Text fontSize={'0.7rem'} textAlign={'left'} noOfLines={4}>
+            A Jovem Pan e a Marca X vão surpreender os ouvintes, invadindo
+            vários locais de interesse do cliente, como a praia de Boa Viagem,
+            Porto de Galinhas, Tamandaré, Itamaracá e municípios próximos...Ler
+            mais
+          </Text>
+        </Box>
+      </HStack>
+    </Box>
   )
 }
