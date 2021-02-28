@@ -1,27 +1,35 @@
-import React, { useState } from 'react'
 import {
   Box,
+  Flex,
   Image,
   Link,
   Modal,
-  ModalOverlay,
+  ModalBody,
+  ModalCloseButton,
   ModalContent,
-  Text
+  ModalOverlay
 } from '@chakra-ui/react'
+import React, { useEffect, useState } from 'react'
 
 function ImagesModal({
-  showModal,
-  setShowModal,
-  imageIndex,
-  setImageIndex,
+  isOpen,
+  onClose,
+  index,
   images
 }: {
-  showModal: boolean
-  imageIndex: number
-  images: { name: ''; src: '' }[]
-  setImageIndex: any
-  setShowModal: any
+  isOpen: boolean
+  onClose: () => void
+  index: number
+  images: { name: string; src: string }[]
 }): JSX.Element {
+  const [imageIndex, setImageIndex] = useState(index)
+
+  useEffect(() => {
+    if (isOpen) {
+      setImageIndex(index)
+    }
+  }, [isOpen])
+
   function nextImage() {
     if (imageIndex < images.length - 1) {
       setImageIndex(imageIndex + 1)
@@ -40,74 +48,59 @@ function ImagesModal({
 
   return (
     <Modal
-      isOpen={showModal}
+      isOpen={isOpen}
+      onClose={onClose}
       size={'6xl'}
       closeOnEsc
       isCentered
       closeOnOverlayClick
     >
       <ModalOverlay />
-      <ModalContent p={'0'}>
-        <Box>
-          <Box display={showModal ? 'block' : 'none'}>
+      <ModalContent maxH={'90%'} maxW={'100%'} mx={1}>
+        <ModalCloseButton />
+        <ModalBody>
+          <Flex flexDirection="row" align="center" justify="center">
+            <Link
+              pr={1}
+              color={'black'}
+              fontWeight={'bold'}
+              fontSize={'3rem'}
+              transition={' 0.6s ease'}
+              borderRadius={' 0 3px 3px 0'}
+              _hover={{ textDecoration: 'none' }}
+              onClick={() => {
+                previousImage()
+              }}
+            >
+              &#10094;
+            </Link>
             <Image
-              position={'relative'}
               backgroundColor={'#fefefe'}
               m={'auto'}
-              maxW={'90%'}
+              maxW={'80%'}
+              maxH={'90vh'}
               pt={'4%'}
               pb={'4%'}
               src={images[imageIndex].src}
               alt={images[imageIndex].name}
             />
-          </Box>
-
-          <Text
-            color={'black'}
-            position={'absolute'}
-            top={'0%'}
-            right={'1.5%'}
-            fontSize={'3rem'}
-            fontWeight={'bold'}
-            onClick={() => setShowModal(false)}
-          >
-            &times;
-          </Text>
-
-          <Link
-            cursor={'pointer'}
-            position={'absolute'}
-            top={'50%'}
-            left={'1.5%'}
-            color={'black'}
-            fontWeight={'bold'}
-            fontSize={'3rem'}
-            transition={' 0.6s ease'}
-            borderRadius={' 0 3px 3px 0'}
-            onClick={() => {
-              previousImage()
-            }}
-          >
-            &#10094;
-          </Link>
-          <Link
-            cursor={'pointer'}
-            position={'absolute'}
-            top={'50%'}
-            right={'1.5%'}
-            color={'black'}
-            fontWeight={'bold'}
-            fontSize={'3rem'}
-            transition={'0.6s ease'}
-            borderRadius={'0 3px 3px 0'}
-            onClick={() => {
-              nextImage()
-            }}
-          >
-            &#10095;
-          </Link>
-          <Box />
-        </Box>
+            <Link
+              pl={1}
+              color={'black'}
+              fontWeight={'bold'}
+              fontSize={'3rem'}
+              transition={'0.6s ease'}
+              _hover={{ textDecoration: 'none' }}
+              borderRadius={'0 3px 3px 0'}
+              onClick={() => {
+                nextImage()
+              }}
+            >
+              &#10095;
+            </Link>
+            <Box />
+          </Flex>
+        </ModalBody>
       </ModalContent>
     </Modal>
   )
