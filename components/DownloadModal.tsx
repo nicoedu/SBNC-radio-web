@@ -87,7 +87,7 @@ export default function DownloadModal({
         onClick={onOpen}
         bg={color}
         color={'gray.200'}
-        h={['15%', '25px', '40px', '45px']}
+        h={['40px', '25px', '40px', '45px']}
         w={['50%', '80%', '80%', '60%']}
         mb={[5, 1, 2, 2]}
         _hover={{ bg: color }}

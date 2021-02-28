@@ -40,8 +40,8 @@ function ImageGallery({
                 src={image.src}
                 alt={image.name}
                 w={'100%'}
-                h={'225px'}
-                maxW={'225px'}
+                h={['225px']}
+                maxW={['', '225px']}
                 cursor={'pointer'}
                 onClick={() => {
                   setShowModal(true)
