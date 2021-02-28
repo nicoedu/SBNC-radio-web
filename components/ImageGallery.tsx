@@ -1,4 +1,4 @@
-import { Box, HStack, Image, Link, useDisclosure } from '@chakra-ui/react'
+import { Box, Flex, HStack, Image, Link, useDisclosure } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import ImagesModal from './ImagesModal'
 
@@ -16,8 +16,8 @@ function ImageSlide({
       my="auto"
       src={images[imageIndex].src}
       alt={images[imageIndex].name}
-      w={'28%'}
-      fallback={<Box w={'28%'} h={['70px']} maxW={['', '225px']}></Box>}
+      w={'26%'}
+      fallback={<Box w={'25%'} h={['70px']} maxW={['', '225px']}></Box>}
       h={['70px']}
       maxW={['', '225px']}
       cursor={'pointer'}
@@ -26,14 +26,16 @@ function ImageSlide({
       }}
     />
   ) : (
-    <Box w={'28%'} h={['70px']} maxW={['', '225px']}></Box>
+    <Box w={'25%'} h={['70px']} maxW={['', '225px']}></Box>
   )
 }
 
 function ImageGallery({
-  images
+  images,
+  radioColor
 }: {
   images: { src: string; name: string }[]
+  radioColor?: string
 }): JSX.Element {
   const { isOpen, onOpen, onClose } = useDisclosure()
 
@@ -68,56 +70,55 @@ function ImageGallery({
         index={imageIndex}
         images={images}
       />
-      <Box position={'relative'} xs={3}>
-        <HStack align="center" justify="center">
-          <Link
-            _hover={{ textDecoration: 'none' }}
-            m={0}
-            width={'auto'}
-            color={'black'}
-            fontWeight={'bold'}
-            fontSize={' 20px'}
-            transition={' 0.6s ease'}
-            borderRadius={' 0 3px 3px 0'}
-            onClick={() => {
-              previousImage()
-            }}
-          >
-            &#10094;
-          </Link>
-          <ImageSlide
-            onOpen={openModal}
-            images={images}
-            imageIndex={imageIndex}
-          />
-          <ImageSlide
-            onOpen={openModal}
-            images={images}
-            imageIndex={imageIndex + 1}
-          />
-          <ImageSlide
-            onOpen={openModal}
-            images={images}
-            imageIndex={imageIndex + 2}
-          />
+      <Flex flexDirection="row" align="center" justify="space-between">
+        <Link
+          _hover={{ textDecoration: 'none' }}
+          m={0}
+          width={'auto'}
+          color={radioColor}
+          fontWeight={'bold'}
+          fontSize={' 20px'}
+          transition={' 0.6s ease'}
+          borderRadius={' 0 3px 3px 0'}
+          onClick={() => {
+            previousImage()
+          }}
+        >
+          &#10094;
+        </Link>
+        <ImageSlide
+          onOpen={openModal}
+          images={images}
+          imageIndex={imageIndex}
+        />
+        <ImageSlide
+          onOpen={openModal}
+          images={images}
+          imageIndex={imageIndex + 1}
+        />
+        <ImageSlide
+          onOpen={openModal}
+          images={images}
+          imageIndex={imageIndex + 2}
+        />
 
-          <Link
-            _hover={{ textDecoration: 'none' }}
-            width={'auto'}
-            color={'black'}
-            fontWeight={'bold'}
-            m={0}
-            fontSize={'20px'}
-            transition={'0.6s ease'}
-            borderRadius={'0 3px 3px 0'}
-            onClick={() => {
-              nextImage()
-            }}
-          >
-            &#10095;
-          </Link>
-        </HStack>
-      </Box>
+        <Link
+          _hover={{ textDecoration: 'none' }}
+          width={'auto'}
+          color={radioColor}
+          fontWeight={'bold'}
+          m={0}
+          marginInlineStart={0}
+          fontSize={'20px'}
+          transition={'0.6s ease'}
+          borderRadius={'0 3px 3px 0'}
+          onClick={() => {
+            nextImage()
+          }}
+        >
+          &#10095;
+        </Link>
+      </Flex>
     </>
   )
 }
