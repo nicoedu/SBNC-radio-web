@@ -21,15 +21,23 @@ import Header from '@components/navbar/Header'
 import { IRadioData } from 'global'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
-import Carousel from 'react-bootstrap/Carousel'
 import ReactPlayer from 'react-player'
 import { getAllRadioIds, getRadioData } from '../../lib/radios'
+import ImagesGallery from '../../components/ImageGallery'
+import ImagesModal from '../../components/ImagesModal'
+import React, { useState } from 'react'
 
 export default function Radio({
   radioData
 }: {
   radioData: IRadioData
 }): JSX.Element {
+  const [showModal, setShowModal] = useState(false)
+  const [imageIndex, setImageIndex] = useState(0)
+  const [images, setImages] = useState([
+    { name: 'Nature', src: 'https://source.unsplash.com/1280x720/?nature' },
+    { name: 'Picture', src: 'https://source.unsplash.com/1280x720/?food' }
+  ])
   const theme = useTheme()
   const styles = css({ backdropFilter: 'blur(5px)' })(theme)
   return (
@@ -47,6 +55,13 @@ export default function Radio({
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Header isHome={false} />
+      <ImagesModal
+        showModal={showModal}
+        setShowModal={setShowModal}
+        imageIndex={imageIndex}
+        setImageIndex={setImageIndex}
+        images={images}
+      />
       <Image
         position="absolute"
         width={['20vw']}
@@ -112,7 +127,14 @@ export default function Radio({
             borderColor="pink.300"
             bg="white"
           >
-            <AboutUS radioData={radioData} />
+            <AboutUS
+              radioData={radioData}
+              showModal={showModal}
+              setShowModal={setShowModal}
+              imageIndex={imageIndex}
+              setImageIndex={setImageIndex}
+              images={images}
+            />
           </GridItem>
 
           <GridItem
@@ -158,7 +180,6 @@ export default function Radio({
     </Box>
   )
 }
-
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getAllRadioIds()
   return {
@@ -233,7 +254,19 @@ function SocialMedia({ radioData }: { radioData: IRadioData }) {
   )
 }
 
-function AboutUS({ radioData }: { radioData: IRadioData }) {
+function AboutUS({
+  radioData,
+  setShowModal,
+  imageIndex,
+  setImageIndex,
+  images
+}: {
+  radioData: IRadioData
+  imageIndex: number
+  images: string[]
+  setImageIndex: any
+  setShowModal: any
+}) {
   return (
     <VStack alignItems="start" p={4}>
       <Heading fontWeight="bold" fontSize={['3xl', 'xl', '', '2xl']}>
@@ -242,9 +275,12 @@ function AboutUS({ radioData }: { radioData: IRadioData }) {
       <Text noOfLines={7} align="left" mb={[4, '', '', 2]}>
         {radioData.aboutUs}
       </Text>
-      <Box ml={5} mr={5} w={['100%']} mb={2}>
-        <ImagesCarousel />
-      </Box>
+      <ImagesGallery
+        setShowModal={setShowModal}
+        imageIndex={imageIndex}
+        setImageIndex={setImageIndex}
+        images={images}
+      />
     </VStack>
   )
 }
@@ -260,7 +296,7 @@ function Book({ radioData }: { radioData: IRadioData }) {
         >
           Book
         </Heading>
-        <Box my="auto" zIndex="100" w={['100%']} h={['250px']}>
+        <Box my="auto" zIndex="2" w={['100%']} h={['250px']}>
           <ReactPlayer
             url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
             width="100%"
@@ -300,21 +336,5 @@ function PriceTable({ radioColor }: { radioColor?: string }): JSX.Element {
       <DownloadModal isBook={true} color={radioColor} />
       {/* <DownloadModal isBook={false} color="blue.700" /> */}
     </Flex>
-  )
-}
-
-function ImagesCarousel() {
-  return (
-    <Carousel controls={false}>
-      <Carousel.Item>
-        <Image
-          className="d-block"
-          width={'auto'}
-          maxH={['', '180px']}
-          src="https://jpimg.com.br/uploads/2018/11/RECIFE_LOGO_FM_AFILIADA_3D_VM-500x500.jpg"
-          alt="Imagem Jovem pan"
-        />
-      </Carousel.Item>
-    </Carousel>
   )
 }
