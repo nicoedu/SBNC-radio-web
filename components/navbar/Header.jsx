@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import React from 'react'
+import React, { useState } from 'react'
 import { Image } from '@chakra-ui/react'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { HamburgerIcon } from '@chakra-ui/icons'
 
 const Header = ({
   scrollToAbout = () => {},
@@ -19,7 +20,11 @@ const Header = ({
       expand="xl"
       sticky="top"
       variant="white"
-      style={{ minHeight: '70px', width: '100%', backgroundColor: '#2E3092' }}
+      style={{
+        minHeight: '70px',
+        width: '100%',
+        backgroundColor: '#2E3092'
+      }}
     >
       <Navbar.Brand href="/">
         <Image
@@ -38,7 +43,10 @@ const Header = ({
           left={['4vw']}
         />
       </Navbar.Brand>
-      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Toggle
+        aria-controls="responsive-navbar-nav"
+        as={'HamburguerIcon'}
+      />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="ml-auto" style={{ color: 'white' }}>
           <NavDropdown
@@ -57,7 +65,16 @@ const Header = ({
           </NavDropdown>
           {isHome ? (
             <>
-              <Nav.Link href={''} onClick={scrollToAbout}>
+              <Nav.Link
+                href={''}
+                onClick={scrollToAbout}
+                style={{
+                  '&::hover': {
+                    color: 'black',
+                    backgroundColor: 'pink'
+                  }
+                }}
+              >
                 Quem somos
               </Nav.Link>
               <Nav.Link href={''} eventKey={2} onClick={scrollToContact}>
