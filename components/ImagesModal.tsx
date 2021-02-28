@@ -54,6 +54,7 @@ function ImagesModal({
       closeOnEsc
       isCentered
       closeOnOverlayClick
+      onClose={onClose}
     >
       <ModalOverlay />
       <ModalContent maxH={'90%'} maxW={'100%'} mx={1}>

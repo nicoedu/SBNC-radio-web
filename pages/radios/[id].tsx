@@ -115,7 +115,6 @@ export default function Radio({
         minH="85vh"
         maxWidth="1200px"
         padding={5}
-        // h={['auto', 'auto', '89.8vh']}
         flexDirection={['column', 'column', 'row']}
         align="center"
         justify="center"
