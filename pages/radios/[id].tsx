@@ -279,14 +279,14 @@ function AboutUS({
   images: { src: string; name: string }[]
 }) {
   return (
-    <VStack alignItems="start" p={4}>
-      <Heading fontWeight="bold" fontSize={['3xl', 'xl', '', '2xl']}>
+    <VStack alignItems="start">
+      <Heading fontWeight="bold" fontSize={['3xl', 'xl', '', '2xl']} p={2}>
         Sobre nós
       </Heading>
-      <Text noOfLines={7} align="left" mb={[4, '', '', 2]}>
+      <Text noOfLines={7} align="left" mb={[4, '', '', 2]} px={2} py={1}>
         {radioData.aboutUs}
       </Text>
-      <ImagesGallery images={images} />
+      <ImagesGallery images={images} radioColor={radioData.color} />
     </VStack>
   )
 }

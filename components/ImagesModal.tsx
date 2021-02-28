@@ -1,5 +1,6 @@
 import {
   Box,
+  Center,
   Flex,
   Image,
   Link,
@@ -7,7 +8,8 @@ import {
   ModalBody,
   ModalCloseButton,
   ModalContent,
-  ModalOverlay
+  ModalOverlay,
+  Spacer
 } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 
@@ -50,20 +52,31 @@ function ImagesModal({
     <Modal
       isOpen={isOpen}
       onClose={onClose}
-      size={'6xl'}
+      size={'4xl'}
       closeOnEsc
       isCentered
       closeOnOverlayClick
-      onClose={onClose}
     >
       <ModalOverlay />
-      <ModalContent maxH={'90%'} maxW={'100%'} mx={1}>
-        <ModalCloseButton />
-        <ModalBody>
+      <ModalContent
+        maxH={'90%'}
+        minH={'300px'}
+        // maxW={'100%'}
+        mx={[1, 1, 'auto']}
+        bg="darkBackground"
+      >
+        <ModalCloseButton color="white" />
+        <ModalBody
+          display="flex"
+          height="100%"
+          align="center"
+          jutify="center"
+          mx={'auto'}
+        >
           <Flex flexDirection="row" align="center" justify="center">
             <Link
-              pr={1}
-              color={'black'}
+              pr={[1, 1, 5]}
+              color={'white'}
               fontWeight={'bold'}
               fontSize={'3rem'}
               transition={' 0.6s ease'}
@@ -76,18 +89,17 @@ function ImagesModal({
               &#10094;
             </Link>
             <Image
-              backgroundColor={'#fefefe'}
-              m={'auto'}
+              // m={'auto'}
               maxW={'80%'}
               maxH={'90vh'}
-              pt={'4%'}
-              pb={'4%'}
+              fallback={<Spacer />}
+              py={5}
               src={images[imageIndex].src}
               alt={images[imageIndex].name}
             />
             <Link
-              pl={1}
-              color={'black'}
+              pl={[1, 1, 5]}
+              color={'white'}
               fontWeight={'bold'}
               fontSize={'3rem'}
               transition={'0.6s ease'}
@@ -99,7 +111,6 @@ function ImagesModal({
             >
               &#10095;
             </Link>
-            <Box />
           </Flex>
         </ModalBody>
       </ModalContent>
