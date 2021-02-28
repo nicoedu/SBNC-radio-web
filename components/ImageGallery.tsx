@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { Box, Image, Link, Text } from '@chakra-ui/react'
+import React from 'react'
+import { Box, Image, Link } from '@chakra-ui/react'
 
 function ImageGallery({
   setShowModal,
@@ -8,7 +8,7 @@ function ImageGallery({
   images
 }: {
   imageIndex: number
-  images: string[]
+  images: { name: string; src: string }[]
   setImageIndex: any
   setShowModal: any
 }): JSX.Element {

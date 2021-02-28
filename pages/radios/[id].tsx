@@ -34,7 +34,7 @@ export default function Radio({
 }): JSX.Element {
   const [showModal, setShowModal] = useState(false)
   const [imageIndex, setImageIndex] = useState(0)
-  const [images, setImages] = useState([
+  const [images] = useState([
     { name: 'Nature', src: 'https://source.unsplash.com/1280x720/?nature' },
     { name: 'Picture', src: 'https://source.unsplash.com/1280x720/?food' }
   ])
@@ -82,7 +82,7 @@ export default function Radio({
       />
       <Flex
         bg="rgba(255, 255, 255, 0.35)"
-        css={styles}
+        sx={styles}
         zIndex="100"
         my="auto"
         mx={[0, 0, 5, 5, 'auto']}
@@ -90,7 +90,6 @@ export default function Radio({
         minH="85vh"
         maxWidth="1200px"
         padding={5}
-        // h={['auto', 'auto', '89.8vh']}
         flexDirection={['column', 'column', 'row']}
         align="center"
         justify="center"
@@ -130,7 +129,6 @@ export default function Radio({
           >
             <AboutUS
               radioData={radioData}
-              showModal={showModal}
               setShowModal={setShowModal}
               imageIndex={imageIndex}
               setImageIndex={setImageIndex}
@@ -264,7 +262,7 @@ function AboutUS({
 }: {
   radioData: IRadioData
   imageIndex: number
-  images: string[]
+  images: { name: string; src: string }[]
   setImageIndex: any
   setShowModal: any
 }) {

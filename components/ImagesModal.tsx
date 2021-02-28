@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
   Box,
   Image,
@@ -6,7 +6,8 @@ import {
   Modal,
   ModalOverlay,
   ModalContent,
-  Text
+  Text,
+  useDisclosure
 } from '@chakra-ui/react'
 
 function ImagesModal({
@@ -18,10 +19,12 @@ function ImagesModal({
 }: {
   showModal: boolean
   imageIndex: number
-  images: { name: ''; src: '' }[]
+  images: { name: string; src: string }[]
   setImageIndex: any
   setShowModal: any
 }): JSX.Element {
+  const { onClose } = useDisclosure()
+
   function nextImage() {
     if (imageIndex < images.length - 1) {
       setImageIndex(imageIndex + 1)
@@ -45,6 +48,7 @@ function ImagesModal({
       closeOnEsc
       isCentered
       closeOnOverlayClick
+      onClose={onClose}
     >
       <ModalOverlay />
       <ModalContent p={'0'}>
