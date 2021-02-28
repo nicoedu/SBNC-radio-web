@@ -47,7 +47,7 @@ export default function Radio({
       minH="100vh"
       align="center"
       justify="center"
-      overflow="hidden"
+      overflowY="hidden"
       position="relative"
     >
       <Head>
@@ -87,7 +87,7 @@ export default function Radio({
         my="auto"
         mx={[0, 0, 5, 5, 'auto']}
         position="relative"
-        // w="90vw"
+        minH="85vh"
         maxWidth="1200px"
         padding={5}
         // h={['auto', 'auto', '89.8vh']}
@@ -99,10 +99,11 @@ export default function Radio({
           templateRows={['1fr', '1fr', 'repeat(16, 1fr)']}
           templateColumns={['1fr', '1fr', '1fr 1fr 1fr']}
           w={['100vw', '70vw', '55vw']}
-          h={['auto', 'auto', '85vh']}
           bg={['transparent', 'transparent', 'white']}
+          borderBottomRightRadius={0}
           borderRadius={[0, 20]}
           mr={['', '', '5%']}
+          overflow="hidden"
         >
           <GridItem
             rowStart={['auto', 'auto', 1]}
@@ -150,7 +151,6 @@ export default function Radio({
           </GridItem>
 
           <GridItem
-            overflow="auto"
             rowStart={['auto', 'auto', 9]}
             rowSpan={['auto', 'auto', 9]}
             colSpan={['auto', 'auto', 2]}
@@ -162,20 +162,21 @@ export default function Radio({
             <ContactForm radioColor={radioData.color} />
           </GridItem>
         </Grid>
-
-        <Flex
-          flexDirection="column"
-          w={['100vw', '100vw', '25vw']}
-          h={['auto', 'auto', '80vh']}
-          bg="white"
-          borderRadius={['0', '0', 'xl']}
-        >
-          <Calendar
-            radioColor={radioData.color}
-            radioEvents={radioData.events}
-          />
-          <PriceTable radioColor={radioData.color} />
-        </Flex>
+        <Box height="100%">
+          <Flex
+            flexDirection="column"
+            w={['100vw', '100vw', '25vw']}
+            h={['auto']}
+            bg="white"
+            borderRadius={['0', '0', 'xl']}
+          >
+            <Calendar
+              radioColor={radioData.color}
+              radioEvents={radioData.events}
+            />
+            <PriceTable radioColor={radioData.color} />
+          </Flex>
+        </Box>
       </Flex>
     </Box>
   )
@@ -208,11 +209,11 @@ function SocialMedia({ radioData }: { radioData: IRadioData }) {
         border="2px"
         objectFit="contain"
         borderColor="gray.200"
-        mt={5}
+        mt={[5, 5, 0]}
       />
 
       <Heading
-        fontSize={['4xl', '2xl', '2xl', '4xl']}
+        fontSize={['4xl', '2xl', '2xl', '2xl']}
         align={['center', 'left']}
         fontWeight="bold"
         mt={2}
@@ -287,16 +288,16 @@ function AboutUS({
 
 function Book({ radioData }: { radioData: IRadioData }) {
   return (
-    <Box position="relative" h={['100%']}>
+    <Box position="relative" h={['95%']}>
       <Flex flexDirection="column" alignItems="start" p={4} pb={6} h="100%">
         <Heading
           fontWeight="bold"
           fontSize={['3xl', 'xl', '', '2xl']}
-          mb={['5']}
+          mb={['5', '5', 1]}
         >
           Book
         </Heading>
-        <Box my="auto" zIndex="2" w={['100%']} h={['250px']}>
+        <Box my="auto" zIndex="100" w={['100%']} h={['240px']}>
           <ReactPlayer
             url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
             width="100%"
