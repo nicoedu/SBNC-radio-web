@@ -68,7 +68,6 @@ export default function Radio({
         left={[2, 2, 2, 2, 5, 20]}
         top={['10vh']}
         zIndex="10"
-        // right={['10', '5vw']}
         src="/layout-home-ball.svg"
       />
       <Image
@@ -77,7 +76,6 @@ export default function Radio({
         right={['5']}
         top={['50vh']}
         zIndex="10"
-        // right={['10', '5vw']}
         src="/layout-home-ball.svg"
       />
       <Flex
@@ -207,7 +205,7 @@ function SocialMedia({ radioData }: { radioData: IRadioData }) {
         border="2px"
         objectFit="contain"
         borderColor="gray.200"
-        mt={[5, 5, 0]}
+        mt={[5]}
       />
 
       <Heading

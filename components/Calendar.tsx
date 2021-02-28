@@ -8,6 +8,7 @@ import {
   Text
 } from '@chakra-ui/react'
 import { IRadioEvent } from 'global'
+import { getRadioData } from 'lib/radios'
 import { useState } from 'react'
 
 function CalendarEvent({
@@ -52,13 +53,17 @@ function CalendarEvent({
             mt={['09px']}
             ml={['06px']}
           >
-            JAN
+            {radioEvent.month}
           </Heading>
         </Box>
 
         <HStack mt={3}>
           <Image
-            src="/Festa-Pan.png"
+            src={
+              radioEvent.photoUrl === ' '
+                ? radioEvent.photoUrl
+                : '/Festa-Pan.png'
+            }
             w={['80px']}
             h={['80px']}
             alignSelf="flex-start"
@@ -87,9 +92,11 @@ function CalendarEvent({
                 cursor={'pointer'}
                 align="start"
                 fontSize={'xs'}
-                color={'primary'}
+                fontWeight={'bold'}
+                color={radioColor}
+                mt={'0.5%'}
               >
-                {!show ? 'Ler mais' : ''}
+                {!show ? 'Ler mais' : 'Ler menos'}
               </Text>
             </Box>
           </Box>
@@ -124,7 +131,41 @@ export default function Calendar({
       >
         Calendário comercial
       </Heading>
-      <Flex w={['100%']} direction="column" overflow={'auto'}>
+      <Flex
+        w={['100%']}
+        direction="column"
+        overflowY={'scroll'}
+        maxH={['auto', '60vh']}
+        sx={{
+          '&::-webkit-scrollbar': {
+            width: '20px'
+          },
+          '&::-webkit-scrollbar-track': {
+            width: '6px',
+            marginRight: '100px'
+          },
+          '&::-webkit-scrollbar-thumb': {
+            background: radioColor,
+
+            borderRight: '10px white solid',
+            backgroundClip: 'padding-box'
+          },
+          '&::-webkit-scrollbar-track-piece:end': {
+            marginBottom: '15vh',
+            background: 'lightgray',
+
+            borderRight: '10px white solid',
+            backgroundClip: 'padding-box'
+          },
+          '&::-webkit-scrollbar-track-piece:start': {
+            marginTop: '15vh',
+            background: 'lightgray',
+
+            borderRight: '10px white solid',
+            backgroundClip: 'padding-box'
+          }
+        }}
+      >
         {radioEvents?.map((value) => (
           <CalendarEvent
             key={value.title}
