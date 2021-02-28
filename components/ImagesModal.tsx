@@ -6,10 +6,6 @@ import {
   Modal,
   ModalOverlay,
   ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
   Text
 } from '@chakra-ui/react'
 
@@ -59,8 +55,8 @@ function ImagesModal({
               backgroundColor={'#fefefe'}
               m={'auto'}
               maxW={'90%'}
-              h={'90%'}
-              // h={'auto'}
+              pt={'4%'}
+              pb={'4%'}
               src={images[imageIndex].src}
               alt={images[imageIndex].name}
             />
@@ -69,9 +65,9 @@ function ImagesModal({
           <Text
             color={'black'}
             position={'absolute'}
-            top={'1%'}
-            right={'2%'}
-            fontSize={'40px'}
+            top={'0%'}
+            right={'1.5%'}
+            fontSize={'3rem'}
             fontWeight={'bold'}
             onClick={() => setShowModal(false)}
           >
@@ -82,10 +78,10 @@ function ImagesModal({
             cursor={'pointer'}
             position={'absolute'}
             top={'50%'}
-            left={'2%'}
+            left={'1.5%'}
             color={'black'}
             fontWeight={'bold'}
-            fontSize={'40px'}
+            fontSize={'3rem'}
             transition={' 0.6s ease'}
             borderRadius={' 0 3px 3px 0'}
             onClick={() => {
@@ -98,10 +94,10 @@ function ImagesModal({
             cursor={'pointer'}
             position={'absolute'}
             top={'50%'}
-            right={'2%'}
+            right={'1.5%'}
             color={'black'}
             fontWeight={'bold'}
-            fontSize={'40px'}
+            fontSize={'3rem'}
             transition={'0.6s ease'}
             borderRadius={'0 3px 3px 0'}
             onClick={() => {
