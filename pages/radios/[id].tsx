@@ -21,25 +21,56 @@ import Header from '@components/navbar/Header'
 import { IRadioData } from 'global'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
-import ReactPlayer from 'react-player'
-import { getAllRadioIds, getRadioData } from '../../lib/radios'
-import ImagesGallery from '../../components/ImageGallery'
-import ImagesModal from '../../components/ImagesModal'
 import React, { useState } from 'react'
+import ReactPlayer from 'react-player'
+import ImagesGallery from '../../components/ImageGallery'
+import { getAllRadioIds, getRadioData } from '../../lib/radios'
 
 export default function Radio({
   radioData
 }: {
   radioData: IRadioData
 }): JSX.Element {
-  const [showModal, setShowModal] = useState(false)
-  const [imageIndex, setImageIndex] = useState(0)
-  const [images] = useState([
-    { name: 'Nature', src: 'https://source.unsplash.com/1280x720/?nature' },
-    { name: 'Picture', src: 'https://source.unsplash.com/1280x720/?food' }
+  const [images, setImages] = useState([
+    {
+      name: 'Nature',
+      src:
+        'https://images.unsplash.com/photo-1613815044649-a392280ce2ad?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=720'
+    },
+    {
+      name: 'Picture',
+      src:
+        'https://images.unsplash.com/photo-1614272284054-2422b1a528c2?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=720'
+    },
+    {
+      name: 'image',
+      src:
+        'https://images.unsplash.com/photo-1614420789792-81b5931cd432?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=720'
+    },
+    {
+      name: 'image2',
+      src:
+        'https://images.unsplash.com/photo-1614179573227-90f183b62cf1?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=720'
+    },
+    {
+      name: 'image3',
+      src:
+        'https://images.unsplash.com/photo-1614412746175-ba3851366782?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=720'
+    },
+    {
+      name: 'image4',
+      src:
+        'https://images.unsplash.com/photo-1613739118724-2060ee526a9d?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=720'
+    },
+    {
+      name: 'image5',
+      src:
+        'https://images.unsplash.com/photo-1613775774818-d7b40ab515c7?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=720'
+    }
   ])
-  const theme = useTheme()
-  const styles = css({ backdropFilter: 'blur(5px)' })(theme)
+
+  // const openModal
+
   return (
     <Box
       bgGradient="linear(to-b, primary, secondary)"
@@ -55,13 +86,7 @@ export default function Radio({
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Header isHome={false} />
-      <ImagesModal
-        showModal={showModal}
-        setShowModal={setShowModal}
-        imageIndex={imageIndex}
-        setImageIndex={setImageIndex}
-        images={images}
-      />
+
       <Image
         position="absolute"
         width={['20vw']}
@@ -80,7 +105,7 @@ export default function Radio({
       />
       <Flex
         bg="rgba(255, 255, 255, 0.35)"
-        sx={styles}
+        sx={css({ backdropFilter: 'blur(5px)' })(useTheme())}
         zIndex="100"
         my="auto"
         mx={[0, 0, 5, 5, 'auto']}
@@ -125,13 +150,7 @@ export default function Radio({
             borderColor="pink.300"
             bg="white"
           >
-            <AboutUS
-              radioData={radioData}
-              setShowModal={setShowModal}
-              imageIndex={imageIndex}
-              setImageIndex={setImageIndex}
-              images={images}
-            />
+            <AboutUS radioData={radioData} images={images} />
           </GridItem>
 
           <GridItem
@@ -162,6 +181,7 @@ export default function Radio({
           <Flex
             flexDirection="column"
             w={['100vw', '100vw', '25vw']}
+            maxW="350px"
             h={['auto']}
             bg="white"
             borderRadius={['0', '0', 'xl']}
@@ -253,16 +273,10 @@ function SocialMedia({ radioData }: { radioData: IRadioData }) {
 
 function AboutUS({
   radioData,
-  setShowModal,
-  imageIndex,
-  setImageIndex,
   images
 }: {
   radioData: IRadioData
-  imageIndex: number
-  images: { name: string; src: string }[]
-  setImageIndex: any
-  setShowModal: any
+  images: { src: string; name: string }[]
 }) {
   return (
     <VStack alignItems="start" p={4}>
@@ -272,12 +286,7 @@ function AboutUS({
       <Text noOfLines={7} align="left" mb={[4, '', '', 2]}>
         {radioData.aboutUs}
       </Text>
-      <ImagesGallery
-        setShowModal={setShowModal}
-        imageIndex={imageIndex}
-        setImageIndex={setImageIndex}
-        images={images}
-      />
+      <ImagesGallery images={images} />
     </VStack>
   )
 }
