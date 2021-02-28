@@ -61,65 +61,64 @@ function ImageGallery({
   }
 
   return (
-    <Box position={'relative'} xs={3}>
+    <>
       <ImagesModal
         isOpen={isOpen}
         onClose={onClose}
         index={imageIndex}
         images={images}
       />
-      <HStack align="center" justify="center">
-        <Link
-          // position={'absolute'}
-          _hover={{ textDecoration: 'none' }}
-          // top={'50%'}
-          // left={'0'}
-          m={0}
-          width={'auto'}
-          color={'black'}
-          fontWeight={'bold'}
-          fontSize={' 20px'}
-          transition={' 0.6s ease'}
-          borderRadius={' 0 3px 3px 0'}
-          onClick={() => {
-            previousImage()
-          }}
-        >
-          &#10094;
-        </Link>
-        <ImageSlide
-          onOpen={openModal}
-          images={images}
-          imageIndex={imageIndex}
-        />
-        <ImageSlide
-          onOpen={openModal}
-          images={images}
-          imageIndex={imageIndex + 1}
-        />
-        <ImageSlide
-          onOpen={openModal}
-          images={images}
-          imageIndex={imageIndex + 2}
-        />
+      <Box position={'relative'} xs={3}>
+        <HStack align="center" justify="center">
+          <Link
+            _hover={{ textDecoration: 'none' }}
+            m={0}
+            width={'auto'}
+            color={'black'}
+            fontWeight={'bold'}
+            fontSize={' 20px'}
+            transition={' 0.6s ease'}
+            borderRadius={' 0 3px 3px 0'}
+            onClick={() => {
+              previousImage()
+            }}
+          >
+            &#10094;
+          </Link>
+          <ImageSlide
+            onOpen={openModal}
+            images={images}
+            imageIndex={imageIndex}
+          />
+          <ImageSlide
+            onOpen={openModal}
+            images={images}
+            imageIndex={imageIndex + 1}
+          />
+          <ImageSlide
+            onOpen={openModal}
+            images={images}
+            imageIndex={imageIndex + 2}
+          />
 
-        <Link
-          _hover={{ textDecoration: 'none' }}
-          width={'auto'}
-          color={'black'}
-          fontWeight={'bold'}
-          m={0}
-          fontSize={'20px'}
-          transition={'0.6s ease'}
-          borderRadius={'0 3px 3px 0'}
-          onClick={() => {
-            nextImage()
-          }}
-        >
-          &#10095;
-        </Link>
-      </HStack>
-    </Box>
+          <Link
+            _hover={{ textDecoration: 'none' }}
+            width={'auto'}
+            color={'black'}
+            fontWeight={'bold'}
+            m={0}
+            fontSize={'20px'}
+            transition={'0.6s ease'}
+            borderRadius={'0 3px 3px 0'}
+            onClick={() => {
+              nextImage()
+            }}
+          >
+            &#10095;
+          </Link>
+        </HStack>
+      </Box>
+    </>
   )
 }
 

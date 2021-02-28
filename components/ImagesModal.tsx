@@ -1,5 +1,6 @@
 import {
   Box,
+  Center,
   Flex,
   Image,
   Link,
@@ -7,7 +8,8 @@ import {
   ModalBody,
   ModalCloseButton,
   ModalContent,
-  ModalOverlay
+  ModalOverlay,
+  Spacer
 } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 
@@ -50,57 +52,62 @@ function ImagesModal({
     <Modal
       isOpen={isOpen}
       onClose={onClose}
-      size={'6xl'}
+      size={'4xl'}
       closeOnEsc
       isCentered
       closeOnOverlayClick
-      onClose={onClose}
     >
       <ModalOverlay />
-      <ModalContent maxH={'90%'} maxW={'100%'} mx={1}>
-        <ModalCloseButton />
-        <ModalBody>
-          <Flex flexDirection="row" align="center" justify="center">
-            <Link
-              pr={1}
-              color={'black'}
-              fontWeight={'bold'}
-              fontSize={'3rem'}
-              transition={' 0.6s ease'}
-              borderRadius={' 0 3px 3px 0'}
-              _hover={{ textDecoration: 'none' }}
-              onClick={() => {
-                previousImage()
-              }}
-            >
-              &#10094;
-            </Link>
-            <Image
-              backgroundColor={'#fefefe'}
-              m={'auto'}
-              maxW={'80%'}
-              maxH={'90vh'}
-              pt={'4%'}
-              pb={'4%'}
-              src={images[imageIndex].src}
-              alt={images[imageIndex].name}
-            />
-            <Link
-              pl={1}
-              color={'black'}
-              fontWeight={'bold'}
-              fontSize={'3rem'}
-              transition={'0.6s ease'}
-              _hover={{ textDecoration: 'none' }}
-              borderRadius={'0 3px 3px 0'}
-              onClick={() => {
-                nextImage()
-              }}
-            >
-              &#10095;
-            </Link>
-            <Box />
-          </Flex>
+      <ModalContent
+        maxH={'90%'}
+        minH={'300px'}
+        // maxW={'100%'}
+        mx={[1, 1, 'auto']}
+        bg="darkBackground"
+      >
+        <ModalCloseButton color="white" />
+        <ModalBody display="flex" height="100%" align="center" jutify="center">
+          <Center>
+            <Flex flexDirection="row" align="center" justify="center">
+              <Link
+                pr={[1, 1, 5]}
+                color={'white'}
+                fontWeight={'bold'}
+                fontSize={'3rem'}
+                transition={' 0.6s ease'}
+                borderRadius={' 0 3px 3px 0'}
+                _hover={{ textDecoration: 'none' }}
+                onClick={() => {
+                  previousImage()
+                }}
+              >
+                &#10094;
+              </Link>
+              <Image
+                // m={'auto'}
+                maxW={'80%'}
+                maxH={'90vh'}
+                fallback={<Spacer />}
+                py={5}
+                src={images[imageIndex].src}
+                alt={images[imageIndex].name}
+              />
+              <Link
+                pl={[1, 1, 5]}
+                color={'white'}
+                fontWeight={'bold'}
+                fontSize={'3rem'}
+                transition={'0.6s ease'}
+                _hover={{ textDecoration: 'none' }}
+                borderRadius={'0 3px 3px 0'}
+                onClick={() => {
+                  nextImage()
+                }}
+              >
+                &#10095;
+              </Link>
+            </Flex>
+          </Center>
         </ModalBody>
       </ModalContent>
     </Modal>
