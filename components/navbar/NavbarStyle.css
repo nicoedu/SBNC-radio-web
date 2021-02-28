@@ -1,3 +1,7 @@
 .navbar-nav .nav-link:hover {
-  color: lightgray !important;
+  color: #ffde3a !important;
+}
+
+.navbar-nav .dropdown-item:hover {
+  color: #2e3092 !important;
 }

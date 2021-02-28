@@ -177,7 +177,7 @@ export default function Radio({
             <ContactForm radioColor={radioData.color} />
           </GridItem>
         </Grid>
-        <Box height="100%">
+        <Box height="100%" mt={[3, 3, 0]}>
           <Flex
             flexDirection="column"
             w={['100vw', '100vw', '25vw']}
@@ -340,7 +340,6 @@ function PriceTable({ radioColor }: { radioColor?: string }): JSX.Element {
       borderBottomRadius="xl"
     >
       <DownloadModal isBook={true} color={radioColor} />
-      {/* <DownloadModal isBook={false} color="blue.700" /> */}
     </Flex>
   )
 }

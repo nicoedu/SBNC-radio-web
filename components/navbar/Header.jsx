@@ -43,13 +43,13 @@ const Header = ({
           left={['4vw']}
         />
       </Navbar.Brand>
-      <Navbar.Toggle
-        aria-controls="responsive-navbar-nav"
-        as={'HamburguerIcon'}
-      />
+      <Navbar.Toggle aria-controls="responsive-navbar-nav">
+        <HamburgerIcon color="white" boxSize={6} />
+      </Navbar.Toggle>
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="ml-auto" style={{ color: 'white' }}>
           <NavDropdown
+            alignRight={true}
             title="Rádios"
             id="collasible-nav-dropdown"
             style={{ color: 'white' }}

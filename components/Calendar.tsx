@@ -1,5 +1,6 @@
 import {
   Box,
+  Center,
   Collapse,
   Flex,
   Heading,
@@ -131,46 +132,56 @@ export default function Calendar({
       >
         Calendário comercial
       </Heading>
-
-      <Box pr={1}>
-        <Flex
-          w={['100%']}
-          direction="column"
-          overflowY={'auto'}
-          maxH={['auto', '60vh']}
-          sx={{
-            '&::-webkit-scrollbar': {
-              width: '10px',
-              borderRadius: '20px'
-            },
-            '&::-webkit-scrollbar-track': {
-              width: '6px'
-              // marginRight: '100px'
-            },
-            '&::-webkit-scrollbar-thumb': {
-              background: radioColor,
-              borderRadius: '80px'
-            },
-            '&::-webkit-scrollbar-track-piece:end': {
-              marginBottom: '15vh',
-              background: 'lightgray',
-              marginRight: '20px'
-            },
-            '&::-webkit-scrollbar-track-piece:start': {
-              marginTop: '15vh',
-              background: 'lightgray'
-            }
-          }}
-        >
-          {radioEvents?.map((value) => (
-            <CalendarEvent
-              key={value.title}
-              radioColor={radioColor}
-              radioEvent={value}
-            />
-          ))}
-        </Flex>
-      </Box>
+      {radioEvents && radioEvents.length > 0 ? (
+        <Box pr={1}>
+          <Flex
+            w={['100%']}
+            direction="column"
+            overflowY={'auto'}
+            maxH={['auto', '60vh']}
+            sx={{
+              '&::-webkit-scrollbar': {
+                width: '10px',
+                borderRadius: '20px'
+              },
+              '&::-webkit-scrollbar-track': {
+                width: '6px'
+                // marginRight: '100px'
+              },
+              '&::-webkit-scrollbar-thumb': {
+                background: radioColor,
+                borderRadius: '80px'
+              },
+              '&::-webkit-scrollbar-track-piece:end': {
+                marginBottom: '15vh',
+                background: 'lightgray',
+                marginRight: '20px'
+              },
+              '&::-webkit-scrollbar-track-piece:start': {
+                marginTop: '15vh',
+                background: 'lightgray'
+              }
+            }}
+          >
+            {radioEvents?.map((value) => (
+              <CalendarEvent
+                key={value.title}
+                radioColor={radioColor}
+                radioEvent={value}
+              />
+            ))}
+          </Flex>
+        </Box>
+      ) : (
+        <Center py={5}>
+          <Flex flexDirection="column" align="center" justify="center" my={10}>
+            <Image src="/no-event.png" width="30%"></Image>
+            <Heading mt={5} color="gray.400" fontSize={'2xl'}>
+              <b>Nenhum evento cadastrado</b>
+            </Heading>
+          </Flex>
+        </Center>
+      )}
     </Flex>
   )
 }
