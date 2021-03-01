@@ -9,7 +9,6 @@ import {
   Text
 } from '@chakra-ui/react'
 import { IRadioEvent } from 'global'
-import { getRadioData } from 'lib/radios'
 import { useState } from 'react'
 
 function CalendarEvent({
