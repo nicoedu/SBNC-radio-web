@@ -55,7 +55,7 @@ export default function ContactForm({
       .then(() => {
         toast({
           title: 'Sucesso',
-          description: 'Email enviado com sucesso',
+          description: 'Book enviado para seu e-mail',
           status: 'success',
           duration: 9000,
           isClosable: true
@@ -97,7 +97,7 @@ export default function ContactForm({
             mb={isHome ? [5] : [5, '', '', 2]}
             fontSize={['3xl', '', '2xl', '3xl']}
             align="left"
-            display={['', 'none', 'block']}
+            display={['', 'block']}
           >
             Fale Conosco
           </Heading>

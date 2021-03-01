@@ -72,7 +72,7 @@ export default function Radio({
         position="relative"
         minH="85vh"
         maxWidth="1200px"
-        padding={5}
+        padding={[0, 0, 5]}
         flexDirection={['column', 'column', 'row']}
         align="center"
         justify="center"
@@ -80,7 +80,7 @@ export default function Radio({
         <Grid
           templateRows={['1fr', '1fr', 'repeat(16, 1fr)']}
           templateColumns={['1fr', '1fr', '1fr 1fr 1fr']}
-          w={['100vw', '70vw', '55vw']}
+          w={['100%', '70%', '55%']}
           bg={['transparent', 'transparent', 'white']}
           borderBottomRightRadius={0}
           borderRadius={[0, 20]}
