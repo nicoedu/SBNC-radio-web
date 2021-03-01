@@ -1,4 +1,5 @@
-import { Box, Flex, HStack, Image, Link, useDisclosure } from '@chakra-ui/react'
+import { Box, Flex, Image, Link, useDisclosure } from '@chakra-ui/react'
+import { IRadioPhoto } from 'global'
 import React, { useState } from 'react'
 import ImagesModal from './ImagesModal'
 
@@ -8,7 +9,7 @@ function ImageSlide({
   imageIndex
 }: {
   onOpen: (index: number) => void
-  images: { src: string; name: string }[]
+  images: IRadioPhoto[]
   imageIndex: number
 }): JSX.Element {
   return imageIndex < images.length ? (
@@ -34,7 +35,7 @@ function ImageGallery({
   images,
   radioColor
 }: {
-  images: { src: string; name: string }[]
+  images: IRadioPhoto[]
   radioColor?: string
 }): JSX.Element {
   const { isOpen, onOpen, onClose } = useDisclosure()

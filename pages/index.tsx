@@ -19,8 +19,8 @@ import Head from 'next/head'
 import React, { useRef } from 'react'
 
 export default function Home(): JSX.Element {
-  const aboutUsDiv = useRef(null)
-  const contactUsDiv = useRef(null)
+  const aboutUsDiv = useRef<HTMLDivElement>(null)
+  const contactUsDiv = useRef<HTMLDivElement>(null)
 
   const scrollToAbout = () => {
     if (aboutUsDiv.current) {
@@ -159,7 +159,7 @@ const HeroLayout = ({ scrollToContact }: { scrollToContact: () => void }) => (
 const AboutUsLayout = ({
   scroll
 }: {
-  scroll: React.MutableRefObject<null>
+  scroll: React.RefObject<HTMLDivElement>
 }) => (
   <Box
     background="primary"
@@ -260,7 +260,7 @@ const ContactUsLayout = () => (
 const ContactInfoLayout = ({
   scroll
 }: {
-  scroll: React.MutableRefObject<null>
+  scroll: React.RefObject<HTMLDivElement>
 }) => (
   <Box
     ref={scroll}

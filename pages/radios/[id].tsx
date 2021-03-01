@@ -21,7 +21,7 @@ import Header from '@components/navbar/Header'
 import { IRadioData } from 'global'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
-import React, { useState } from 'react'
+import React from 'react'
 import ReactPlayer from 'react-player'
 import ImagesGallery from '../../components/ImageGallery'
 import { getAllRadioIds, getRadioData } from '../../lib/radios'
@@ -31,46 +31,6 @@ export default function Radio({
 }: {
   radioData: IRadioData
 }): JSX.Element {
-  const [images, setImages] = useState([
-    {
-      name: 'Nature',
-      src:
-        'https://images.unsplash.com/photo-1613815044649-a392280ce2ad?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=720'
-    },
-    {
-      name: 'Picture',
-      src:
-        'https://images.unsplash.com/photo-1614272284054-2422b1a528c2?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=720'
-    },
-    {
-      name: 'image',
-      src:
-        'https://images.unsplash.com/photo-1614420789792-81b5931cd432?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=720'
-    },
-    {
-      name: 'image2',
-      src:
-        'https://images.unsplash.com/photo-1614179573227-90f183b62cf1?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=720'
-    },
-    {
-      name: 'image3',
-      src:
-        'https://images.unsplash.com/photo-1614412746175-ba3851366782?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=720'
-    },
-    {
-      name: 'image4',
-      src:
-        'https://images.unsplash.com/photo-1613739118724-2060ee526a9d?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=720'
-    },
-    {
-      name: 'image5',
-      src:
-        'https://images.unsplash.com/photo-1613775774818-d7b40ab515c7?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=720'
-    }
-  ])
-
-  // const openModal
-
   return (
     <Box
       bgGradient="linear(to-b, primary, secondary)"
@@ -150,7 +110,7 @@ export default function Radio({
             borderColor="pink.300"
             bg="white"
           >
-            <AboutUS radioData={radioData} images={images} />
+            <AboutUS radioData={radioData} />
           </GridItem>
 
           <GridItem
@@ -271,13 +231,7 @@ function SocialMedia({ radioData }: { radioData: IRadioData }) {
   )
 }
 
-function AboutUS({
-  radioData,
-  images
-}: {
-  radioData: IRadioData
-  images: { src: string; name: string }[]
-}) {
+function AboutUS({ radioData }: { radioData: IRadioData }) {
   return (
     <VStack alignItems="start">
       <Heading fontWeight="bold" fontSize={['3xl', 'xl', '', '2xl']} p={2}>
@@ -286,7 +240,9 @@ function AboutUS({
       <Text noOfLines={7} align="left" mb={[4, '', '', 2]} px={2} py={1}>
         {radioData.aboutUs}
       </Text>
-      <ImagesGallery images={images} radioColor={radioData.color} />
+      {radioData.images !== undefined ? (
+        <ImagesGallery images={radioData.images} radioColor={radioData.color} />
+      ) : null}
     </VStack>
   )
 }

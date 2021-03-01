@@ -6,7 +6,7 @@ export default async (
   res: NextApiResponse
 ): Promise<void> => {
   if (req.method === 'POST') {
-    const { name, email, phone } = req.body
+    const { name, email } = req.body
     sgMail.setApiKey(process.env.SENDGRID_API_KEY || '')
 
     const msg: MailDataRequired = {

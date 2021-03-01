@@ -9,6 +9,7 @@ import {
   ModalOverlay,
   Spacer
 } from '@chakra-ui/react'
+import { IRadioPhoto } from 'global'
 import React, { useEffect, useState } from 'react'
 
 function ImagesModal({
@@ -20,7 +21,7 @@ function ImagesModal({
   isOpen: boolean
   onClose: () => void
   index: number
-  images: { name: string; src: string }[]
+  images: IRadioPhoto[]
 }): JSX.Element {
   const [imageIndex, setImageIndex] = useState(index)
 

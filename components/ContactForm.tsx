@@ -1,8 +1,6 @@
-import React, { useReducer } from 'react'
 import {
   Box,
   Button,
-  Flex,
   FormControl,
   FormLabel,
   Heading,
@@ -13,6 +11,7 @@ import {
 } from '@chakra-ui/react'
 import SvgCornerRadio from '@components/layout/corner-radio'
 import fetch from 'node-fetch'
+import React, { useReducer } from 'react'
 
 type State = {
   name: string
