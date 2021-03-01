@@ -80,7 +80,7 @@ export default function Radio({
         <Grid
           templateRows={['1fr', '1fr', 'repeat(16, 1fr)']}
           templateColumns={['1fr', '1fr', '1fr 1fr 1fr']}
-          w={['100%', '70%', '55%']}
+          w={['100%', '100%', '70%', '55%']}
           bg={['transparent', 'transparent', 'white']}
           borderBottomRightRadius={0}
           borderRadius={[0, 20]}

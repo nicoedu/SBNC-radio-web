@@ -101,7 +101,7 @@ export default function ContactForm({
           >
             Fale Conosco
           </Heading>
-          <HStack mb={isHome ? [6] : [5, 2]}>
+          <HStack mb={isHome ? [6] : [5, 2]} w={'95%'}>
             <FormControl id="first-name" isRequired w="45%" mr={[5, 2]}>
               <FormLabel
                 fontSize={
@@ -143,7 +143,7 @@ export default function ContactForm({
             </FormControl>
           </HStack>
 
-          <HStack mb={isHome ? [6] : [5, 2]}>
+          <HStack mb={isHome ? [6] : [5, 2]} w={'95%'}>
             <FormControl id="subject" isRequired w="45%" mr={[5, 2]}>
               <FormLabel
                 fontSize={
@@ -186,7 +186,7 @@ export default function ContactForm({
             </FormControl>
           </HStack>
 
-          <HStack mb={isHome ? [3] : [5, 2]}>
+          <HStack mb={isHome ? [3] : [5, 2]} w={'95%'}>
             <FormControl id="message" isRequired w="95%">
               <FormLabel
                 fontSize={

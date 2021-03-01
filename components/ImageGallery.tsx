@@ -72,6 +72,7 @@ function ImageGallery({
         images={images}
       />
       <Flex
+        px={[0, 0, 1]}
         flexDirection="row"
         align="center"
         justify="space-between"
