@@ -141,7 +141,7 @@ export default function Radio({
           <Flex
             flexDirection="column"
             w={['100vw', '100vw', '25vw']}
-            maxW="350px"
+            maxW={['', '350px']}
             h={['auto']}
             bg="white"
             borderRadius={['0', '0', 'xl']}
@@ -250,11 +250,21 @@ function AboutUS({ radioData }: { radioData: IRadioData }) {
 function Book({ radioData }: { radioData: IRadioData }) {
   return (
     <Box position="relative" h={['95%']}>
-      <Flex flexDirection="column" alignItems="start" p={4} pb={6} h="100%">
+      <Flex
+        flexDirection="row"
+        alignItems="start"
+        p={4}
+        pb={6}
+        h="100%"
+        flexWrap={'wrap'}
+      >
         <Heading
           fontWeight="bold"
           fontSize={['3xl', 'xl', '', '2xl']}
           mb={['5', '5', 1]}
+          zIndex={2}
+          display={'block'}
+          left={0}
         >
           Book
         </Heading>
