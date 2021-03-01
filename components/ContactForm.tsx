@@ -1,6 +1,7 @@
 import {
   Box,
   Button,
+  Flex,
   FormControl,
   FormLabel,
   Heading,
@@ -84,7 +85,12 @@ export default function ContactForm({
   return (
     <Box position="relative" w="100%" h="100%" py={2} pr={2} mb={['0']}>
       <form onSubmit={handleSubmit}>
-        <Box alignItems="start" ml={5} mt={['', '5%', '0%', '1%']}>
+        <Flex
+          alignItems="start"
+          flexDirection="column"
+          ml={5}
+          mt={['', '5%', '0%', '1%']}
+        >
           <Heading
             fontWeight="bold"
             mt={isHome ? [4] : ['']}
@@ -211,7 +217,7 @@ export default function ContactForm({
             h={['40px', '30px', '30px', '40px']}
             borderRadius={isHome ? 20 : 30}
             mb={isHome ? [5] : ''}
-            _hover={isHome ? { bg: '#5268DF' } : { bg: radioColor }}
+            _hover={isHome ? { bg: 'primary' } : { bg: radioColor }}
           >
             Enviar
           </Button>
@@ -220,7 +226,7 @@ export default function ContactForm({
               <SvgCornerRadio height={[60]} color={radioColor} />
             </Box>
           ) : null}
-        </Box>
+        </Flex>
       </form>
     </Box>
   )
