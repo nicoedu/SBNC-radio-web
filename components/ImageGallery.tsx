@@ -71,7 +71,12 @@ function ImageGallery({
         index={imageIndex}
         images={images}
       />
-      <Flex flexDirection="row" align="center" justify="space-between">
+      <Flex
+        flexDirection="row"
+        align="center"
+        justify="space-between"
+        minH={'100px'}
+      >
         <Link
           _hover={{ textDecoration: 'none' }}
           m={0}

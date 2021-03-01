@@ -84,7 +84,7 @@ export default function Radio({
           bg={['transparent', 'transparent', 'white']}
           borderBottomRightRadius={0}
           borderRadius={[0, 20]}
-          mr={['', '', '5%']}
+          mr={[0, 0, 0, '5%']}
           overflow="hidden"
         >
           <GridItem

@@ -10,6 +10,7 @@ import '../components/navbar/NavbarStyle.css'
 const App = ({ Component, pageProps }: AppProps): JSX.Element => {
   useEffect(() => {
     AOS.init({
+      disable: 'mobile',
       duration: 800,
       easing: 'ease-out-cubic',
       once: false
