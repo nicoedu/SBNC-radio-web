@@ -353,7 +353,7 @@ const RadioCard = ({
       background="background"
       p={2}
       px={2}
-      maxH={300}
+      maxH={350}
       maxW={220}
       boxShadow="xl"
       alignItems="center"
@@ -361,7 +361,7 @@ const RadioCard = ({
       borderRadius={20}
       data-aos="fade-up"
     >
-      <Heading size={'md'} textAlign="center">
+      <Heading size={'lg'} textAlign="center">
         {title}
       </Heading>
       <Image mx="auto" src={id + '.png'} />

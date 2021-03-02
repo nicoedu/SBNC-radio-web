@@ -3,7 +3,7 @@ import { extendTheme } from '@chakra-ui/react'
 
 const theme = extendTheme({
   fonts: {
-    heading: 'PT Sans Narrow, sans-serif',
+    heading: 'Raleway, sans-serif',
     body: 'Open Sans, sans-serif'
   },
   colors: {
@@ -33,7 +33,7 @@ const theme = extendTheme({
     },
     Heading: {
       baseStyle: {
-        textTransform: 'uppercase'
+        // textTransform: 'uppercase'
       }
     }
   }
