@@ -77,8 +77,14 @@ const Header = ({
               >
                 Quem somos
               </Nav.Link>
-              <Nav.Link href={''} eventKey={2} onClick={scrollToContact}>
-                Anuncie conosco
+              <Nav.Link
+                href={''}
+                className="contact"
+                style={{ color: '#FFDE3A' }}
+                eventKey={2}
+                onClick={scrollToContact}
+              >
+                <b>Fale conosco</b>
               </Nav.Link>
             </>
           ) : null}

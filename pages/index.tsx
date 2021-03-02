@@ -1,4 +1,4 @@
-import { EmailIcon, InfoIcon, PhoneIcon } from '@chakra-ui/icons'
+import { EmailIcon, PhoneIcon } from '@chakra-ui/icons'
 import {
   Box,
   Button,
@@ -17,6 +17,8 @@ import Header from '@components/navbar/Header'
 import theme from 'theme'
 import Head from 'next/head'
 import React, { useRef } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons'
 
 export default function Home(): JSX.Element {
   const aboutUsDiv = useRef<HTMLDivElement>(null)
@@ -112,6 +114,7 @@ const HeroLayout = ({ scrollToContact }: { scrollToContact: () => void }) => (
         <Heading
           fontSize={['4xl', '5xl', '5xl', '6xl']}
           color="white"
+          textTransform="none"
           mt={8}
           textAlign="center"
         >
@@ -147,10 +150,10 @@ const HeroLayout = ({ scrollToContact }: { scrollToContact: () => void }) => (
         gap={['6vw', '4vw', '6vw']}
         templateColumns={['repeat(2, 1fr)', 'repeat(2, 1fr)', 'repeat(4, 1fr)']}
       >
-        <RadioCard title="JovemPan Caruaru" id="jpcaruaru"></RadioCard>
-        <RadioCard title="Music FM Recife" id="music"></RadioCard>
         <RadioCard title="JovemPan Recife" id="jprecife"></RadioCard>
+        <RadioCard title="JovemPan Caruaru" id="jpcaruaru"></RadioCard>
         <RadioCard title="Band FM Caruaru" id="band"></RadioCard>
+        <RadioCard title="Music FM Recife" id="music"></RadioCard>
       </Grid>
     </Box>
   </Flex>
@@ -295,15 +298,38 @@ const ContactInfoLayout = ({
           <Stack my="auto">
             <Flex alignItems="center" justifySelf="center">
               <PhoneIcon color="primary" />
-              <Text px={2}>+55 81 9972-5780</Text>
+              <Link
+                target="_blank"
+                rel="noopener noreferrer"
+                href="tel:+5581999725780"
+                px={2}
+              >
+                +55 81 99972-5780
+              </Link>
             </Flex>
             <Flex alignItems="center" justifySelf="center">
               <EmailIcon color="primary" />
-              <Text px={2}>+55 81 9972-5780</Text>
+              <Link
+                target="_blank"
+                rel="noopener noreferrer"
+                href="mailto:example@mail.com"
+                px={2}
+              >
+                example@mail.com
+              </Link>
             </Flex>
             <Flex alignItems="center" justifySelf="center">
-              <InfoIcon color="primary" />
-              <Text px={2}>+55 81 9972-5780</Text>
+              <Box color="primary">
+                <FontAwesomeIcon icon={faMapMarkedAlt} />
+              </Box>
+              <Link
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://goo.gl/maps/r8ajrL1Ret3xUsYG9"
+                px={2}
+              >
+                Endereço da snbc, nº 1500
+              </Link>
             </Flex>
           </Stack>
         </Flex>

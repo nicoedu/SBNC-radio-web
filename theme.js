@@ -25,6 +25,17 @@ const theme = extendTheme({
       200: '#76C04E'
     }
   },
-  components: {}
+  components: {
+    Button: {
+      baseStyle: {
+        textTransform: 'uppercase'
+      }
+    },
+    Heading: {
+      baseStyle: {
+        textTransform: 'uppercase'
+      }
+    }
+  }
 })
 export default theme

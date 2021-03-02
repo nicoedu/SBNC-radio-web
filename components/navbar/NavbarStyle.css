@@ -2,6 +2,11 @@
   color: #ffde3a !important;
 }
 
+.navbar-nav .contact:hover {
+  color: #8a8a8a !important;
+  text-decoration: underline;
+}
+
 .navbar-nav .dropdown-item:hover {
   color: #2e3092 !important;
 }

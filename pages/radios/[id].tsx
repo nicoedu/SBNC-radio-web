@@ -253,7 +253,7 @@ function Book({ radioData }: { radioData: IRadioData }) {
       <Flex flexDirection="column" alignItems="start" p={4} pb={6} h="100%">
         <Heading
           fontWeight="bold"
-          fontSize={['3xl', 'xl', '', '2xl']}
+          fontSize={['3xl', 'xl', '2xl']}
           mb={['5', '5', 1]}
         >
           Book
