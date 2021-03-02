@@ -87,14 +87,15 @@ export default function ContactForm({
       <form onSubmit={handleSubmit}>
         <Flex
           alignItems="start"
-          flexDirection="column"
+          flexDirection="row"
+          flexWrap={'wrap'}
           ml={5}
           mt={['', '5%', '0%', '1%']}
         >
           <Heading
             fontWeight="bold"
             mt={isHome ? [4] : ['']}
-            mb={isHome ? [5] : [5, '', '', 2]}
+            mb={isHome ? [5] : [5, '', '', 3]}
             fontSize={['3xl', '', '2xl', '3xl']}
             align="left"
             display={['', 'block']}
