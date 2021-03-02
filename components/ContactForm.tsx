@@ -96,7 +96,11 @@ export default function ContactForm({
             fontWeight="bold"
             mt={isHome ? [4] : ['']}
             mb={isHome ? [5] : [5, '', '', 3]}
-            fontSize={['3xl', '', '2xl', '3xl']}
+            fontSize={
+              isHome
+                ? ['3xl', '3xl', '2xl', '3xl']
+                : ['3xl', '3xl', 'xl', '2xl']
+            }
             align="left"
             display={['', 'block']}
           >

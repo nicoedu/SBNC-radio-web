@@ -260,7 +260,7 @@ function Book({ radioData }: { radioData: IRadioData }) {
       >
         <Heading
           fontWeight="bold"
-          fontSize={['3xl', 'xl', '2xl']}
+          fontSize={['3xl', 'xl', '', '2xl']}
           mb={['5', '5', 1]}
           zIndex={2}
           display={'block'}
