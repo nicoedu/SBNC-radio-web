@@ -118,7 +118,7 @@ const HeroLayout = ({ scrollToContact }: { scrollToContact: () => void }) => (
           mt={8}
           textAlign="center"
         >
-          <b>Sistema Brasil Nordestes de Comunicação</b>
+          <b>Sistema Brasil Nordeste de Comunicação</b>
         </Heading>
         <Text
           fontSize={['md', '2xl']}
