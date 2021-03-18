@@ -62,7 +62,7 @@ export default function Home(): JSX.Element {
       <ContactUsLayout />
       <ContactInfoLayout scroll={contactUsDiv} />
       <a
-        href="https://api.whatsapp.com/send?phone=5581992656003&text=Ol%C3%A1%2C%20estou%20interessado(a)%20em%20conhecer%20mais%20sobre%20voc%C3%AAs"
+        href="https://api.whatsapp.com/send?phone=5581992656003&text=Ol%C3%A1%2C%20seja%20bem%20vindo%20(a)!%20Sou%20a%20assistente%20do%20SBNC%2C%20me%20chamo%20Lorena%2C%20e%20estou%20aqui%20para%20passar%20mais%20informa%C3%A7%C3%B5es%20sobre%20%20nossos%20servi%C3%A7os.%20Para%20iniciarmos%20nos%20informe%3A%20%20Nome%3A%20Empresa%3A%20R%C3%A1dio%20que%20deseja%20anunciar%3A"
         style={{
           position: 'fixed',
           width: '60px',
@@ -126,7 +126,7 @@ const HeroLayout = ({ scrollToContact }: { scrollToContact: () => void }) => (
           mt={[0, 3]}
           textAlign="center"
         >
-          Grupo das maiores rádios do Nordeste
+          Grupo das maiores Rádios do Nordeste
         </Text>
         <Center py={5}>
           <Button
@@ -150,10 +150,12 @@ const HeroLayout = ({ scrollToContact }: { scrollToContact: () => void }) => (
         gap={['6vw', '4vw', '6vw']}
         templateColumns={['repeat(2, 1fr)', 'repeat(2, 1fr)', 'repeat(4, 1fr)']}
       >
-        <RadioCard title="JovemPan Recife" id="jprecife"></RadioCard>
         <RadioCard title="JovemPan Caruaru" id="jpcaruaru"></RadioCard>
         <RadioCard title="Band FM Caruaru" id="band"></RadioCard>
         <RadioCard title="Music FM Recife" id="music"></RadioCard>
+        <RadioCard title="JovemPan Recife" id="jprecife"></RadioCard>
+        
+        
       </Grid>
     </Box>
   </Flex>
@@ -199,15 +201,10 @@ const AboutUsLayout = ({
           Quem somos
         </Heading>
         <Text align="justify">
-          O SBNC - Sistema Brasil Nordeste de Comunicação foi fundado em julho
-          de 1983, fruto do espírito empreendedor do casal de empresários Isabel
-          Christina e Ricardo de Araújo Pinto, entusiastas da radiodifusão.
-          <br />
-          Em quase 40 anos de atuação, o Grupo SBNC continua expandindo,
-          investindo em tecnologia, recursos, profissionais, e, levando o melhor
-          de sua programação com qualidade e força para cerca de 80% do estado
-          de Pernambuco, 118 municípios e toda a Grande Recife, o que
-          corresponde a mais de 7 milhões de pernambucanos.
+        O SBNC– Sistema Brasil Nordeste de Comunicação é um grupo de comunicação genuinamente pernambucano composto pelas emissoras: Jovem Pan Recife 95,9 FM, Music FM Recife 88,7, Jovem Pan Caruaru 101,3 e Band FM Caruaru 102,1. <br />
+        O Grupo SBNC  está presente, além das quatro emissoras, nas multiplataformas de mídia como aplicativos e redes sociais e é referência no Mercado publicitário do Nordeste pela força das marcas, profissionalismo, credibilidade e inovação nas estratégias de mídia e promoção, tanto para as agências de publicidade quanto para o anunciante. Focando sempre no sucesso e crescimento de marcas , produtos e parceiros. <br />
+        Possui equipe diferenciada e motivada, sempre unida na busca de resultados positivos, superando expectativas. <br />
+        Em quase 40 anos de atuação, o Grupo SBNC continua expandindo, investindo em tecnologia, recursos, profissionais, e, levando o melhor de sua programação com qualidade e força para cerca de 80% do estado de Pernambuco, 118 municípios e toda a Grande Recife, o que corresponde a mais de 7 milhões de pernambucanos. <br />
         </Text>
       </Box>
     </Grid>
@@ -304,7 +301,7 @@ const ContactInfoLayout = ({
                 href="tel:+5581999725780"
                 px={2}
               >
-                +55 81 99972-5780
+                +55 81 99972 5780
               </Link>
             </Flex>
             <Flex alignItems="center" justifySelf="center">
@@ -312,10 +309,10 @@ const ContactInfoLayout = ({
               <Link
                 target="_blank"
                 rel="noopener noreferrer"
-                href="mailto:example@mail.com"
+                href="mailto:sbnc@sbnc.com.br"
                 px={2}
               >
-                example@mail.com
+                 sbnc@sbnc.com.br
               </Link>
             </Flex>
             <Flex alignItems="center" justifySelf="center">
@@ -325,10 +322,10 @@ const ContactInfoLayout = ({
               <Link
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://goo.gl/maps/r8ajrL1Ret3xUsYG9"
+                href="https://goo.gl/maps/ikMEczkLvXNATLCj8"
                 px={2}
               >
-                Endereço da snbc, nº 1500
+                Rua da Aurora, 325, 15° andar, Boa Vista, Recife-PE
               </Link>
             </Flex>
           </Stack>
@@ -361,9 +358,6 @@ const RadioCard = ({
       borderRadius={20}
       data-aos="fade-up"
     >
-      <Heading size={'lg'} textAlign="center">
-        {title}
-      </Heading>
       <Image mx="auto" src={id + '.png'} />
       <Flex w="100%" alignItems="center" justifyContent="center">
         <Button

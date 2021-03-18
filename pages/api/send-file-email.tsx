@@ -11,7 +11,7 @@ export default async (
 
     const msg: MailDataRequired = {
       to: email, // Change to your recipient
-      from: 'nicoedu183@gmail.com', // Change to your verified sender
+      from: 'assistentecomercial@sbnc.com.br', // Change to your verified sender
       templateId: 'd-5046cdd64ff544cbb5b4df155d4370cf',
       dynamicTemplateData: { name: name }
     }

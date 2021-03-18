@@ -10,8 +10,8 @@ export default async (
     sgMail.setApiKey(process.env.SENDGRID_API_KEY || '')
 
     const msg = {
-      to: 'nicoedu183@gmail.com', // Change to your recipient
-      from: 'nicoedu183@gmail.com', // Change to your verified sender
+      to: 'assistentecomercial@sbnc.com.br', // Change to your recipient
+      from: 'assistentecomercial@sbnc.com.br', // Change to your verified sender
       subject: subject,
       text:
         'Mensagem de ' + name + ' (' + email + ', ' + phone + '): ' + message

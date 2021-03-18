@@ -198,7 +198,7 @@ function SocialMedia({ radioData }: { radioData: IRadioData }) {
       </Heading>
 
       <HStack align={['center']} mt={5} spacing={['4', '1', '3', '3']}>
-        <Link href={radioData.facebookLink} isExternal ml={'auto'}>
+        <Link display={radioData.facebookLink == "" ? "none" : ""} href={radioData.facebookLink} isExternal ml={'auto'}>
           <Image
             src="/facebook.svg"
             h={['40px', '', '25px', '35px']}
@@ -212,14 +212,14 @@ function SocialMedia({ radioData }: { radioData: IRadioData }) {
             w={['40px', '', '25px', '35px']}
           />
         </Link>
-        <Link href={radioData.instagramLink} isExternal>
+        <Link href={radioData.instagramLink} display={radioData.instagramLink == "" ? "none" : ""}  isExternal>
           <Image
             src="/instagram.svg"
             h={['40px', '', '25px', '35px']}
             w={['40px', '', '25px', '35px']}
           />
         </Link>
-        <Link href={radioData.twitterLink} isExternal mr={'auto'}>
+        <Link href={radioData.twitterLink} display={radioData.twitterLink == "" ? "none" : ""} isExternal mr={'auto'}>
           <Image
             src="/twitter.svg"
             h={['40px', '', '25px', '35px']}

@@ -1,10 +1,10 @@
 {
   "id": "jprecife",
   "name": "Jovem Pan Recife",
-  "facebookLink": "",
-  "whatsappLink": "",
-  "instagramLink": "",
-  "twitterLink": "",
+  "facebookLink": "https://www.facebook.com/jovempanrecife",
+  "whatsappLink": "81 99972 5780",
+  "instagramLink": "https://www.instagram.com/jovempanrecife",
+  "twitterLink": "https://twitter.com/JovemPanRecife",
   "colorName": "pan",
   "color": "#AC3639",
   "aboutUs": "A Jovem Pan Recife dispõe de equipamentos de transmissão de última geração, com potência de 10 khz, funcionando 24 horas, produzindo o melhor som com o maior alcance do rádio FM pernambucano. A Jovem Pan Recife está preparada para oferecer diversas soluções em comunicação: planos de mídia, campanhas promocionais, cross mídia, envolvimento com eventos e grandes shows, promoções que interagem com ouvinte e geram grandes resultados, aliás é a rádio das grandes promoções; ações promocionais em toda região metropolitana, realização de flashes ao vivo no local escolhido, comunicação no site e em sua rede social.  Tudo para levar o produto ou marca do anunciante de forma pulsante, interativa e dinâmica para as ruas e até o grande público, ampliando resultados, aumentando retornos e garantindo sucessos. Presente também em seu aplicativo exclusivo, site e perfil nas redes sociais, influenciando a audiência através da internet e de suas ferramentas, aumentando a visibilidade do anunciante e realizando promoções exclusivas. Sendo ouvida em países do mundo inteiro. A Jovem Pan Recife tem na essência da programação a música que o público se identifica, nacional, local ou internacional, entretenimento, esportes e jornalismo local e nacional com qualidade e credibilidade da maior rede de rádios do Brasil. Promove os melhores eventos locais e nacionais, é referência na realização de ações promocionais que utilizam materiais de grande visibilidade, chamando atenção e interação total com realização de brincadeiras atrativas, levando sempre o produto do cliente com muita animação, envolvimento e abordagem inteligente até o público. As promoções da Jovem Pan Recife são sempre destaque, aumentam a interação com ouvinte, geram resultados de forma espontânea para o anunciante e ganham mais força nas redes sociais, multiplicando resultados. seu aplicativo exclusivo ",
@@ -12,39 +12,76 @@
     {
       "photoUrl": "",
       "month": "JAN",
-      "title": "Festa Pan",
+      "title": "Verao",
       "description": "A Jovem Pan e a Marca X vão surpreender os ouvintes, invadindo vários locais de interesse do cliente, como a praia de Boa Viagem, Porto de Galinhas, Tamandaré, Itamaracá e municípios próximos...Ler mais"
     },
     {
       "photoUrl": "",
       "month": "FEV",
-      "title": "Festa Pan",
+      "title": "Carnaval",
       "description": "A Jovem Pan e a Marca X vão surpreender os ouvintes, invadindo vários locais de interesse do cliente, como a praia de Boa Viagem, Porto de Galinhas, Tamandaré, Itamaracá e municípios próximos...Ler mais"
     },
     {
       "photoUrl": "",
       "month": "MAR",
-      "title": "Festa Pan",
+      "title": "Dia da mulher",
       "description": "A Jovem Pan e a Marca X vão surpreender os ouvintes, invadindo vários locais de interesse do cliente, como a praia de Boa Viagem, Porto de Galinhas, Tamandaré, Itamaracá e municípios próximos...Ler mais"
     },
     {
       "photoUrl": "",
-      "month": "ABR",
-      "title": "Festa Pan",
+      "month": "MAR",
+      "title": "Aniverário de Recife e Olinda",
+      "description": "A Jovem Pan e a Marca X vão surpreender os ouvintes, invadindo vários locais de interesse do cliente, como a praia de Boa Viagem, Porto de Galinhas, Tamandaré, Itamaracá e municípios próximos...Ler mais"
+    },
+    {
+      "photoUrl": "",
+      "month": "MAR",
+      "title": "Paixao de Cristo e Páscoa",
+      "description": "A Jovem Pan e a Marca X vão surpreender os ouvintes, invadindo vários locais de interesse do cliente, como a praia de Boa Viagem, Porto de Galinhas, Tamandaré, Itamaracá e municípios próximos...Ler mais"
+    },
+    {
+      "photoUrl": "",
+      "month": "MAI",
+      "title": "Dia das maes",
       "description": "A Jovem Pan e a Marca X vão surpreender os ouvintes, invadindo vários locais de interesse do cliente, como a praia de Boa Viagem, Porto de Galinhas, Tamandaré, Itamaracá e municípios próximos...Ler mais"
     },
     {
       "photoUrl": "",
       "month": "JUN",
-      "title": "Festa Pan",
+      "title": "Dia dos namorados",
       "description": "A Jovem Pan e a Marca X vão surpreender os ouvintes, invadindo vários locais de interesse do cliente, como a praia de Boa Viagem, Porto de Galinhas, Tamandaré, Itamaracá e municípios próximos...Ler mais"
     },
     {
       "photoUrl": "",
       "month": "JUN",
-      "title": "Festa Pan",
+      "title": "Sao Joao",
+      "description": "A Jovem Pan e a Marca X vão surpreender os ouvintes, invadindo vários locais de interesse do cliente, como a praia de Boa Viagem, Porto de Galinhas, Tamandaré, Itamaracá e municípios próximos...Ler mais"
+    },
+    {
+      "photoUrl": "",
+      "month": "JUL",
+      "title": "Vestibular",
+      "description": "A Jovem Pan e a Marca X vão surpreender os ouvintes, invadindo vários locais de interesse do cliente, como a praia de Boa Viagem, Porto de Galinhas, Tamandaré, Itamaracá e municípios próximos...Ler mais"
+    },
+    {
+      "photoUrl": "",
+      "month": "AGO",
+      "title": "Dia dos pais",
+      "description": "A Jovem Pan e a Marca X vão surpreender os ouvintes, invadindo vários locais de interesse do cliente, como a praia de Boa Viagem, Porto de Galinhas, Tamandaré, Itamaracá e municípios próximos...Ler mais"
+    },
+    {
+      "photoUrl": "",
+      "month": "OUT",
+      "title": "Dia das crianças",
+      "description": "A Jovem Pan e a Marca X vão surpreender os ouvintes, invadindo vários locais de interesse do cliente, como a praia de Boa Viagem, Porto de Galinhas, Tamandaré, Itamaracá e municípios próximos...Ler mais"
+    },
+    {
+      "photoUrl": "",
+      "month": "DEZ",
+      "title": "Natal",
       "description": "A Jovem Pan e a Marca X vão surpreender os ouvintes, invadindo vários locais de interesse do cliente, como a praia de Boa Viagem, Porto de Galinhas, Tamandaré, Itamaracá e municípios próximos...Ler mais"
     }
+
   ],
   "images": [
     {
