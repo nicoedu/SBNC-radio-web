@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Center,
   css,
   Flex,
@@ -10,6 +11,7 @@ import {
   Image,
   Link,
   Text,
+  useDisclosure,
   useTheme,
   VStack
 } from '@chakra-ui/react'
@@ -19,6 +21,7 @@ import DownloadModal from '@components/DownloadModal'
 import LargeImageGallery from '@components/LargeImageGallery'
 import SvgVideoLayout from '@components/layout/background-video-radios'
 import Header from '@components/navbar/Header'
+import TextModal from '@components/TextModal'
 import { IRadioData } from 'global'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
@@ -247,18 +250,35 @@ function SocialMedia({ radioData }: { radioData: IRadioData }) {
 }
 
 function AboutUS({ radioData }: { radioData: IRadioData }) {
+  const { isOpen, onOpen, onClose } = useDisclosure()
   return (
-    <VStack alignItems="start">
-      <Heading fontWeight="bold" fontSize={['3xl', 'xl', '', '2xl']} p={2}>
-        Sobre nós
-      </Heading>
-      <Text noOfLines={7} align="left" mb={[4, '', '', 2]} px={2} py={1}>
-        {radioData.aboutUs}
-      </Text>
-      {radioData.images && radioData.book ? (
-        <ImagesGallery images={radioData.images} radioColor={radioData.color} />
-      ) : null}
-    </VStack>
+    <Flex flexdirection="row" w="100%">
+      <TextModal isOpen={isOpen} onClose={onClose} text={radioData.aboutUs} />
+      <VStack alignItems="start">
+        <Heading fontWeight="bold" fontSize={['3xl', 'xl', '', '2xl']} p={2}>
+          Sobre nós
+        </Heading>
+        <Text noOfLines={7} align="left" mb={[4, '', '', 2]} px={2} py={1}>
+          {radioData.aboutUs}
+        </Text>
+        <Button
+          alignSelf="center"
+          bg={radioData.color}
+          _hover={{ bg: radioData.color }}
+          color={'gray.200'}
+          onClick={onOpen}
+        >
+          {' '}
+          Continuar lendo{' '}
+        </Button>
+        {radioData.images && radioData.book ? (
+          <ImagesGallery
+            images={radioData.images}
+            radioColor={radioData.color}
+          />
+        ) : null}
+      </VStack>
+    </Flex>
   )
 }
 
