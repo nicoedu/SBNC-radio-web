@@ -23,7 +23,7 @@ const Header = ({
       style={{
         minHeight: '70px',
         width: '100%',
-        backgroundColor: '#2E3092'
+        backgroundColor: '#4580C0'
       }}
     >
       <Navbar.Brand href="/">

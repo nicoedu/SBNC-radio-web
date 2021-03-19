@@ -16,6 +16,7 @@ import {
 import Calendar from '@components/Calendar'
 import ContactForm from '@components/ContactForm'
 import DownloadModal from '@components/DownloadModal'
+import LargeImageGallery from '@components/LargeImageGallery'
 import SvgVideoLayout from '@components/layout/background-video-radios'
 import Header from '@components/navbar/Header'
 import { IRadioData } from 'global'
@@ -177,16 +178,16 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 function SocialMedia({ radioData }: { radioData: IRadioData }) {
   return (
     <Box mx={[10, 1]} mb={[10, '5']}>
-      <Image
+      <Box
         borderRadius="full"
-        boxSize={['200px', '90px', '120px', '150px']}
-        src={'/' + radioData.id + '.png'}
-        alt="Logo da Rádio"
         border="2px"
+        boxSize={['200px', '90px', '120px', '150px']}
         objectFit="contain"
         borderColor="gray.200"
         mt={[5]}
-      />
+      >
+        <Image p={5} src={'/' + radioData.id + '.png'} alt="Logo da Rádio" />
+      </Box>
 
       <Heading
         fontSize={['4xl', '2xl', '2xl', '2xl']}
@@ -198,7 +199,12 @@ function SocialMedia({ radioData }: { radioData: IRadioData }) {
       </Heading>
 
       <HStack align={['center']} mt={5} spacing={['4', '1', '3', '3']}>
-        <Link display={radioData.facebookLink == "" ? "none" : ""} href={radioData.facebookLink} isExternal ml={'auto'}>
+        <Link
+          display={radioData.facebookLink === '' ? 'none' : ''}
+          href={radioData.facebookLink}
+          isExternal
+          ml={'auto'}
+        >
           <Image
             src="/facebook.svg"
             h={['40px', '', '25px', '35px']}
@@ -212,14 +218,23 @@ function SocialMedia({ radioData }: { radioData: IRadioData }) {
             w={['40px', '', '25px', '35px']}
           />
         </Link>
-        <Link href={radioData.instagramLink} display={radioData.instagramLink == "" ? "none" : ""}  isExternal>
+        <Link
+          href={radioData.instagramLink}
+          display={radioData.instagramLink === '' ? 'none' : ''}
+          isExternal
+        >
           <Image
             src="/instagram.svg"
             h={['40px', '', '25px', '35px']}
             w={['40px', '', '25px', '35px']}
           />
         </Link>
-        <Link href={radioData.twitterLink} display={radioData.twitterLink == "" ? "none" : ""} isExternal mr={'auto'}>
+        <Link
+          href={radioData.twitterLink}
+          display={radioData.twitterLink === '' ? 'none' : ''}
+          isExternal
+          mr={'auto'}
+        >
           <Image
             src="/twitter.svg"
             h={['40px', '', '25px', '35px']}
@@ -240,7 +255,7 @@ function AboutUS({ radioData }: { radioData: IRadioData }) {
       <Text noOfLines={7} align="left" mb={[4, '', '', 2]} px={2} py={1}>
         {radioData.aboutUs}
       </Text>
-      {radioData.images !== undefined ? (
+      {radioData.images && radioData.book ? (
         <ImagesGallery images={radioData.images} radioColor={radioData.color} />
       ) : null}
     </VStack>
@@ -266,30 +281,35 @@ function Book({ radioData }: { radioData: IRadioData }) {
           display={'block'}
           left={0}
         >
-          Book
+          {radioData.book ? 'Book' : 'Galeria'}
         </Heading>
-        <Box my="auto" zIndex="100" w={['100%']} h={['240px']}>
-          <ReactPlayer
-            url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
-            width="100%"
-            height="100%"
+        {radioData.book ? (
+          <Box my="auto" zIndex="100" w={['100%']} h={['240px']}>
+            <ReactPlayer url={radioData.book} width="100%" height="100%" />
+          </Box>
+        ) : radioData.images && radioData.color ? (
+          <LargeImageGallery
+            color={radioData.color}
+            images={radioData.images}
           />
-        </Box>
+        ) : null}
       </Flex>
-      <Center
-        p={1}
-        position="absolute"
-        width={['100vw', '100%', '100%']}
-        height={['100%', '100%']}
-        align="center"
-        top={[0, 10, 5]}
-        bottom="0"
-        left="0"
-        right={[0]}
-        zIndex={0}
-      >
-        <SvgVideoLayout color={radioData.color} />
-      </Center>
+      {radioData.book ? (
+        <Center
+          p={1}
+          position="absolute"
+          width={['100vw', '100%', '100%']}
+          height={['100%', '100%']}
+          align="center"
+          top={[0, 10, 5]}
+          bottom="0"
+          left="0"
+          right={[0]}
+          zIndex={0}
+        >
+          <SvgVideoLayout color={radioData.color} />
+        </Center>
+      ) : null}
     </Box>
   )
 }

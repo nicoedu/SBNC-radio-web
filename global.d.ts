@@ -7,6 +7,7 @@ export interface IRadioData {
   twitterLink?: string
   colorName?: string
   color?: string
+  book?: string
   aboutUs?: string
   events?: [IRadioEvent]
   images?: IRadioPhoto[]

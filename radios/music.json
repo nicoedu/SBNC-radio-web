@@ -48,20 +48,20 @@
   ],
   "images": [
     {
-      "name": "Evento Music FM",
-      "src": "http://localhost:3000/music_imagem_1.jpeg"
+      "name": "Music1",
+      "src": "https://ik.imagekit.io/2bue2ujsxey/WhatsApp_Image_2019-09-12_at_21.21.26_WZc0ZU86PR.jpeg"
     },
     {
-      "name": "Evento Music FM",
-      "src": "http://localhost:3000/music_imagem_2.jpeg"
+      "name": "Music1",
+      "src": "https://ik.imagekit.io/2bue2ujsxey/WhatsApp_Image_2019-09-12_at_20.18.05_QVpVKIL5s.jpeg"
     },
     {
-      "name": "Evento Music FM",
-      "src": "http://localhost:3000/music_imagem_3.jpeg"
+      "name": "Music1",
+      "src": "https://ik.imagekit.io/2bue2ujsxey/WhatsApp_Image_2019-09-12_at_19.25.25_1mY6zsRM4u.jpeg"
     },
     {
-      "name": "Evento Music FM",
-      "src": "http://localhost:3000/music_imagem_4.jpeg"
+      "name": "Music1",
+      "src": "https://ik.imagekit.io/2bue2ujsxey/WhatsApp_Image_2019-09-12_at_20.28.12_cG7H3uXDA.jpeg"
     }
   ]
 }

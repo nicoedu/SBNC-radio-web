@@ -7,8 +7,8 @@ const theme = extendTheme({
     body: 'Open Sans, sans-serif'
   },
   colors: {
-    primary: '#2E3092',
-    secondary: '#D8B6B2',
+    primary: '#4580C0',
+    secondary: '#c79690',
     background: '#FFFFFF',
     darkBackground: '#2E2E2E',
     contrast: '#FFDE3A',
