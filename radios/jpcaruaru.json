@@ -9,6 +9,80 @@
   "color": "#AC3639",
   "book": "https://www.youtube.com/watch?v=ysz5S6PUM-U",
   "aboutUs": "A Rede Jovem Pan está no ar para todo o Brasil, por meio das emissoras afiliadas, fornecendo 24 horas de música, entretenimento, esportes e jornalismo com a qualidade e a credibilidade que marcam o trabalho da Rádio Jovem Pan há décadas. A Jovem Pan é a marca de prestígio e sinônimo de rádio que sempre se inova. Músicas em total sintonia que os ouvintes gostam de ouvir e com um público formador de opinião e que está totalmente antenado com as atualidades do mundo. \n Com uma linguagem dinâmica e em sintonia com as constantes evoluções do rádio, a Jovem Pan oferece conteúdo diversificado para que o ouvinte tenha informação, opinião e entretenimento na medida certa. \n A Jovem Pan é a grife do rádio jornalismo brasileiro, agregando valor aos produtos dos seus anunciantes gerando oportunidades através de ações de marketing para ativação da marca dos anunciantes. \n Seu perfil é diferenciado, com um público que se interessa por entretenimento, informação, esportes, cultura, meio ambiente, tecnologia e informação.",
+  "events": [
+    {
+      "photoUrl": "/verão.png",
+      "month": "JAN",
+      "title": "Verao",
+      "description": "A Jovem Pan e a Marca X vão surpreender os ouvintes, invadindo vários locais de interesse do cliente, como a praia de Boa Viagem, Porto de Galinhas, Tamandaré, Itamaracá e municípios próximos"
+    },
+    {
+      "photoUrl": "/carmaval.png",
+      "month": "FEV",
+      "title": "Carnaval",
+      "description": "Uma ação promocional com duração de 02 horas, onde a equipe Jovem Pan estará fantasiada, marcando presença na Marca X no Carnaval de Recife e Olinda"
+    },
+    {
+      "photoUrl": "/mulheres.png",
+      "month": "MAR",
+      "title": "Dia da mulher",
+      "description": "Toda mulher merece um cuidado especial, ainda mais no seu dia. Pensando nisso, a Jovem Pan preparou o Missão Possível da Pan, uma abordagem realizada em estabelecimentos comerciais, com duração de 02 horas, podendo percorrer até 02 lugares próximos."
+    },
+    {
+      "photoUrl": "/santa.png",
+      "month": "MAR",
+      "title": "Paixao de Cristo",
+      "description": "Fortaleça sua marca junto com a Jovem Pan neste período que movimenta toda região."
+    },
+    {
+      "photoUrl": "/páscoa.png",
+      "month": "MAR",
+      "title": "Páscoa",
+      "description": "A Corrida do Coelhinho da Pan é uma ação dinâmica, com envolvimento do público, com duração de 02 horas, podendo ser realizada em estabelecimentos comerciais"
+    },
+    {
+      "photoUrl": "/mães.png",
+      "month": "MAI",
+      "title": "Dia das maes",
+      "description": "Visando promover a marca do cliente e também presentear as mães nesta data tão importante, a InvasãoAcerteoNúmerocoma Panéumaação promocional realizada com abordagem em estabelecimentos comerciais com duração de 02 horas."
+    },
+    {
+      "photoUrl": "/namorados.png",
+      "month": "JUN",
+      "title": "Dia dos namorados",
+      "description": "Uma ação promocional, com duração de 02 horas, onde a equipeJovem Pancomseuspromotoresestarãona loja (ou na rua a definir) interagindo com o público com muito romance e animação!"
+    },
+    {
+      "photoUrl": "/SJ.png",
+      "month": "JUN",
+      "title": "Sao Joao",
+      "description": "A Invasão Roleta Junina da Pan é uma ação dinâmica, com envolvimento do público, com duração de 02 horas, podendo ser realizada em festas e ruas. A equipe Jovem Pan chega no local pré-definido, aborda as pessoas convidando a participar da brincadeira."
+    },
+    {
+      "photoUrl": "/vestibular.png",
+      "month": "JUL",
+      "title": "Vestibular",
+      "description": "A programação da Jovem Pan estará totalmente envolvida com todas as informações e conteúdos programáticos que os alunos precisam neste momento tão decisivo e importante que é o Enem"
+    },
+    {
+      "photoUrl": "/pais.png",
+      "month": "AGO",
+      "title": "Dia dos pais",
+      "description": "Uma ação dinâmica e divertida especialmente para os pais que adoram futebol, com duração de 02h. Nossa equipe vai agitar o local pré-definido, convidando as pessoas a participarem da brincadeira CHUTE A GOL."
+    },
+    {
+      "photoUrl": "/crianças.png",
+      "month": "OUT",
+      "title": "Dia das crianças",
+      "description": "Uma ação promocional, com duração de 02 horas, onde a equipe Jovem Pan com seus Super Herois marcarão presença na Marca X no Dia das Crianças, realizando uma promoção que vai contagiar a todos dos local, interagindo com pais e filhos com muita animação!"
+    },
+    {
+      "photoUrl": "/natal.png",
+      "month": "DEZ",
+      "title": "Natal",
+      "description": "Uma ação promocional, com duração de 02 horas, onde a equipe Jovem Pan comseuspersonagensnatalinosmarcarãopresença na empresa realizando uma promoção que vai contagiar a todos do local, interagindo com pais e filhos com muita animação!"
+    }
+  ],
   "images": [
     {
       "name": "jpc1",
