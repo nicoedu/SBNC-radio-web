@@ -11,76 +11,76 @@
   "aboutUs": "A Jovem Pan Recife dispõe de equipamentos de transmissão de última geração de altíssima fidelidade, com potência de 10 khz, funcionando 24 horas, produzindo o melhor som com o maior alcance do rádio FM pernambucano. \n A Jovem Pan Recife está preparada para oferecer diversas soluções em comunicação: planos de mídia, campanhas promocionais, cross mídia, envolvimento com eventos e grandes shows, promoções que interagem com ouvinte e geram grandes resultados, aliás é a rádio das grandes promoções; ações promocionais em toda região metropolitana, realização de flashes ao vivo no local escolhido, comunicação no site e em sua rede social.  Tudo para levar o produto ou marca do anunciante de forma pulsante, interativa e dinâmica para as ruas e até o grande público, ampliando resultados, aumentando retornos e garantindo sucessos. \n  Presente também em seu aplicativo exclusivo, site e perfil nas redes sociais, influenciando a audiência através da internet e de suas ferramentas, aumentando a visibilidade do anunciante e realizando promoções exclusivas. Sendo ouvida em países do mundo inteiro. \n A Jovem Pan Recife tem na essência da programação a música que o público se identifica, nacional, local ou internacional, entretenimento, esportes e jornalismo local e nacional com qualidade e credibilidade da maior rede de rádios do Brasil. Promove os melhores eventos locais e nacionais, é referência na realização de ações promocionais que utilizam materiais de grande visibilidade, chamando atenção e interação total com realização de brincadeiras atrativas, levando sempre o produto do cliente com muita animação, envolvimento e abordagem inteligente até o público. As promoções da Jovem Pan Recife são sempre destaque, aumentam a interação com ouvinte, geram resultados de forma espontânea para o anunciante e ganham mais força nas redes sociais, multiplicando resultados.",
   "events": [
     {
-      "photoUrl": "",
+      "photoUrl": "/verão.png",
       "month": "JAN",
       "title": "Verao",
-      "description": "A Jovem Pan e a Marca X vão surpreender os ouvintes, invadindo vários locais de interesse do cliente, como a praia de Boa Viagem, Porto de Galinhas, Tamandaré, Itamaracá e municípios próximos...Ler mais"
+      "description": "A Jovem Pan e a Marca X vão surpreender os ouvintes, invadindo vários locais de interesse do cliente, como a praia de Boa Viagem, Porto de Galinhas, Tamandaré, Itamaracá e municípios próximos"
     },
     {
-      "photoUrl": "",
+      "photoUrl": "/carmaval.png",
       "month": "FEV",
       "title": "Carnaval",
-      "description": "A Jovem Pan e a Marca X vão surpreender os ouvintes, invadindo vários locais de interesse do cliente, como a praia de Boa Viagem, Porto de Galinhas, Tamandaré, Itamaracá e municípios próximos...Ler mais"
+      "description": "Uma ação promocional com duração de 02 horas, onde a equipe Jovem Pan estará fantasiada, marcando presença na Marca X no Carnaval de Recife e Olinda"
     },
     {
-      "photoUrl": "",
+      "photoUrl": "/mulheres.png",
       "month": "MAR",
       "title": "Dia da mulher",
-      "description": "A Jovem Pan e a Marca X vão surpreender os ouvintes, invadindo vários locais de interesse do cliente, como a praia de Boa Viagem, Porto de Galinhas, Tamandaré, Itamaracá e municípios próximos...Ler mais"
+      "description": "Toda mulher merece um cuidado especial, ainda mais no seu dia. Pensando nisso, a Jovem Pan preparou o Missão Possível da Pan, uma abordagem realizada em estabelecimentos comerciais, com duração de 02 horas, podendo percorrer até 02 lugares próximos."
     },
     {
-      "photoUrl": "",
+      "photoUrl": "/santa.png",
       "month": "MAR",
-      "title": "Aniverário de Recife e Olinda",
-      "description": "A Jovem Pan e a Marca X vão surpreender os ouvintes, invadindo vários locais de interesse do cliente, como a praia de Boa Viagem, Porto de Galinhas, Tamandaré, Itamaracá e municípios próximos...Ler mais"
+      "title": "Paixao de Cristo",
+      "description": "Fortaleça sua marca junto com a Jovem Pan neste período que movimenta toda região."
     },
     {
-      "photoUrl": "",
+      "photoUrl": "/páscoa.png",
       "month": "MAR",
-      "title": "Paixao de Cristo e Páscoa",
-      "description": "A Jovem Pan e a Marca X vão surpreender os ouvintes, invadindo vários locais de interesse do cliente, como a praia de Boa Viagem, Porto de Galinhas, Tamandaré, Itamaracá e municípios próximos...Ler mais"
+      "title": "Páscoa",
+      "description": "ACorridadoCoelhinhodaPan éumaação dinâmica, com envolvimento do público, com duração de 02 horas, podendo ser realizada em estabelecimentos comerciais"
     },
     {
-      "photoUrl": "",
+      "photoUrl": "/mães.png",
       "month": "MAI",
       "title": "Dia das maes",
-      "description": "A Jovem Pan e a Marca X vão surpreender os ouvintes, invadindo vários locais de interesse do cliente, como a praia de Boa Viagem, Porto de Galinhas, Tamandaré, Itamaracá e municípios próximos...Ler mais"
+      "description": "Visando promover a marca do cliente e também presentear as mães nesta data tão importante, a InvasãoAcerteoNúmerocoma Panéumaação promocional realizada com abordagem em estabelecimentos comerciais com duração de 02 horas."
     },
     {
-      "photoUrl": "",
+      "photoUrl": "/namorados.png",
       "month": "JUN",
       "title": "Dia dos namorados",
-      "description": "A Jovem Pan e a Marca X vão surpreender os ouvintes, invadindo vários locais de interesse do cliente, como a praia de Boa Viagem, Porto de Galinhas, Tamandaré, Itamaracá e municípios próximos...Ler mais"
+      "description": "Uma ação promocional, com duração de 02 horas, onde a equipeJovem Pancomseuspromotoresestarãona loja (ou na rua a definir) interagindo com o público com muito romance e animação!"
     },
     {
-      "photoUrl": "",
+      "photoUrl": "/SJ.png",
       "month": "JUN",
       "title": "Sao Joao",
-      "description": "A Jovem Pan e a Marca X vão surpreender os ouvintes, invadindo vários locais de interesse do cliente, como a praia de Boa Viagem, Porto de Galinhas, Tamandaré, Itamaracá e municípios próximos...Ler mais"
+      "description": "A Invasão Roleta Junina da Pan é uma ação dinâmica, com envolvimento do público, com duração de 02 horas, podendo ser realizada em festas e ruas. A equipe Jovem Pan chega no local pré-definido, aborda as pessoas convidando a participar da brincadeira."
     },
     {
-      "photoUrl": "",
+      "photoUrl": "/vestibular.png",
       "month": "JUL",
       "title": "Vestibular",
-      "description": "A Jovem Pan e a Marca X vão surpreender os ouvintes, invadindo vários locais de interesse do cliente, como a praia de Boa Viagem, Porto de Galinhas, Tamandaré, Itamaracá e municípios próximos...Ler mais"
+      "description": "A programação da Jovem Pan estará totalmente envolvida com todas as informações e conteúdos programáticos que os alunos precisam neste momento tão decisivo e importante que é o Enem"
     },
     {
-      "photoUrl": "",
+      "photoUrl": "/pais.png",
       "month": "AGO",
       "title": "Dia dos pais",
-      "description": "A Jovem Pan e a Marca X vão surpreender os ouvintes, invadindo vários locais de interesse do cliente, como a praia de Boa Viagem, Porto de Galinhas, Tamandaré, Itamaracá e municípios próximos...Ler mais"
+      "description": "Uma ação dinâmica e divertida especialmente para os pais que adoram futebol, com duração de 02h. Nossa equipe vai agitar o local pré-definido, convidando as pessoas a participarem da brincadeira CHUTE A GOL."
     },
     {
-      "photoUrl": "",
+      "photoUrl": "/crianças.png",
       "month": "OUT",
       "title": "Dia das crianças",
-      "description": "A Jovem Pan e a Marca X vão surpreender os ouvintes, invadindo vários locais de interesse do cliente, como a praia de Boa Viagem, Porto de Galinhas, Tamandaré, Itamaracá e municípios próximos...Ler mais"
+      "description": "Uma ação promocional, com duração de 02 horas, onde a equipe Jovem Pan com seus Super Herois marcarão presença na Marca X no Dia das Crianças, realizando uma promoção que vai contagiar a todos dos local, interagindo com pais e filhos com muita animação!"
     },
     {
-      "photoUrl": "",
+      "photoUrl": "/natal.png",
       "month": "DEZ",
       "title": "Natal",
-      "description": "A Jovem Pan e a Marca X vão surpreender os ouvintes, invadindo vários locais de interesse do cliente, como a praia de Boa Viagem, Porto de Galinhas, Tamandaré, Itamaracá e municípios próximos...Ler mais"
+      "description": "Uma ação promocional, com duração de 02 horas, onde a equipe Jovem Pan comseuspersonagensnatalinosmarcarãopresença na empresa realizando uma promoção que vai contagiar a todos do local, interagindo com pais e filhos com muita animação!"
     }
   ],
   "images": [

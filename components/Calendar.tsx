@@ -60,7 +60,7 @@ function CalendarEvent({
         <HStack mt={3}>
           <Image
             src={
-              radioEvent.photoUrl === ' '
+              radioEvent.photoUrl !== ''
                 ? radioEvent.photoUrl
                 : '/Festa-Pan.png'
             }
