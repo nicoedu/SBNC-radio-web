@@ -153,8 +153,12 @@ export default function Radio({
             <Calendar
               radioColor={radioData.color}
               radioEvents={radioData.events}
+              radioBook={radioData.book}
             />
-            <PriceTable radioColor={radioData.color} />
+            <PriceTable
+              radioColor={radioData.color}
+              radioBook={radioData.book}
+            />
           </Flex>
         </Box>
       </Flex>
@@ -265,11 +269,11 @@ function AboutUS({ radioData }: { radioData: IRadioData }) {
           alignSelf="center"
           bg={radioData.color}
           _hover={{ bg: radioData.color }}
-          color={'gray.200'}
+          color={'white'}
+          borderRadius={'20px'}
           onClick={onOpen}
         >
-          {' '}
-          Continuar lendo{' '}
+          Continuar lendo
         </Button>
         {radioData.images && radioData.book ? (
           <ImagesGallery
@@ -334,7 +338,13 @@ function Book({ radioData }: { radioData: IRadioData }) {
   )
 }
 
-function PriceTable({ radioColor }: { radioColor?: string }): JSX.Element {
+function PriceTable({
+  radioColor,
+  radioBook
+}: {
+  radioColor?: string
+  radioBook?: string
+}): JSX.Element {
   return (
     <Flex
       flexDirection="column"
@@ -345,7 +355,7 @@ function PriceTable({ radioColor }: { radioColor?: string }): JSX.Element {
       pr={[5]}
       borderBottomRadius="xl"
     >
-      <DownloadModal isBook={true} color={radioColor} />
+      <DownloadModal isBook={radioBook != null} color={radioColor} />
     </Flex>
   )
 }

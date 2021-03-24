@@ -108,10 +108,12 @@ function CalendarEvent({
 
 export default function Calendar({
   radioColor,
-  radioEvents
+  radioEvents,
+  radioBook
 }: {
   radioColor?: string
   radioEvents?: [IRadioEvent]
+  radioBook?: string
 }): JSX.Element {
   return (
     <Flex
@@ -129,7 +131,7 @@ export default function Calendar({
         pt={4}
         fontSize={['xl', 'md', 'lg', '2xl', '2xl']}
       >
-        Calendário comercial
+        {radioBook ? 'Calendário comercial' : 'Plano de patrocínio'}
       </Heading>
       {radioEvents && radioEvents.length > 0 ? (
         <Box pr={1}>
@@ -174,9 +176,26 @@ export default function Calendar({
       ) : (
         <Center py={5}>
           <Flex flexDirection="column" align="center" justify="center" my={10}>
-            <Image src="/no-event.png" width="30%"></Image>
-            <Heading mt={5} color="gray.400" fontSize={'2xl'}>
-              <b>Nenhum evento cadastrado</b>
+            <Image
+              src={
+                radioBook
+                  ? '/no-event.png'
+                  : radioColor === '#57126B'
+                  ? '/icons8-initiate-money-transfer-100.png'
+                  : '/icons8-initiate-money-transfer-100-verde.png'
+              }
+              width="30%"
+            ></Image>
+            <Heading
+              mt={5}
+              color={radioBook ? 'gray.400' : radioColor}
+              fontSize={'2xl'}
+            >
+              <b>
+                {radioBook
+                  ? 'Nenhum evento cadastrado'
+                  : 'Conheça nossos planos de patrocínio '}
+              </b>
             </Heading>
           </Flex>
         </Center>
