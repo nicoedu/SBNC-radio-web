@@ -154,8 +154,6 @@ const HeroLayout = ({ scrollToContact }: { scrollToContact: () => void }) => (
         <RadioCard title="Band FM Caruaru" id="band"></RadioCard>
         <RadioCard title="Music FM Recife" id="music"></RadioCard>
         <RadioCard title="JovemPan Recife" id="jprecife"></RadioCard>
-        
-        
       </Grid>
     </Box>
   </Flex>
@@ -201,10 +199,24 @@ const AboutUsLayout = ({
           Quem somos
         </Heading>
         <Text align="justify">
-        O SBNC– Sistema Brasil Nordeste de Comunicação é um grupo de comunicação genuinamente pernambucano composto pelas emissoras: Jovem Pan Recife 95,9 FM, Music FM Recife 88,7, Jovem Pan Caruaru 101,3 e Band FM Caruaru 102,1. <br />
-        O Grupo SBNC  está presente, além das quatro emissoras, nas multiplataformas de mídia como aplicativos e redes sociais e é referência no Mercado publicitário do Nordeste pela força das marcas, profissionalismo, credibilidade e inovação nas estratégias de mídia e promoção, tanto para as agências de publicidade quanto para o anunciante. Focando sempre no sucesso e crescimento de marcas , produtos e parceiros. <br />
-        Possui equipe diferenciada e motivada, sempre unida na busca de resultados positivos, superando expectativas. <br />
-        Em quase 40 anos de atuação, o Grupo SBNC continua expandindo, investindo em tecnologia, recursos, profissionais, e, levando o melhor de sua programação com qualidade e força para cerca de 80% do estado de Pernambuco, 118 municípios e toda a Grande Recife, o que corresponde a mais de 7 milhões de pernambucanos. <br />
+          O SBNC– Sistema Brasil Nordeste de Comunicação é um grupo de
+          comunicação genuinamente pernambucano composto pelas emissoras: Jovem
+          Pan Recife 95,9 FM, Music FM Recife 88,7, Jovem Pan Caruaru 101,3 e
+          Band FM Caruaru 102,1. <br />
+          O Grupo SBNC está presente, além das quatro emissoras, nas
+          multiplataformas de mídia como aplicativos e redes sociais e é
+          referência no Mercado publicitário do Nordeste pela força das marcas,
+          profissionalismo, credibilidade e inovação nas estratégias de mídia e
+          promoção, tanto para as agências de publicidade quanto para o
+          anunciante. Focando sempre no sucesso e crescimento de marcas ,
+          produtos e parceiros. <br />
+          Possui equipe diferenciada e motivada, sempre unida na busca de
+          resultados positivos, superando expectativas. <br />
+          Em quase 40 anos de atuação, o Grupo SBNC continua expandindo,
+          investindo em tecnologia, recursos, profissionais, e, levando o melhor
+          de sua programação com qualidade e força para cerca de 80% do estado
+          de Pernambuco, 118 municípios e toda a Grande Recife, o que
+          corresponde a mais de 7 milhões de pernambucanos. <br />
         </Text>
       </Box>
     </Grid>
@@ -312,7 +324,7 @@ const ContactInfoLayout = ({
                 href="mailto:sbnc@sbnc.com.br"
                 px={2}
               >
-                 sbnc@sbnc.com.br
+                sbnc@sbnc.com.br
               </Link>
             </Flex>
             <Flex alignItems="center" justifySelf="center">
@@ -358,7 +370,7 @@ const RadioCard = ({
       borderRadius={20}
       data-aos="fade-up"
     >
-      <Image mx="auto" src={id + '.png'} />
+      <Image mx="auto" src={id + '.png'} alt={title} />
       <Flex w="100%" alignItems="center" justifyContent="center">
         <Button
           size="md"
