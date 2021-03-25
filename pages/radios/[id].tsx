@@ -143,12 +143,12 @@ export default function Radio({
             <ContactForm radioColor={radioData.color} />
           </GridItem>
         </Grid>
-        <Box height="20%" mt={[3, 3, 0]}>
+        <Box height="100%" mt={[3, 3, 0]}>
           <Flex
             flexDirection="column"
             w={['100vw', '100vw', '25vw']}
             maxW={['', '350px']}
-            h={['50%']}
+            h={['auto']}
             bg="white"
             borderRadius={['0', '0', 'xl']}
           >
