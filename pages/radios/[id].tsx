@@ -40,6 +40,7 @@ export default function Radio({
       bgGradient="linear(to-b, primary, secondary)"
       w="100%"
       minH="100vh"
+      h="auto"
       align="center"
       justify="center"
       overflowY="hidden"
@@ -75,6 +76,7 @@ export default function Radio({
         mx={[0, 0, 5, 5, 'auto']}
         position="relative"
         minH="85vh"
+        h="100%"
         maxWidth="1200px"
         padding={[0, 0, 5]}
         flexDirection={['column', 'column', 'row']}
@@ -141,12 +143,12 @@ export default function Radio({
             <ContactForm radioColor={radioData.color} />
           </GridItem>
         </Grid>
-        <Box height="100%" mt={[3, 3, 0]}>
+        <Box height="20%" mt={[3, 3, 0]}>
           <Flex
             flexDirection="column"
             w={['100vw', '100vw', '25vw']}
             maxW={['', '350px']}
-            h={['auto']}
+            h={['50%']}
             bg="white"
             borderRadius={['0', '0', 'xl']}
           >
@@ -205,7 +207,12 @@ function SocialMedia({ radioData }: { radioData: IRadioData }) {
         {radioData.name}
       </Heading>
 
-      <HStack align={['center']} mt={5} spacing={['4', '1', '3', '3']}>
+      <HStack
+        align="center"
+        justify="center"
+        mt={5}
+        spacing={['4', '1', '3', '3']}
+      >
         <Link
           display={radioData.facebookLink === '' ? 'none' : ''}
           href={radioData.facebookLink}
@@ -256,13 +263,20 @@ function SocialMedia({ radioData }: { radioData: IRadioData }) {
 function AboutUS({ radioData }: { radioData: IRadioData }) {
   const { isOpen, onOpen, onClose } = useDisclosure()
   return (
-    <Flex flexdirection="row" w="100%">
+    <Flex flexdirection="row" w="100%" maxWidth="100%">
       <TextModal isOpen={isOpen} onClose={onClose} text={radioData.aboutUs} />
-      <VStack alignItems="start">
+      <VStack alignItems="start" w="100%">
         <Heading fontWeight="bold" fontSize={['3xl', 'xl', '', '2xl']} p={2}>
           Sobre nós
         </Heading>
-        <Text noOfLines={7} align="left" mb={[4, '', '', 2]} px={2} py={1}>
+        <Text
+          noOfLines={radioData.images && radioData.book ? 7 : 10}
+          align="left"
+          maxW="100%"
+          mb={[4, '', '', 2]}
+          px={2}
+          py={1}
+        >
           {radioData.aboutUs}
         </Text>
         <Button
@@ -288,19 +302,19 @@ function AboutUS({ radioData }: { radioData: IRadioData }) {
 
 function Book({ radioData }: { radioData: IRadioData }) {
   return (
-    <Box position="relative" h={['95%']}>
+    <Box position="relative" h={['95%']} w="100%">
       <Flex
         flexDirection="row"
         alignItems="start"
         p={4}
-        pb={6}
+        pb={0}
         h="100%"
         flexWrap={'wrap'}
       >
         <Heading
           fontWeight="bold"
           fontSize={['3xl', 'xl', '', '2xl']}
-          mb={['5', '5', 1]}
+          mb={['5', '5', 0]}
           zIndex={2}
           display={'block'}
           left={0}
@@ -322,8 +336,8 @@ function Book({ radioData }: { radioData: IRadioData }) {
         <Center
           p={1}
           position="absolute"
-          width={['100vw', '100%', '100%']}
-          height={['100%', '100%']}
+          width={['100vw', '100%', '90%']}
+          height={['100%', '90%']}
           align="center"
           top={[0, 10, 5]}
           bottom="0"

@@ -39,7 +39,7 @@ function LargeImageGallery({
   }
 
   return (
-    <Flex zIndex={100} w="100%" flexDirection="column">
+    <Flex zIndex={100} w="100%" flexDirection="column" h="92%">
       <ImagesModal
         isOpen={isOpen}
         onClose={onClose}
@@ -62,15 +62,17 @@ function LargeImageGallery({
           &#10094;
         </Link>
         <Spacer />
-        <Button as={Box} p={0} onClick={onOpen} w={'80%'} h={'250px'} py={5}>
-          <Image
-            h="100%"
-            w="100%"
-            fallback={<Spacer />}
-            src={images[imageIndex].src}
-            alt={images[imageIndex].name}
-          />
-        </Button>
+        <Box w={'80%'} h={'200px'} py={2}>
+          <Button as={Box} p={0} onClick={onOpen} h="100%" w="100%">
+            <Image
+              h="100%"
+              w="100%"
+              fallback={<Spacer />}
+              src={images[imageIndex].src}
+              alt={images[imageIndex].name}
+            />
+          </Button>
+        </Box>
         <Spacer />
         <Link
           pl={[1, 1, 5]}
@@ -87,7 +89,7 @@ function LargeImageGallery({
           &#10095;
         </Link>
       </Flex>
-      <HStack overflow="auto">
+      <HStack overflow="auto" w="100%" align="center" justify="center">
         {images.map((image, index) => {
           return (
             <Button
