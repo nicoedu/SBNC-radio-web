@@ -336,8 +336,8 @@ function Book({ radioData }: { radioData: IRadioData }) {
         <Center
           p={1}
           position="absolute"
-          width={['100vw', '100%', '90%']}
-          height={['100%', '90%']}
+          width={['100vw', '100%', '100%']}
+          height={['100%', '100%']}
           align="center"
           top={[0, 10, 5]}
           bottom="0"
