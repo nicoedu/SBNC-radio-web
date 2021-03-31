@@ -62,7 +62,7 @@ export default function Home(): JSX.Element {
       <ContactUsLayout />
       <ContactInfoLayout scroll={contactUsDiv} />
       <a
-        href="https://api.whatsapp.com/send?phone=5581992656003&text=Ol%C3%A1%2C%20seja%20bem%20vindo%20(a)!%20Sou%20a%20assistente%20do%20SBNC%2C%20me%20chamo%20Lorena%2C%20e%20estou%20aqui%20para%20passar%20mais%20informa%C3%A7%C3%B5es%20sobre%20%20nossos%20servi%C3%A7os.%20Para%20iniciarmos%20nos%20informe%3A%20%20Nome%3A%20Empresa%3A%20R%C3%A1dio%20que%20deseja%20anunciar%3A"
+        href="https://api.whatsapp.com/send?phone=5581999725780&text=Ol%C3%A1%2C%20seja%20bem%20vindo%20(a)!%20Sou%20a%20assistente%20do%20SBNC%2C%20me%20chamo%20Lorena%2C%20e%20estou%20aqui%20para%20passar%20mais%20informa%C3%A7%C3%B5es%20sobre%20%20nossos%20servi%C3%A7os.%20Para%20iniciarmos%20nos%20informe%3A%20%20Nome%3A%20Empresa%3A%20R%C3%A1dio%20que%20deseja%20anunciar%3A"
         style={{
           position: 'fixed',
           width: '60px',
@@ -180,12 +180,12 @@ const AboutUsLayout = ({
     >
       <Center w="100%" alignItems="center" data-aos="zoom-out" mx="auto">
         <Image
-          h={[200, 285]}
+          h={[200, '90%']}
           pl={5}
           src="layout-image-bg-pink.svg"
           position="absolute"
         ></Image>
-        <Image h={[160, 250]} zIndex="100" src="about.png" />%
+        <Image h={[160, '80%']} zIndex="100" src="about.png" />%
       </Center>
       <Box
         w="100%"
@@ -256,6 +256,7 @@ const ContactUsLayout = () => (
         data-aos="zoom-out"
         alignItems="center"
         mx="auto"
+        h="500"
       >
         <Image
           overflow="hidden"
@@ -263,7 +264,7 @@ const ContactUsLayout = () => (
           src="layout-image-bg-blue.svg"
           position="absolute"
         ></Image>
-        <Image h={[160, 250]} zIndex="100" src="about2.png" />%
+        <Image h={[160, 320]} zIndex="100" src="about2.png" />
       </Center>
     </Grid>
   </Box>
@@ -370,7 +371,7 @@ const RadioCard = ({
       borderRadius={20}
       data-aos="fade-up"
     >
-      <Image mx="auto" src={id + '.png'} alt={title} />
+      <Image mx="auto" pb="3" src={id + '.png'} alt={title} />
       <Flex w="100%" alignItems="center" justifyContent="center">
         <Button
           size="md"

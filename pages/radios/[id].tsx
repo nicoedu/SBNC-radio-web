@@ -195,7 +195,11 @@ function SocialMedia({ radioData }: { radioData: IRadioData }) {
         borderColor="gray.200"
         mt={[5]}
       >
-        <Image p={5} src={'/' + radioData.id + '.png'} alt="Logo da Rádio" />
+        <Image
+          p={radioData.id?.startsWith('jp') ? '0' : 5}
+          src={'/' + radioData.id + '.png'}
+          alt="Logo da Rádio"
+        />
       </Box>
 
       <Heading
