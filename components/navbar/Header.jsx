@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React from 'react'
-import { Image } from '@chakra-ui/react'
+import { Box, Image } from '@chakra-ui/react'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
@@ -23,28 +23,17 @@ const Header = ({
       style={{
         minHeight: '70px',
         width: '100%',
-        backgroundColor: '#4580C0'
+        backgroundColor: 'white'
       }}
     >
-      <Navbar.Brand href="/">
-        <Image
-          src="/sbnc.svg"
-          h={['55px']}
-          left={['5.5vw']}
-          top={0}
-          zIndex={1}
-          position="absolute"
-        />
-        <Image
-          src="/white-background.png"
-          position="absolute"
-          h={'65px'}
-          top={0}
-          left={['4vw']}
-        />
+      <Navbar.Brand href="/" style={{ position: 'absolute', width: '90%' }}>
+        <Image src="/sbnc.svg" h={['55px']} alignSelf="center" mx="auto" />
       </Navbar.Brand>
-      <Navbar.Toggle aria-controls="responsive-navbar-nav">
-        <HamburgerIcon color="white" boxSize={6} />
+      <Navbar.Toggle
+        aria-controls="responsive-navbar-nav"
+        style={{ position: 'absolute', right: '5%' }}
+      >
+        <HamburgerIcon color="black" boxSize={6} />
       </Navbar.Toggle>
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="ml-auto" style={{ color: 'white' }}>
@@ -52,7 +41,7 @@ const Header = ({
             alignRight={true}
             title="Rádios"
             id="collasible-nav-dropdown"
-            style={{ color: 'white' }}
+            style={{ color: 'black' }}
           >
             <NavDropdown.Item href="/radios/jprecife">
               Jovem Pan Recife
@@ -67,13 +56,8 @@ const Header = ({
             <>
               <Nav.Link
                 href={''}
+                style={{ color: '#000' }}
                 onClick={scrollToAbout}
-                style={{
-                  '&::hover': {
-                    color: 'black',
-                    backgroundColor: 'pink'
-                  }
-                }}
               >
                 Quem somos
               </Nav.Link>
