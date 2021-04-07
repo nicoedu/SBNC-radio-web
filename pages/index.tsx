@@ -236,18 +236,17 @@ const ContactUsLayout = () => (
           Anuncie conosco
         </Heading>
         <Text color="black" align="justify">
-          O Grupo SBNC está presente, além das emissoras, nas multiplataformas
-          de mídia como aplicativos e redes sociais e é referência no Mercado
-          publicitário do Nordeste pela força das marcas, profissionalismo,
-          credibilidade e inovação nas estratégias de mídia e promoção, tanto
-          para as agências de publicidade quanto para o anunciante. Focando
-          sempre no sucesso e crescimento de marcas e produtos.
+          O rádio além de ser uma fonte de informação e entretenimento,
+          fortalece a marca e chama a atenção do seu público-alvo.
           <br />
-          Possui equipe diferenciada e motivada, sempre unida na busca de
-          resultados positivos, superando expectativas.
-          <br />O SBNC é um grupo de comunicação composto pelas emissoras: Jovem
-          Pan Recife 95,9 FM, Music FM Recife 88,7, Jovem Pan Caruaru 101,3 e
-          Band FM Caruaru 102,1.
+          Com amplo alcance, o rádio tem investimento acessível e pode ser
+          ouvido em diversas plataformas.
+          <br />
+          3 a cada 5 ouvintes escutam rádio todos os dias, e o tempo médio
+          diário ligados na programação é de 3 horas e 41 minutos.
+          <br />
+          Por isso, anuncie em nossas emissoras. Temos propostas diferenciadas
+          que darão retorno ao investimento do seu anúncio.
         </Text>
       </Box>
       <Center
