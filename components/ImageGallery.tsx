@@ -20,7 +20,14 @@ function ImageSlide({
   imageIndex: number
 }): JSX.Element {
   return imageIndex < images.length ? (
-    <Box w={'25%'} h={['70px']} maxW={['', '225px']} bg={'#2E2E2E'}>
+    <Box
+      w={'25%'}
+      h={['70px']}
+      maxW={['', '225px']}
+      bg={'#EDF2F6'}
+      display={'flex'}
+      alignItems={'center'}
+    >
       <Image
         my="auto"
         src={images[imageIndex].src}

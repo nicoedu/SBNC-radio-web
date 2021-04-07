@@ -66,7 +66,7 @@ function LargeImageGallery({
           <Button as={Box} p={0} onClick={onOpen} h="100%" w="100%">
             <Image
               h="100%"
-              w="100%"
+              maxW="100%"
               fallback={<Spacer />}
               src={images[imageIndex].src}
               alt={images[imageIndex].name}
@@ -103,7 +103,7 @@ function LargeImageGallery({
                 setImageIndex(index)
               }}
             >
-              <Image w="100%" h="100%" src={image.src} alt={image.name} />
+              <Image maxW="auto" h="100%" src={image.src} alt={image.name} />
             </Button>
           )
         })}
