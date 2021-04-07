@@ -1,4 +1,11 @@
-import { Box, Flex, Image, Link, useDisclosure } from '@chakra-ui/react'
+import {
+  background,
+  Box,
+  Flex,
+  Image,
+  Link,
+  useDisclosure
+} from '@chakra-ui/react'
 import { IRadioPhoto } from 'global'
 import React, { useState } from 'react'
 import ImagesModal from './ImagesModal'
@@ -13,19 +20,20 @@ function ImageSlide({
   imageIndex: number
 }): JSX.Element {
   return imageIndex < images.length ? (
-    <Image
-      my="auto"
-      src={images[imageIndex].src}
-      alt={images[imageIndex].name}
-      w={'26%'}
-      fallback={<Box w={'25%'} h={['70px']} maxW={['', '225px']}></Box>}
-      h={['70px']}
-      maxW={['', '225px']}
-      cursor={'pointer'}
-      onClick={() => {
-        onOpen(imageIndex)
-      }}
-    />
+    <Box w={'25%'} h={['70px']} maxW={['', '225px']} bg={'#2E2E2E'}>
+      <Image
+        my="auto"
+        src={images[imageIndex].src}
+        alt={images[imageIndex].name}
+        w={'100%'}
+        fallback={<Box w={'25%'} h={['70px']} maxW={['', '225px']}></Box>}
+        maxW={['', '225px']}
+        cursor={'pointer'}
+        onClick={() => {
+          onOpen(imageIndex)
+        }}
+      />
+    </Box>
   ) : (
     <Box w={'25%'} h={['70px']} maxW={['', '225px']}></Box>
   )
