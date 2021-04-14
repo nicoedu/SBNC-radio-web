@@ -64,7 +64,7 @@ const Header = ({
               <Nav.Link
                 href={''}
                 className="contact"
-                style={{ color: '#FFDE3A' }}
+                style={{ color: 'blue' }}
                 eventKey={2}
                 onClick={scrollToContact}
               >
