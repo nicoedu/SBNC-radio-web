@@ -34,7 +34,7 @@ function CalendarEvent({
       border={'1px solid #B1B1B1'}
       position={'relative'}
     >
-      <Collapse startingHeight={'110px'} in={show}>
+      <Collapse startingHeight={'120px'} in={show}>
         <Box
           position={'absolute'}
           bg={radioColor}
@@ -49,7 +49,7 @@ function CalendarEvent({
           <Heading
             fontWeight={'bold'}
             color={'white'}
-            fontSize={'xl'}
+            fontSize={'lg'}
             mt={['09px']}
             ml={['06px']}
           >
@@ -74,9 +74,10 @@ function CalendarEvent({
           <Box mr={'3%'}>
             <Heading
               fontWeight={'bold'}
-              fontSize={'xl'}
+              fontSize={'lg'}
               textAlign={'left'}
               ml={'auto'}
+              mb={'3%'}
             >
               {radioEvent.title}
             </Heading>
@@ -94,7 +95,8 @@ function CalendarEvent({
                 fontSize={'xs'}
                 fontWeight={'bold'}
                 color={radioColor}
-                mt={'0.5%'}
+                mt={'3%'}
+                mb={'3%'}
               >
                 {!show ? 'Ler mais' : 'Ler menos'}
               </Text>
