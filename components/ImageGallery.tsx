@@ -1,11 +1,4 @@
-import {
-  background,
-  Box,
-  Flex,
-  Image,
-  Link,
-  useDisclosure
-} from '@chakra-ui/react'
+import { Box, Flex, Image, Link, useDisclosure } from '@chakra-ui/react'
 import { IRadioPhoto } from 'global'
 import React, { useState } from 'react'
 import ImagesModal from './ImagesModal'

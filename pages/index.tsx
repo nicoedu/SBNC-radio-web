@@ -89,7 +89,7 @@ const HeroLayout = ({ scrollToContact }: { scrollToContact: () => void }) => (
   <Flex
     position="relative"
     direction="column"
-    minH={['100vh', '72vh', '100vh']}
+    minH={['100vh', '72vh', '90vh']}
     height="auto"
     align="center"
     bgGradient="linear(to-b, primary, secondary)"
@@ -151,8 +151,8 @@ const HeroLayout = ({ scrollToContact }: { scrollToContact: () => void }) => (
         templateColumns={['repeat(2, 1fr)', 'repeat(2, 1fr)', 'repeat(4, 1fr)']}
       >
         <RadioCard title="JovemPan Caruaru" id="jpcaruaru"></RadioCard>
-        <RadioCard title="Band FM Caruaru" id="band"></RadioCard>
         <RadioCard title="Music FM Recife" id="music"></RadioCard>
+        <RadioCard title="Band FM Caruaru" id="band"></RadioCard>
         <RadioCard title="JovemPan Recife" id="jprecife"></RadioCard>
       </Grid>
     </Box>
@@ -338,6 +338,20 @@ const ContactInfoLayout = ({
                 px={2}
               >
                 Rua da Aurora, 325, 15° andar, Boa Vista, Recife-PE
+              </Link>
+            </Flex>
+            <Flex alignItems="center" justifySelf="center">
+              <Box color="primary">
+                <FontAwesomeIcon icon={faMapMarkedAlt} />
+              </Box>
+              <Link
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://goo.gl/maps/DBGn4jPonXy5VSzz8"
+                px={2}
+              >
+                Avenida Agamenon Magalhães, 444, Empresarial Difusora, 8° andar,
+                sala 317, Maurício de Nassau, Caruaru-PE
               </Link>
             </Flex>
           </Stack>

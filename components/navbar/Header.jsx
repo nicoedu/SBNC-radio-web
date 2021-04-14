@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import React from 'react'
-import { Box, Image } from '@chakra-ui/react'
-import Navbar from 'react-bootstrap/Navbar'
-import Nav from 'react-bootstrap/Nav'
-import NavDropdown from 'react-bootstrap/NavDropdown'
-import 'bootstrap/dist/css/bootstrap.min.css'
 import { HamburgerIcon } from '@chakra-ui/icons'
+import { Image } from '@chakra-ui/react'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import React from 'react'
+import Nav from 'react-bootstrap/Nav'
+import Navbar from 'react-bootstrap/Navbar'
+import NavDropdown from 'react-bootstrap/NavDropdown'
 
 const Header = ({
   scrollToAbout = () => {},
@@ -46,11 +46,11 @@ const Header = ({
             <NavDropdown.Item href="/radios/jprecife">
               Jovem Pan Recife
             </NavDropdown.Item>
+            <NavDropdown.Item href="/radios/music">Music FM</NavDropdown.Item>
+            <NavDropdown.Item href="/radios/band">Band FM</NavDropdown.Item>
             <NavDropdown.Item href="/radios/jpcaruaru">
               Jovem Pan Caruaru
             </NavDropdown.Item>
-            <NavDropdown.Item href="/radios/band">Band FM</NavDropdown.Item>
-            <NavDropdown.Item href="/radios/music">Music FM</NavDropdown.Item>
           </NavDropdown>
           {isHome ? (
             <>
