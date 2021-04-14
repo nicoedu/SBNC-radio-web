@@ -1,14 +1,9 @@
 import Icon from '@chakra-ui/icon'
 import * as React from 'react'
 
-function ArrowIcon(props): JSX.Element {
+function ArrowIcon(props) {
   return (
-    <Icon
-      viewBox="0 0 96 56"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <Icon viewBox="0 0 96 56" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M480,344.181L268.869,131.889c-15.756-15.859-41.3-15.859-57.054,0c-15.754,15.857-15.754,41.57,0,57.431l237.632,238.937
 		c8.395,8.451,19.562,12.254,30.553,11.698c10.993,0.556,22.159-3.247,30.555-11.698l237.631-238.937
