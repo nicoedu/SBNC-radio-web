@@ -14,12 +14,13 @@ import {
   useToast
 } from '@chakra-ui/react'
 import fetch from 'node-fetch'
-import React, { useReducer } from 'react'
+import React, { useEffect, useReducer } from 'react'
 
 type State = {
   name: string
   email: string
   phone: string
+  radioId: string
 }
 
 const formReducer = (state: State, event: { name: string; value: string }) => {
@@ -31,19 +32,28 @@ const formReducer = (state: State, event: { name: string; value: string }) => {
 
 export default function DownloadModal({
   isBook,
-  color
+  color,
+  radioId
 }: {
   isBook?: boolean
   color?: string
+  radioId?: string
 }): JSX.Element {
   const toast = useToast()
   const [formData, setFormData] = useReducer(formReducer, {
     name: '',
     email: '',
-    phone: ''
+    phone: '',
+    radioId: ''
   })
   const { isOpen, onOpen, onClose } = useDisclosure()
   const buttonsName = isBook ? 'Book' : 'Tabela'
+
+  useEffect(() => {
+    if (radioId) {
+      setFormData({ name: 'radioId', value: radioId })
+    }
+  }, [radioId])
 
   async function handleSubmit() {
     await fetch('/api/send-file-email', {

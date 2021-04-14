@@ -1,3 +1,5 @@
+import fs from 'fs'
+import path from 'path'
 import { NextApiRequest, NextApiResponse } from 'next'
 import sgMail, { MailDataRequired } from '@sendgrid/mail'
 
@@ -6,14 +8,48 @@ export default async (
   res: NextApiResponse
 ): Promise<void> => {
   if (req.method === 'POST') {
-    const { name, email, phone } = req.body
+    const { name, email, phone, radioId } = req.body
     sgMail.setApiKey(process.env.SENDGRID_API_KEY || '')
+
+    let attachment
+    switch (radioId) {
+      case 'jprecife':
+        attachment = fs
+          .readFileSync(path.resolve('./files/JP_RECIFE_TABELA.pdf'))
+          .toString('base64')
+        break
+      case 'jpcaruaru':
+        attachment = fs
+          .readFileSync(path.resolve('./files/JP_CARUARU_TABELA.pdf'))
+          .toString('base64')
+        break
+      case 'band':
+        attachment = fs
+          .readFileSync(path.resolve('./files/BAND_TABELA.pdf'))
+          .toString('base64')
+        break
+      case 'music':
+        attachment = fs
+          .readFileSync(path.resolve('./files/MUSIC_FM_TABELA.pdf'))
+          .toString('base64')
+        break
+      default:
+        attachment = ''
+    }
 
     const msg: MailDataRequired = {
       to: email, // Change to your recipient
       from: 'assistentecomercial@sbnc.com.br', // Change to your verified sender
       templateId: 'd-5046cdd64ff544cbb5b4df155d4370cf',
-      dynamicTemplateData: { name: name }
+      dynamicTemplateData: { name: name },
+      attachments: [
+        {
+          content: attachment,
+          filename: 'tabela.pdf',
+          type: 'application/pdf',
+          disposition: 'attachment'
+        }
+      ]
     }
 
     const msg2: MailDataRequired = {
