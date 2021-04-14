@@ -49,7 +49,7 @@ function CalendarEvent({
           <Heading
             fontWeight={'bold'}
             color={'white'}
-            fontSize={'xl'}
+            fontSize={'lg'}
             mt={['09px']}
             ml={['06px']}
           >
