@@ -89,7 +89,7 @@ const HeroLayout = ({ scrollToContact }: { scrollToContact: () => void }) => (
   <Flex
     position="relative"
     direction="column"
-    minH={['100vh', '72vh', '90vh']}
+    minH={['100vh', '72vh', '92vh', '92vh', '92vh', '95vh']}
     height="auto"
     align="center"
     bgGradient="linear(to-b, primary, secondary)"
