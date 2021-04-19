@@ -31,11 +31,9 @@ const formReducer = (state: State, event: { name: string; value: string }) => {
 }
 
 export default function DownloadModal({
-  isBook,
   color,
   radioId
 }: {
-  isBook?: boolean
   color?: string
   radioId?: string
 }): JSX.Element {
@@ -47,7 +45,7 @@ export default function DownloadModal({
     radioId: ''
   })
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const buttonsName = isBook ? 'Book' : 'Tabela'
+  const buttonsName = 'Tabela'
 
   useEffect(() => {
     if (radioId) {
@@ -64,7 +62,7 @@ export default function DownloadModal({
       .then(() => {
         toast({
           title: 'Sucesso',
-          description: 'Email enviado com sucesso',
+          description: 'Arquivo enviado com sucesso para seu email',
           status: 'success',
           duration: 9000,
           isClosable: true

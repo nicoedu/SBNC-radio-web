@@ -157,11 +157,7 @@ export default function Radio({
               radioEvents={radioData.events}
               radioBook={radioData.book}
             />
-            <PriceTable
-              radioColor={radioData.color}
-              radioBook={radioData.book}
-              radioId={radioData.id}
-            />
+            <PriceTable radioColor={radioData.color} radioId={radioData.id} />
           </Flex>
         </Box>
       </Flex>
@@ -359,11 +355,9 @@ function Book({ radioData }: { radioData: IRadioData }) {
 
 function PriceTable({
   radioColor,
-  radioBook,
   radioId
 }: {
   radioColor?: string
-  radioBook?: string
   radioId?: string
 }): JSX.Element {
   return (
@@ -376,11 +370,7 @@ function PriceTable({
       pr={[5]}
       borderBottomRadius="xl"
     >
-      <DownloadModal
-        isBook={radioBook != null}
-        color={radioColor}
-        radioId={radioId}
-      />
+      <DownloadModal color={radioColor} radioId={radioId} />
     </Flex>
   )
 }

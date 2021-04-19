@@ -55,7 +55,7 @@ export default function ContactForm({
       .then(() => {
         toast({
           title: 'Sucesso',
-          description: 'Book enviado para seu e-mail',
+          description: 'Mensagem enviada com sucesso',
           status: 'success',
           duration: 9000,
           isClosable: true
