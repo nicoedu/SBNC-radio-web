@@ -18,13 +18,13 @@ export default async (
         attachment = fs
           .readFileSync(path.resolve('./files/JP_RECIFE_TABELA.pdf'))
           .toString('base64')
-        radio = 'Joven Pan Recife'
+        radio = 'Jovem Pan Recife'
         break
       case 'jpcaruaru':
         attachment = fs
           .readFileSync(path.resolve('./files/JP_CARUARU_TABELA.pdf'))
           .toString('base64')
-        radio = 'Joven Pan Caruaru'
+        radio = 'Jovem Pan Caruaru'
         break
       case 'band':
         attachment = fs
