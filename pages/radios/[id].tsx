@@ -324,7 +324,12 @@ function Book({ radioData }: { radioData: IRadioData }) {
         </Heading>
         {radioData.book ? (
           <Box my="auto" zIndex="100" w={['100%']} h={['240px']}>
-            <ReactPlayer url={radioData.book} width="100%" height="100%" />
+            <ReactPlayer
+              url={radioData.book}
+              width="100%"
+              height="100%"
+              controls={true}
+            />
           </Box>
         ) : radioData.images && radioData.color ? (
           <LargeImageGallery

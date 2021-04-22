@@ -111,7 +111,7 @@ const HeroLayout = ({ scrollToContact }: { scrollToContact: () => void }) => (
 
     <Center height={['50%', '50%', '45vh']} zIndex="10">
       <Box w={['90%', '100%']}>
-        <Heading
+        {/* <Heading
           fontSize={['4xl', '5xl', '5xl', '6xl']}
           color="white"
           textTransform="none"
@@ -127,7 +127,7 @@ const HeroLayout = ({ scrollToContact }: { scrollToContact: () => void }) => (
           textAlign="center"
         >
           Grupo das maiores Rádios do Nordeste
-        </Text>
+        </Text> */}
         <Center py={5}>
           <Button
             w={['70vw', '40vw', '30vw', '25vw']}
