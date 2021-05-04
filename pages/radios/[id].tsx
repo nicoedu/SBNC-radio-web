@@ -156,6 +156,7 @@ export default function Radio({
               radioColor={radioData.color}
               radioEvents={radioData.events}
               radioBook={radioData.book}
+              radioPatrocinios={radioData.planos}
             />
             <PriceTable radioColor={radioData.color} radioId={radioData.id} />
           </Flex>

@@ -8,8 +8,9 @@ import {
   Image,
   Text
 } from '@chakra-ui/react'
-import { IRadioEvent } from 'global'
+import { IRadioEvent, IRadioPhoto } from 'global'
 import { useState } from 'react'
+import LargeImageGallery from './LargeImageGallery'
 
 function CalendarEvent({
   radioColor,
@@ -111,11 +112,13 @@ function CalendarEvent({
 export default function Calendar({
   radioColor,
   radioEvents,
-  radioBook
+  radioBook,
+  radioPatrocinios
 }: {
   radioColor?: string
   radioEvents?: [IRadioEvent]
   radioBook?: string
+  radioPatrocinios?: IRadioPhoto[]
 }): JSX.Element {
   return (
     <Flex
@@ -178,7 +181,7 @@ export default function Calendar({
       ) : (
         <Center py={5}>
           <Flex flexDirection="column" align="center" justify="center" my={10}>
-            <Image
+            <Image display={radioColor === "#76C04E" ? "none" : "flex"}
               src={
                 radioBook
                   ? '/no-event.png'
@@ -188,7 +191,7 @@ export default function Calendar({
               }
               width="30%"
             ></Image>
-            <Heading
+            <Heading display={radioColor === "#76C04E" ? "none" : "flex"}
               mt={5}
               color={radioBook ? 'gray.400' : radioColor}
               fontSize={'2xl'}
@@ -199,6 +202,11 @@ export default function Calendar({
                   : 'Conheça nossos planos de patrocínio '}
               </b>
             </Heading>
+            {radioColor === "#76C04E" ? 
+            <Box maxWidth="45%" width="45%">
+              <LargeImageGallery color={'#76C04E'} images={radioPatrocinios!} /> 
+            </Box>
+            : "" }
           </Flex>
         </Center>
       )}

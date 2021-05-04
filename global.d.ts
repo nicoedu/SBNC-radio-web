@@ -11,6 +11,7 @@ export interface IRadioData {
   aboutUs?: string
   events?: [IRadioEvent]
   images?: IRadioPhoto[]
+  planos?: IRadioPhoto[]
 }
 export interface IRadioPhoto {
   src: string
