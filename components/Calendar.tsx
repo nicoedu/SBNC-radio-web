@@ -139,49 +139,54 @@ export default function Calendar({
         {radioBook ? 'Calendário comercial' : 'Plano de patrocínio'}
       </Heading>
       {radioEvents && radioEvents.length > 0 ? (
-        <Box pr={1}>
-          <Flex
-            w={['100%']}
-            direction="column"
-            overflowY={'auto'}
-            maxH={['auto', '60vh']}
-            sx={{
-              '&::-webkit-scrollbar': {
-                width: '10px',
-                borderRadius: '20px'
-              },
-              '&::-webkit-scrollbar-track': {
-                width: '6px'
-                // marginRight: '100px'
-              },
-              '&::-webkit-scrollbar-thumb': {
-                background: radioColor,
-                borderRadius: '80px'
-              },
-              '&::-webkit-scrollbar-track-piece:end': {
-                marginBottom: '15vh',
-                background: 'lightgray',
-                marginRight: '20px'
-              },
-              '&::-webkit-scrollbar-track-piece:start': {
-                marginTop: '15vh',
-                background: 'lightgray'
-              }
-            }}
-          >
-            {radioEvents?.map((value) => (
-              <CalendarEvent
-                key={value.title}
-                radioColor={radioColor}
-                radioEvent={value}
-              />
-            ))}
-          </Flex>
-        </Box>
+        <Flex
+          w={['100%']}
+          direction="column"
+          overflowY={'auto'}
+          maxH={['auto', '60vh']}
+          sx={{
+            '&::-webkit-scrollbar': {
+              width: '10px',
+              borderRadius: '20px'
+            },
+            '&::-webkit-scrollbar-track': {
+              width: '6px'
+              // marginRight: '100px'
+            },
+            '&::-webkit-scrollbar-thumb': {
+              background: radioColor,
+              borderRadius: '80px'
+            },
+            '&::-webkit-scrollbar-track-piece:end': {
+              marginBottom: '15vh',
+              background: 'lightgray',
+              marginRight: '20px'
+            },
+            '&::-webkit-scrollbar-track-piece:start': {
+              marginTop: '15vh',
+              background: 'lightgray'
+            }
+          }}
+        >
+          {/* {radioEvents?.map((value) => (
+            <CalendarEvent
+              key={value.title}
+              radioColor={radioColor}
+              radioEvent={value}
+            />
+          ))} */}
+        </Flex>
       ) : (
-        <Center py={5}>
-          <Flex flexDirection="column" align="center" justify="center" my={10}>
-            <Image display={radioColor === "#76C04E" ? "none" : "flex"}
+        <Center py={5} w="100%">
+          <Flex
+            flexDirection="column"
+            align="center"
+            justify="center"
+            my={10}
+            w="100%"
+          >
+            <Image
+              display={radioColor === '#76C04E' ? 'none' : 'flex'}
               src={
                 radioBook
                   ? '/no-event.png'
@@ -191,7 +196,8 @@ export default function Calendar({
               }
               width="30%"
             ></Image>
-            <Heading display={radioColor === "#76C04E" ? "none" : "flex"}
+            <Heading
+              display={radioColor === '#76C04E' ? 'none' : 'flex'}
               mt={5}
               color={radioBook ? 'gray.400' : radioColor}
               fontSize={'2xl'}
@@ -202,11 +208,16 @@ export default function Calendar({
                   : 'Conheça nossos planos de patrocínio '}
               </b>
             </Heading>
-            {radioColor === "#76C04E" ? 
-            <Box maxWidth="45%" width="45%">
-              <LargeImageGallery color={'#76C04E'} images={radioPatrocinios!} /> 
-            </Box>
-            : "" }
+            {radioColor === '#76C04E' ? (
+              <Box w="100%">
+                <LargeImageGallery
+                  color={'#76C04E'}
+                  images={radioPatrocinios!}
+                />
+              </Box>
+            ) : (
+              ''
+            )}
           </Flex>
         </Center>
       )}
