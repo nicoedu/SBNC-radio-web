@@ -66,6 +66,7 @@ function EventsGallery({
           <Button as={Box} p={0} onClick={onOpen} h="100%" w="100%">
             <Image
               h="100%"
+              maxH="20vh"
               maxW="100%"
               fallback={<Spacer />}
               src={images[imageIndex].src}
