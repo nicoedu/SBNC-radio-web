@@ -20,6 +20,7 @@ type State = {
   phone: string
   subject: string
   message: string
+  agencia: string
 }
 
 const formReducer = (state: State, event: { name: string; value: string }) => {
@@ -42,7 +43,8 @@ export default function ContactForm({
     email: '',
     phone: '',
     subject: '',
-    message: ''
+    message: '',
+    agencia: ''
   })
 
   const handleSubmit = async (event: React.FormEvent) => {
@@ -126,7 +128,7 @@ export default function ContactForm({
                 onChange={handleChange}
               />
             </FormControl>
-
+            
             <FormControl id="phone" w="45%" isRequired>
               <FormLabel
                 fontSize={
@@ -186,6 +188,28 @@ export default function ContactForm({
                 placeholder="Seu e-mail"
                 type="email"
                 name="email"
+                onChange={handleChange}
+              />
+            </FormControl>
+          </HStack>
+          
+          <HStack mb={isHome ? [3] : [5, 2]} w={'95%'}>
+            <FormControl id="agencia" w="95%" mr={[5, 2]}>
+              <FormLabel
+                fontSize={
+                  isHome ? ['md', 'xs', '', 'md'] : ['md', 'xs', '', 'sm']
+                }
+                fontWeight={'bold'}
+                mb={isHome ? 3 : 0}
+              >
+                Agência
+              </FormLabel>
+              <Input
+                h={isHome ? [''] : ['3%']}
+                fontSize={isHome ? ['md'] : ['sm']}
+                variant="flushed"
+                placeholder="Sua agência"
+                name="agencia"
                 onChange={handleChange}
               />
             </FormControl>
